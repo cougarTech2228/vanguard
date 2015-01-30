@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE ht.ml>
 <!-- saved from url=(0071)http://files.mechasdf.com/Projects/other/scouting/periodic%20table.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
@@ -70,7 +70,7 @@
 				text-align: center;
 			}
 			
-			#info {
+			#infoPanel {
 				width: 160px;
 				height: 120px;
 				background-color: rgba(200, 200, 200, 1);
@@ -81,6 +81,28 @@
 				-ms-transition: opacity .3s ease;
 				-o-transition: opacity .3s ease;
 				transition: opacity .3s ease;
+			}
+			
+			#infoElement {
+				background-color: rgba(200, 200,0, 1);
+				
+				width: 800px;
+				height: 600px;
+				
+				opacity: 1;
+				
+				-webkit-transition: opacity .3s ease;
+				-moz-transition: opacity .3s ease;
+				-ms-transition: opacity .3s ease;
+				-o-transition: opacity .3s ease;
+				transition: opacity .3s ease;
+				
+				z-index:10;
+			}
+			
+			.info{
+				background-color: rgba(200, 200,0, 1);
+				border: 5px;
 			}
 			
 			.element {
@@ -108,6 +130,8 @@
 				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
 				border: 1px solid rgba(127,255,255,0.75);
 			}
+
+
 
 			.element .number {
 				position: absolute;
@@ -164,7 +188,20 @@
 		
 		<div id="container"></div>
 		<div id="search"> <input id="input" type="text" size="40" placeholder="Search..." /></div>
-		<div id="info"></div>
+		
+		<div id="infoPanel"></div>
+			
+		<div id="infoElement">
+			<img id = "picture" class = "info">
+			<div id = "label" class = "info"> 
+				<header>NUMBER</header>
+				<header>NAME</header>
+				<header>LOCATION</header>	
+			</div>
+			<div id = "stats"  class="info"></div>
+			<div id = "comments" class="info"></div>
+		</div>
+		
 		<div id="menu">
 			<button id="table">TABLE</button>
 			<button id="sphere">SPHERE</button>
@@ -181,6 +218,7 @@
 			var camera, scene, renderer;
 			var controls;
 			var infoPanel;
+			var infoElement;
 
 			var objects = [];
 			var targets = { table: [], sphere: [], helix: [], grid: [] };
@@ -227,8 +265,10 @@
 				// table
 				
 			
-				infoPanel = new THREE.CSS3DObject( document.getElementById("info") );
+				infoPanel = new THREE.CSS3DObject( document.getElementById("infoPanel") );
 				scene.add(infoPanel);
+				
+				infoElement = document.getElementById("infoElement");
 
 				for ( var i = 0; i < table.length; i += 1 ) {
 					lookup[table[i][0]] = i;
@@ -608,6 +648,7 @@
 					.onComplete(function (){
 						infoPanel.position.set(position.x,position.y,position.z+1);
 						infoPanel.element.style.opacity = 1;
+						infoElement.style.opacity = 1;
 					})
 					.start();
 			}
@@ -617,6 +658,7 @@
 				
 				if(!object){return;}
 				
+				infoElement.style.opacity = 0;
 				infoPanel.element.style.opacity = 0;
 				infoPanel.position.set(0,0,0);
 			
