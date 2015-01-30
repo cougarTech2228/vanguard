@@ -190,17 +190,6 @@
 		<div id="search"> <input id="input" type="text" size="40" placeholder="Search..." /></div>
 		
 		<div id="infoPanel"></div>
-			
-		<div id="infoElement">
-			<img id = "picture" class = "info">
-			<div id = "label" class = "info"> 
-				<header>NUMBER</header>
-				<header>NAME</header>
-				<header>LOCATION</header>	
-			</div>
-			<div id = "stats"  class="info"></div>
-			<div id = "comments" class="info"></div>
-		</div>
 		
 		<div id="menu">
 			<button id="table">TABLE</button>
@@ -268,7 +257,7 @@
 				infoPanel = new THREE.CSS3DObject( document.getElementById("infoPanel") );
 				scene.add(infoPanel);
 				
-				infoElement = document.getElementById("infoElement");
+				//infoElement = document.getElementById("infoElement");
 
 				for ( var i = 0; i < table.length; i += 1 ) {
 					lookup[table[i][0]] = i;
@@ -648,7 +637,7 @@
 					.onComplete(function (){
 						infoPanel.position.set(position.x,position.y,position.z+1);
 						infoPanel.element.style.opacity = 1;
-						infoElement.style.opacity = 1;
+						//infoElement.style.opacity = 1;
 					})
 					.start();
 			}
@@ -658,7 +647,7 @@
 				
 				if(!object){return;}
 				
-				infoElement.style.opacity = 0;
+				//infoElement.style.opacity = 0;
 				infoPanel.element.style.opacity = 0;
 				infoPanel.position.set(0,0,0);
 			
