@@ -198,7 +198,8 @@
 
 		<script>
 
-            var link = "https://docs.google.com/spreadsheets/d/1FtPuqZs5rnFzHhHBFuclr1HFxRofTUdfakIUtGGcirs/export?gid=0&format=csv";
+            var linkGoogle = "https://docs.google.com/spreadsheets/d/1FtPuqZs5rnFzHhHBFuclr1HFxRofTUdfakIUtGGcirs/export?gid=0&format=csv";
+            var linkLocal = "http://localhost:5000/vanguard"
 			var table = [];
 			var lookup = {};
 
@@ -214,9 +215,9 @@
 			var selected = null;
 
 			var count = 0;
-			fetch();
+			fetch(linkGoogle);
 			
-			function fetch(){
+			function fetch(link){
 				$.get(link,function(data,status){
 					if(count > 0){
 						alert("google done goofed " + count + " times");
@@ -236,8 +237,12 @@
 					animate();
 					
 				}).fail(function (){
+					if(count > 100){
+						count = 0;
+						fetch(linkLocal);
+					}
 					count++;
-					fetch();
+					fetch(linkGoogle);
 				});
 			}
 
