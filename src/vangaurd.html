@@ -84,12 +84,20 @@
 			}
 			
 			#infoElement {
-				background-color: rgba(200, 200,0, 1);
+				display: block;
 				
-				width: 800px;
-				height: 600px;
+				position: fixed;
+  				top: 50%;
+  				left: 50%;
 				
-				opacity: 1;
+				background-color: rgba(200, 200, 0, 1);
+				
+				width: 725px;
+				height: 550px;
+				
+				opacity: 0;
+				
+				transform: translate3d(-50%, -50%, 0px);
 				
 				-webkit-transition: opacity .3s ease;
 				-moz-transition: opacity .3s ease;
@@ -99,8 +107,11 @@
 			}
 			
 			.info{
-				background-color: rgba(200, 200,0, 1);
+				background-color: rgba(100, 200,200, 1);
 				border: 5px;
+				
+				transform: translate3d(0px, 0px, 0px);
+				
 			}
 			
 			.element {
@@ -186,7 +197,12 @@
 		
 		<div id="container"></div>
 		<div id="search"> <input id="input" type="text" size="40" placeholder="Search..." /></div>
-		
+		<div id="infoElement">
+			<img id="info_image" class="info">
+			<div id="info_title" class="info"></div>
+			<div id="info_stats" class="info"></div>
+			<div id="info_comments" class="info"></div>
+		</div>
 		<div id="infoPanel"></div>
 		
 		<div id="menu">
@@ -212,6 +228,8 @@
 			
 			var expanded = null;
 			var selected = null;
+			
+			var doRender = true;
 
 			var count = 0;
 			fetch();
@@ -251,7 +269,7 @@
 
 				// table
 				
-			
+				infoElement = document.getElementById("infoElement");
 				infoPanel = new THREE.CSS3DObject( document.getElementById("infoPanel") );
 				scene.add(infoPanel);
 				
@@ -635,9 +653,10 @@
 					.onComplete(function (){
 						infoPanel.position.set(position.x,position.y,position.z+1);
 						infoPanel.element.style.opacity = 1;
-						//infoElement.style.opacity = 1;
+						infoElement.style.opacity = 1;
 					})
 					.start();
+				
 			}
 			
 			function minimise(){
@@ -645,7 +664,7 @@
 				
 				if(!object){return;}
 				
-				//infoElement.style.opacity = 0;
+				infoElement.style.opacity = 0;
 				infoPanel.element.style.opacity = 0;
 				infoPanel.position.set(0,0,0);
 			
@@ -683,7 +702,9 @@
 
 				TWEEN.update();
 
-				render();
+				if(doRender){
+					render();	
+				}
 				//controls.update();
 
 			}
