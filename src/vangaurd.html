@@ -90,10 +90,12 @@
   				top: 50%;
   				left: 50%;
 				
-				background-color: rgba(200, 200, 0, 1);
+				background-color: rgba(30, 30, 30, 1);
+				background-color: rgba(200, 200, 200, 1);
 				
-				width: 725px;
-				height: 550px;
+				
+				width: 715px;
+				height: 535px;
 				
 				opacity: 0;
 				
@@ -107,11 +109,71 @@
 			}
 			
 			.info{
-				background-color: rgba(100, 200,200, 1);
-				border: 5px;
+				background-color: rgba(170,170,170, 1);
+				border:1px solid rgba(50,125,125,1);
+				padding:10px;
+				border-radius: 10px;
 				
-				transform: translate3d(0px, 0px, 0px);
+			    font-family: Monospace;
 				
+			}
+			
+			#info_image{
+				position: absolute;
+				right: 2%;
+				top:2%;
+				width:30%;
+				height:40%;
+			}
+			
+			#info_title{
+				position: absolute;
+				left: 0%;
+				top: 0%;
+				width:65%;
+				height:12%;
+			}
+			
+			#info_name{
+				position: absolute;
+				right: 10px;
+				top: 15px;
+			
+				font-size: 1.3em;
+				font-weight: bold;
+			}
+			
+			#info_number{
+				position: absolute;
+				left: 10px;
+				top:10px;
+
+ 				font-size: 3.5em;
+				font-weight: bold;
+			}
+			
+			#info_location{ 
+				position: absolute;
+				right: 10px;
+				bottom: 5px;
+				font-size: 1.3em;
+				font-weight: bold;
+			}
+			
+			#info_stats{
+				position: absolute;
+				left: 2%;
+				top: 15%;
+				width:58%;
+				height:27%;
+			}
+			
+			#info_comments{
+				position: absolute;
+				left: 2%;
+				top: 48%;
+				width: 93%;
+				height: 45%;
 			}
 			
 			.element {
@@ -185,23 +247,36 @@
 				color: #000000;
 				background-color: rgba(0,255,255,0.75);
 			}
+      
 		</style>
-	<style type="text/css"></style><style type="text/css"></style></head>
+	</head>
 	
 	<body>
-        <script type="text/javascript" src="./three.js css3d - periodic table_files/jquery.min.js"></script> 
-		<script src="./three.js css3d - periodic table_files/three.min.js"></script>
-		<script src="./three.js css3d - periodic table_files/tween.min.js"></script>
-		<script src="./three.js css3d - periodic table_files/orbitControls.js"></script>
-		<script src="./three.js css3d - periodic table_files/CSS3DRenderer.js"></script>
+    <script type="text/javascript" src="./lib/jquery.min.js"></script> 
+		<script src="./lib/three.min.js"></script>
+		<script src="./lib/tween.min.js"></script>
+		<script src="./lib/orbitControls.js"></script>
+		<script src="./lib/CSS3DRenderer.js"></script>
 		
 		<div id="container"></div>
 		<div id="search"> <input id="input" type="text" size="40" placeholder="Search..." /></div>
 		<div id="infoElement">
-			<img id="info_image" class="info">
-			<div id="info_title" class="info"></div>
-			<div id="info_stats" class="info"></div>
-			<div id="info_comments" class="info"></div>
+			<img id="info_image" class="info" src="http://i18.photobucket.com/albums/b109/scott4020/163994_476631001815_509266815_6408086_4119150_n.jpg">
+			<div id="info_title" >
+				<div id="info_number">2228</div>
+				<div id="info_name">CougarTech</div>
+				<div id="info_location">Honeoye Falls, NY</div>
+			</div>
+			<div id="info_stats" class="info">
+				Pit Scouting goes here
+			</div>
+			<div id="info_comments" class="info">
+				Comments go here
+			</div>
+			<div id="info_overview">
+				
+			</div>
+			
 		</div>
 		<div id="infoPanel"></div>
 		
@@ -214,7 +289,7 @@
 
 		<script>
 
-            var link = "https://docs.google.com/spreadsheets/d/1FtPuqZs5rnFzHhHBFuclr1HFxRofTUdfakIUtGGcirs/export?gid=0&format=csv";
+      var link = "https://docs.google.com/spreadsheets/d/1FtPuqZs5rnFzHhHBFuclr1HFxRofTUdfakIUtGGcirs/export?gid=0&format=csv";
 			var table = [];
 			var lookup = {};
 
@@ -270,10 +345,12 @@
 				// table
 				
 				infoElement = document.getElementById("infoElement");
+				infoElement.style.pointerEvents = "none";
+				//document.body.removeChild(infoElement);
+				
 				infoPanel = new THREE.CSS3DObject( document.getElementById("infoPanel") );
 				scene.add(infoPanel);
 				
-				//infoElement = document.getElementById("infoElement");
 
 				for ( var i = 0; i < table.length; i += 1 ) {
 					lookup[table[i][0]] = i;
@@ -634,12 +711,19 @@
 				if(expanded == object){ return; }
 				if(expanded){ minimise();}
 				
+				displayInfo(object.element.id);
+				
 				expanded = object;
 				document.getElementById("input").blur();
 				object.element.focus();
 			
-				rotation = new THREE.Vector3(Math.PI,0,Math.PI/2).add(object.rotation);
-				position = new THREE.Vector3(0,0,500).add(object.position);
+				infoElement.style.pointerEvents = "";
+				
+				//document.body.appendChild(infoElement);
+				//infoElement.style.opacity = 0
+				
+				rotation = new THREE.Vector3(Math.PI,0,Math.PI/2).add(targets.table[objects.indexOf(object)].rotation);
+				position = new THREE.Vector3(0,0,500).add(targets.table[objects.indexOf(object)].position);
 			
 				new TWEEN.Tween( object.rotation)
 					.to( { x: rotation.x, y: rotation.y, z: rotation.z }, 1000)
@@ -665,10 +749,13 @@
 				if(!object){return;}
 				
 				infoElement.style.opacity = 0;
+				infoElement.style.pointerEvents = "none";
+				
 				infoPanel.element.style.opacity = 0;
 				infoPanel.position.set(0,0,0);
 			
-				rotation = new THREE.Vector3(-Math.PI, 0, -Math.PI/2).add(object.rotation);
+				rotation = targets.table[objects.indexOf(object)].rotation;
+				position = targets.table[objects.indexOf(object)].position;
 			
 				new TWEEN.Tween( object.rotation)
 					.to( { x: rotation.x, y: rotation.y, z: rotation.z }, 900)
@@ -677,12 +764,26 @@
 					
 				
 				new TWEEN.Tween( object.position)
-					.to( { x: object.position.x, y: object.position.y, z: object.position.z - 500}, 1000)
+					.to( { x: position.x, y: position.y, z: position.z}, 1000)
 					.easing( TWEEN.Easing.Exponential.InOut )
 					.start();
 					
 				expanded = null;
 				
+			}
+			
+			function displayInfo(number){
+				document.getElementById('info_name').innerHTML = table[lookup[number]][1];
+				document.getElementById('info_number').innerHTML = number;
+				document.getElementById('info_location').innerHTML = table[lookup[number]][2];
+				
+				//do http request here
+				url = link.replace("gid=0","gid=" + table[lookup[number]][5]);
+				$.get(url,function(data,status){
+					//alert(data);					
+				}).fail(function (){
+					//TODO
+				});
 			}
 
 			function onWindowResize() {

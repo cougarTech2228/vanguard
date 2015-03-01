@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="ISO-8859-1">
+  <title>VANGUARD:spearhead</title>
+  <link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css"> 
+  
+  <style> 
+    #input {
+      position: absolute;
+      top:45%;
+      right:37%;
+      margin-right:auto;
+      margin-left:auto;
+      border: 1px solid #848484; 
+      -webkit-border-radius: 30px; 
+      -moz-border-radius: 30px; 
+      border-radius: 30px; 
+      outline:0; 
+      height:25px; 
+      width: 26%; 
+      padding-left:10px; 
+      padding-right:10px;
+      
+      font-family: Monospace;
+      font-size: 1.5em;
+      font-weight: bold; 
+      letter-spacing: 2px;
+    } 
+    
+    #switch{
+      margin-right: auto;  
+      margin-left: auto;  
+    }
+  </style> 
+  
+</head>
+
+<body>
+	<input id="input" type="text" value="078b222811111111111desu">
+	
+  <div id="switch" class="switch-toggle switch-candy">
+    <input id="pit" name="view" type="radio" checked>
+    <label for="pit" onclick="">PIT</label>
+
+    <input id="match" name="view" type="radio">
+    <label for="match" onclick="">MATCH</label>
+
+    <a></a>
+  </div>
+  
+</body>
+<script type="text/javascript" src="/lib/jquery.min.js"></script> 
+<script type="text/javascript">
+  function submit(){
+    rawData = document.getElementById("input").value;
+    
+    link = "http://127.0.0.1/?";
+    
+    if(document.getElementById("pit").checked){
+      if(rawData.length < 15){
+        alert("invalid entry");
+      }
+      
+      link += "type=pit";
+      link += "&number=" + rawData.substring(0,4);
+      
+      if(rawData.substring(4,5)==="1"){
+        link += "&drive=" + "mechanum";        
+      }else if(rawData.substring(5,6)==="1"){
+        link += "&drive=" + "tank";
+      }else{
+        link += "&drive=" + "other";
+      }
+      
+      link += "&tote=" + rawData.substring(6,7);
+      link += "&can=" + rawData.substring(7,8);
+      link +=  "&stack=" + rawData.substring(8,9);
+      link += "&litter=" +rawData.substring(9,10);
+      link +=   "&pneumatics=" + rawData.substring(10,11);
+      link +=  "&vision=" + rawData.substring(11,12);
+      link += "&encoder=" + rawData.substring(12,13);
+      link +=  "&range=" + rawData.substring(13,14);
+      link += "&gyro=" + rawData.substring(14,15);
+      link += "&comment=" + rawData.substring(15,rawData.length);
+    }else if(document.getElementById("match").checked){
+      if(rawData.length < 20){
+        alert("invalid entry");
+      } 
+      link += "type=match";
+      link += "&match=" + rawData.substring(0,3);
+      link += "&alliance=" + rawData.substring(3,4);
+      link += "&number=" + rawData.substring(4,8);
+      link += "&tote=" + rawData.substring(8,9);
+      link += "&can=" + rawData.substring(9,10);
+      link += "&stack=" + rawData.substring(10,11);
+      link += "&landfill=" + rawData.substring(11,12);
+      link += "&playerstation=" +rawData.substring(12,13);
+      link += "&litter=" +rawData.substring(13,14);
+      link += "&stepcans=" + rawData.substring(14,15);
+      link += "&steptotes=" + rawData.substring(15,16);
+      link += "&vote=" + rawData.substring(16,20);
+      link += "&comment=" + rawData.substring(20, rawData.length);
+    }
+    
+    $.post(link,function(data,status){
+     	if(status != "success"){
+			   alert(status);
+      }else{
+         document.getElementById( 'input' ).value = "";
+      }
+    });
+  }  
+  
+  document.onkeydown = function ( event ) {
+    event = event || window.event;
+    key = event.keyCode;    
+    
+    if (/[a-zA-Z0-9-_ ]/.test(String.fromCharCode(key)) || key == 96 || key == 8){
+      document.getElementById( 'input' ).focus();
+      
+    }else if (key == 27){
+      document.getElementById( 'input' ).value = "";
+    }else if (key == 13){
+      submit();    
+    }else{
+      event.preventDefault();
+    }
+    
+    
+  }
+
+
+</script>
+
+</html>

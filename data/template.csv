@@ -1,0 +1,10 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,can pick up totes,can pick up cans,max tote stack,litter in can,pneumatics,vision,encoders,range,gyro,comment
+,,,,,,,,,,,
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,Auto tote,auto can,auto stack,litter in can,landfill,Player station,step totes,step cans,vote,comment
