@@ -37,7 +37,7 @@ void post_handler(HttpRequest request) {
 
      if (type == "picture") {
           File imgFile = new File(root + number + "/picture.jpeg");
-
+          request.listen((data)=>print(data));
           //List<int> imgData = CryptoUtils.base64StringToBytes(request.);
           //imgFile.create().then((f) => f.writeAsBytes(imgData));
           
@@ -129,7 +129,7 @@ void get_handler(HttpRequest request) {
                request.response.headers.set('Content-Length', raw.length);
                request.response.add(raw);
                request.response.close();
-          });
+           });
 
      } else if (request.uri.queryParameters["type"] == "matches") {
           request.response.write(new File(root + "match.csv").readAsStringSync());
