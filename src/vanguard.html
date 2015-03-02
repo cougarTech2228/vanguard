@@ -817,8 +817,10 @@
 				document.getElementById('info_number').innerHTML = number;
 				document.getElementById('info_location').innerHTML = table[lookup[number]][2];
 				
+				document.getElementById("info_image").src = "http://127.0.0.1:8080/?type=picture&number=" + number;
+				
 				//do http request here
-				url = "http://127.0.0.1:8080?type=data&number=" + number;
+                    url = "http://127.0.0.1:8080?type=data&number=" + number;
 				$.get(url,function(data,status){
 				     data = data.split("\n");
                          tbl  = document.getElementById('match_data');

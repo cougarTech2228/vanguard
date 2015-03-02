@@ -8,26 +8,26 @@
   </head>
  
   <body>   
+    <input id="number" type="textbox" accept="image/jpeg, image/png">
     <input id="file" type="file" accept="image/jpeg, image/png">
-    <input id= "submit"type="submit">
+    <input id="submit"type="submit">
   </body>
    <script type="text/javascript">
      reader = new FileReader();
-
-     document.getElementById("file").addEventListener('change', function (event) {
+     
+     document.getElementById("submit").onclick= function (event) {
           event.preventDefault();
 
-          file = event.target.files[0];
-          upload(file);
-     });
+          file = document.getElementById("file").files[0];
+          upload(file, file.name.split(".").pop());
+     };
      
-     var upload = function (photo) {
-          // formData = new FormData();
-          //formData.append('photo', photo);
+     var upload = function (photo, filetype) {
+          number = document.getElementById("number").value;
+          
           var request = new XMLHttpRequest();
           
-          request.open('POST', 'http://127.0.0.1:8080/?type=picture&number=0090');
-          request.responseType = 'json';
+          request.open('POST', 'http://127.0.0.1:8080/?type=picture&number=' + number + '&filetype=' + filetype);
           request.send(photo);
      };
      

@@ -23,6 +23,9 @@ void main() {
                     print(e);
                     print(s);
                }
+          }).onError((error, stack){
+               print(error);
+               print(stack);
           });
      });
 }
@@ -36,11 +39,9 @@ void post_handler(HttpRequest request) {
      String type = request.uri.queryParameters["type"];
 
      if (type == "picture") {
-          File imgFile = new File(root + number + "/picture.jpeg");
-          request.listen((data)=>print(data));
-          //List<int> imgData = CryptoUtils.base64StringToBytes(request.);
-          //imgFile.create().then((f) => f.writeAsBytes(imgData));
-          
+          File imgFile = new File(root + number + "/picture." + request.uri.queryParameters["filetype"]);
+          List<int> bytes =[];
+          request.listen((data)=>bytes.addAll(data)).onDone(()=>imgFile.create(recursive:true).then((f) => f.writeAsBytes(bytes)));          
           request.response.close();
 
      } else {
@@ -122,8 +123,17 @@ void get_handler(HttpRequest request) {
 
      } else if (request.uri.queryParameters["type"] == "picture") {
           String number = request.uri.queryParameters["number"];
-          String path = root + number + "/picture.jpeg";
+          while (number.length < 4) {
+               number = "0" + number;
+          }          
+          
+          String path = root + number + "/picture.png";
           File file = new File(path);
+          if(!file.existsSync()){
+               String path = root + number + "/picture.jpg";
+               File file = new File(path);   
+          }
+          
           file.readAsBytes().then((raw) {
                request.response.headers.set('Content-Type', 'image/jpeg');
                request.response.headers.set('Content-Length', raw.length);
