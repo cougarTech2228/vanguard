@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>picture</title>
+  </head>
+ 
+  <body>   
+    <input id="file" type="file" accept="image/jpeg, image/png">
+    <input id= "submit"type="submit">
+    
+  </body>
+   <script type="text/javascript">
+     reader = new FileReader();
+
+     document.getElementById("file").addEventListener('change', function (event) {
+          event.preventDefault();
+
+          file = event.target.files[0];
+          upload(file);
+     });
+     
+     var upload = function (photo) {
+          var formData = new FormData();
+          formData.append('photo', photo);
+          var request = new XMLHttpRequest();
+          
+          request.open('POST', 'http://127.0.0.1:8080/?type=picture&number=0090');
+          request.responseType = 'json';
+          request.send(formData);
+     };
+     
+   </script>
+
+</html>

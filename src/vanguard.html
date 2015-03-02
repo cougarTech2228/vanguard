@@ -94,8 +94,8 @@
 				background-color: rgba(200, 200, 200, 1);
 				
 				
-				width: 715px;
-				height: 535px;
+				width: 55%;
+				height: 80%;
 				
 				opacity: 0;
 				
@@ -168,7 +168,7 @@
 				height:27%;
 			}
 			
-			#info_comments{
+			#info_match{
 				position: absolute;
 				left: 2%;
 				top: 48%;
@@ -255,7 +255,7 @@
     <script type="text/javascript" src="./lib/jquery.min.js"></script> 
 		<script src="./lib/three.min.js"></script>
 		<script src="./lib/tween.min.js"></script>
-		<script src="./lib/orbitControls.js"></script>
+		<script src="./lib/OrbitControls.js"></script>
 		<script src="./lib/CSS3DRenderer.js"></script>
 		
 		<div id="container"></div>
@@ -268,10 +268,49 @@
 				<div id="info_location">Honeoye Falls, NY</div>
 			</div>
 			<div id="info_stats" class="info">
-				Pit Scouting goes here
+				<table style="width:100%">
+                         <tr>
+                              <td>Drive:</td>
+                              <td id=drive>mechanum</td> 
+                         </tr>
+                         <tr>
+                              <td>Mechanisms:</td>
+                              <td id = totes>totes</td> 
+                              <td id = cans>cans</td>
+                              <td id = litter>litter</td>
+                              <td id = stack>stack</td>
+                         </tr>
+                         <tr>
+                              <td>Systems:</td>
+                              <td id = pneumatics>pnematics</td> 
+                              <td id = vision>vision</td>
+                              <td id = encoders>encoders</td>
+                              <td id = range>range finder</td>
+                              <td id = gyro>gyro</td>
+                         </tr>
+                         <tr>
+                              <td id = comment>Comment</td>
+                         </tr>
+                    </table>
 			</div>
-			<div id="info_comments" class="info">
-				Comments go here
+			<div id=info_match class="info">
+				<table id="match_data" style="width:100%">
+                         <tr>
+                              <td>Match</td>
+                              <td>Alliance</td>
+                              <td>auto tote</td>
+                              <td>auto can</td>
+                              <td>auto stack</td>
+                              <td>litter in can</td>
+                              <td>landfill</td>
+                              <td>player station</td>
+                              <td>step totes</td>
+                              <td>step cans</td>
+                              <td>vote</td>
+                              <td>comment</td>
+                              
+                         </tr>
+                    </table>
 			</div>
 			<div id="info_overview">
 				
@@ -288,9 +327,10 @@
 		</div>
 
 		<script>
+               var link = "http://127.0.0.1:8080/?type=robots"
 
-      var link = "https://docs.google.com/spreadsheets/d/1FtPuqZs5rnFzHhHBFuclr1HFxRofTUdfakIUtGGcirs/export?gid=0&format=csv";
-			var table = [];
+			
+               var table = [];
 			var lookup = {};
 
 			var camera, scene, renderer;
@@ -778,11 +818,41 @@
 				document.getElementById('info_location').innerHTML = table[lookup[number]][2];
 				
 				//do http request here
-				url = link.replace("gid=0","gid=" + table[lookup[number]][5]);
+				url = "http://127.0.0.1:8080?type=data&number=" + number;
 				$.get(url,function(data,status){
-					//alert(data);					
+				     data = data.split("\n");
+                         tbl  = document.getElementById('match_data');
+				     for(i = 10;i<data.length;i++){
+				          row = tbl.insertRow();
+				          info = data[i].split(",");
+				          for(d = 0;d<info.length;d++){
+				               cell = row.insertCell();
+				               cell.innerHTML = info[d];
+				          }
+				     }
+				     pit = data[2].split(",");
+				     document.getElementById('drive').innerHTML =  pit[1];
+	                    document.getElementById('comment').innerHTML =  pit[11];
+	                    document.getElementById('stack').innerHTML =  "stack: " + pit[4];
+
+                         black = "black";
+                         grey = "grey";
+                         
+	                    document.getElementById('totes').style.color =  pit[2]=="1" ? black : grey;
+	                    document.getElementById('cans').style.color =  pit[3]=="1" ? black : grey;
+	                    document.getElementById('stack').style.color =  pit[4]!="0" ? black : grey;
+	                    document.getElementById('litter').style.color =  pit[5]=="1" ? black : grey;
+
+                         document.getElementById('pneumatics').style.color =  pit[6]=="1" ? black : grey;
+                         document.getElementById('vision').style.color =  pit[7]=="1" ? black : grey;
+                         document.getElementById('encoders').style.color =  pit[8]=="1" ? black : grey;
+                         document.getElementById('range').style.color =  pit[9]=="1" ? black : grey;
+                         document.getElementById('gyro').style.color =  pit[10]=="1" ? "black" : grey;
+
+      
+				     
 				}).fail(function (){
-					//TODO
+					alert('"being scouting lead is suffering"');
 				});
 			}
 

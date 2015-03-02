@@ -1,0 +1,13 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,can pick up totes,can pick up cans,max tote stack,litter in can,pneumatics,vision,encoders,range,gyro,comment
+0090,mechanum,1,0,6,1,1,0,1,0,0,just a robot
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,Auto tote,auto can,auto stack,litter in can,landfill,Player station,step totes,step cans,vote,comment
+
+078,b,1,1,1,1,1,1,1,1,111d,esu
+078,b,1,1,1,1,1,1,1,1,1111,desudesudesudesudesudesudesudesudesudesuDES
