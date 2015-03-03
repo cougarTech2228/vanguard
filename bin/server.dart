@@ -12,17 +12,17 @@ void main() {
      HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
           print("Serving at ${server.address}:${server.port}");
           server.listen((HttpRequest request) {
+              try{
                print("received request: " + request.method + ": " + request.uri.toString());
-               try {
-                    if (request.method == "POST") {
-                         post_handler(request);
-                    } else if (request.method == "GET") {
-                         get_handler(request);
-                    }
-               } catch (e, s) {
-                    print(e);
-                    print(s);
-               }
+                if (request.method == "POST") {
+                     post_handler(request);
+                } else if (request.method == "GET") {
+                     get_handler(request);
+                }
+              }catch(error, stack){
+                print(error);
+                print(stack);
+              }
           }).onError((error, stack){
                print(error);
                print(stack);
@@ -41,9 +41,12 @@ void post_handler(HttpRequest request) {
      if (type == "picture") {
           File imgFile = new File(root + number + "/picture." + request.uri.queryParameters["filetype"]);
           List<int> bytes =[];
-          request.listen((data)=>bytes.addAll(data)).onDone(()=>imgFile.create(recursive:true).then((f) => f.writeAsBytes(bytes)));          
-          request.response.close();
-
+          request.listen((data){
+            bytes.addAll(data);    
+          }).onDone((){
+            imgFile.create(recursive:true).then((f) => f.writeAsBytes(bytes));
+            request.response.close();
+          });
      } else {
           File robotDataFile = new File(root + number + "/data.csv")..createSync(recursive: true);
           List robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
@@ -131,7 +134,7 @@ void get_handler(HttpRequest request) {
           File file = new File(path);
           if(!file.existsSync()){
                String path = root + number + "/picture.jpg";
-               File file = new File(path);   
+               file = new File(path);   
           }
           
           file.readAsBytes().then((raw) {

@@ -823,9 +823,15 @@
                     url = "http://127.0.0.1:8080?type=data&number=" + number;
 				$.get(url,function(data,status){
 				     data = data.split("\n");
-                         tbl  = document.getElementById('match_data');
+             tbl  = document.getElementById('match_data');
+             
+             lables = tbl.children[0].children[0];
+             tbl.children[0].innerHTML = "";
+             tbl.children[0].appendChild(lables);
+             
 				     for(i = 10;i<data.length;i++){
 				          row = tbl.insertRow();
+				          row.className = "data_entry";
 				          info = data[i].split(",");
 				          for(d = 0;d<info.length;d++){
 				               cell = row.insertCell();
