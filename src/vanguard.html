@@ -3,7 +3,7 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<title>three.js css3d - periodic table</title>
+		<title>Vanguard:datacrystal</title>
 		<style>
 			html, body {
 				height: 100%;
@@ -261,7 +261,7 @@
 		<div id="container"></div>
 		<div id="search"> <input id="input" type="text" size="40" placeholder="Search..." /></div>
 		<div id="infoElement">
-			<img id="info_image" class="info" src="http://i18.photobucket.com/albums/b109/scott4020/163994_476631001815_509266815_6408086_4119150_n.jpg">
+			<img id="info_image" class="info" src="http://127.0.0.1:8080/loading.gif">
 			<div id="info_title" >
 				<div id="info_number">2228</div>
 				<div id="info_name">CougarTech</div>
@@ -800,6 +800,7 @@
 				new TWEEN.Tween( object.rotation)
 					.to( { x: rotation.x, y: rotation.y, z: rotation.z }, 900)
 					.easing( TWEEN.Easing.Exponential.InOut )
+					.onComplete(resetInfo)
 					.start();
 					
 				
@@ -810,6 +811,10 @@
 					
 				expanded = null;
 				
+			}
+			
+			function resetInfo(){
+			  document.getElementById("info_image").src = "http://127.0.0.1:8080/loading.gif";
 			}
 			
 			function displayInfo(number){

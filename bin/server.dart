@@ -3,10 +3,13 @@ import 'package:csv_utils/csv_utils.dart';
 
 String root = "../data/";
 File robotListFile = new File(root + "robots.csv")..createSync(recursive: true);
-List robotListCSV = new CsvConverter.Excel().parse(robotListFile.readAsStringSync());
+List<List<String>> robotListCSV = new CsvConverter.Excel().parse(robotListFile.readAsStringSync());
 
 String templateString = new File(root + "template.csv").readAsStringSync();
-List template = new CsvConverter.Excel().parse(templateString);
+List<List<String>> template = new CsvConverter.Excel().parse(templateString);
+
+File matchFile = new File(root + "matches.csv");
+List<List<String>> matchCSV = new CsvConverter.Excel().parse(templateString);
 
 void main() {
      HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
@@ -22,6 +25,7 @@ void main() {
               }catch(error, stack){
                 print(error);
                 print(stack);
+                print("satan");
               }
           }).onError((error, stack){
                print(error);
@@ -42,11 +46,11 @@ void post_handler(HttpRequest request) {
           File imgFile = new File(root + number + "/picture." + request.uri.queryParameters["filetype"]);
           List<int> bytes =[];
           request.listen((data){
-            bytes.addAll(data);    
-          }).onDone((){
+            bytes.addAll(data);
+          })..onDone((){
             imgFile.create(recursive:true).then((f) => f.writeAsBytes(bytes));
             request.response.close();
-          });
+          })..onError(print);
      } else {
           File robotDataFile = new File(root + number + "/data.csv")..createSync(recursive: true);
           List robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
@@ -86,12 +90,48 @@ void post_handler(HttpRequest request) {
                data[10] = request.uri.queryParameters["vote"];
                data[11] = request.uri.queryParameters["comment"];
                robotDataCSV.add(data);
+               
+               castVote(request.uri.queryParameters["match"], number);
           }
 
           robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
           request.response.statusCode = HttpStatus.OK;
           request.response.close();
      }
+     logEntry(type,number);
+
+}
+
+//UNTESTED
+void castVote(String match, String robot){
+  match = zeros(match,3);
+  robot = zeros(robot,4);
+  
+  List<String> robots = matchCSV.firstWhere((e)=>zeros(e[0],3)==match)..removeAt(0);
+  robots.forEach((number){
+    number = zeros(number,4);
+    
+    File robotDataFile = new File(root + number + "/data.csv")..createSync(recursive: true);
+    List robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
+    int total = int.parse(robotDataCSV[4][2]);
+    total++;
+    robotDataCSV[4][2] = total.toString();
+    robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
+  });
+      
+  File robotDataFile = new File(root + robot + "/data.csv")..createSync(recursive: true);
+  List robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
+  int total = int.parse(robotDataCSV[4][1]);
+  total++;
+  robotDataCSV[4][1] = total.toString();
+  robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
+}
+
+String zeros(String str, int length){
+  while (str.length < length) {
+     str = "0" + str;
+  }
+  return str;
 }
 
 void get_handler(HttpRequest request) {
@@ -117,7 +157,11 @@ void get_handler(HttpRequest request) {
           while (number.length < 4) {
                number = "0" + number;
           }
-          request.response.write(new File(root + number + "/data.csv").readAsStringSync());
+          
+          File robotFile = new File(root + number + "/data.csv");
+          if(robotFile.existsSync()){
+            request.response.write(robotFile.readAsStringSync());
+          }
           request.response.close();
 
      } else if (request.uri.queryParameters["type"] == "robots") {
@@ -134,15 +178,18 @@ void get_handler(HttpRequest request) {
           File file = new File(path);
           if(!file.existsSync()){
                String path = root + number + "/picture.jpg";
-               file = new File(path);   
+               file = new File(path);
           }
           
-          file.readAsBytes().then((raw) {
-               request.response.headers.set('Content-Type', 'image/jpeg');
-               request.response.headers.set('Content-Length', raw.length);
-               request.response.add(raw);
-               request.response.close();
-           });
+          if(!file.existsSync()){
+              file = new File("../src/loading.gif");
+          }
+          
+          List<int> raw = file.readAsBytesSync();
+          request.response.headers.set('Content-Type', 'image/jpeg');
+          request.response.headers.set('Content-Length', raw.length);
+          request.response.add(raw);
+          request.response.close();
 
      } else if (request.uri.queryParameters["type"] == "matches") {
           request.response.write(new File(root + "match.csv").readAsStringSync());
@@ -151,4 +198,25 @@ void get_handler(HttpRequest request) {
      } else {
           request.response.close();
      }
+}
+
+void logEntry(type, number){
+  robotListCSV.forEach((List<String> row){
+    String text = row[0];
+    while (text.length < 4) {
+          text = "0" + text;
+    }             
+                  
+    if(text==number){
+      if(type=="pit"){
+        row[6] = "1";
+      }           
+      if(type=="picture"){
+        row[5] = "1";
+      }
+    }
+  });
+  
+  robotListFile.writeAsStringSync(new CsvConverter.Excel().compose(robotListCSV));
+
 }
