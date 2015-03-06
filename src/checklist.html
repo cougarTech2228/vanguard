@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Vanguard:aquapipe</title>
+     <style>
+          table{
+               text-align:center; 
+               margin-left:auto; 
+               margin-right:auto; 
+          }
+          
+          ul{
+               padding: 20px;
+          }
+          
+          li{
+               list-style-type: none;
+               border-bottom: 1px;
+               padding: 5px;
+               
+          }
+          
+          a{
+               text-align:center;
+               font: 200 40px/1.5 Helvetica, Verdana, sans-serif;
+          }
+          
+          td{
+               vertical-align: top;
+          }
+          li{
+               transition: background-color 0.3s ease;
+          }
+          li:hover {
+               background: #f0f0f0;
+          }
+           
+     
+          #anime{
+               position:fixed;
+              bottom:0%;
+              left:0%;
+          }
+     </style>
+  </head>
+ 
+  <body>   
+     <div id="container">
+          <table>
+            <tr>
+              <td>
+                <ul id="pit"><li><a><b>Pit</b></a></li></ul>
+              </td>
+              <td>
+                <ul id="picture"><li><a><b>Pic</b></a></li></ul>
+              </td>
+            </tr>
+          </table>
+     </div>
+          <img id="anime" src="http://127.0.0.1:8080/resources/anime_girl5.png?type=image">
+     
+  </body>
+  <script type="text/javascript" src="./lib/jquery.min.js"></script> 
+  <script type="text/javascript"> 
+     link="http://127.0.0.1:8080/?type=robots";
+     $.get(link,function(data,status){
+          data = data.split("\n");
+          data.shift();
+          
+          pit_table = document.getElementById("pit");
+          picture_table = document.getElementById("picture");
+          
+          for(i in data){
+               element = data[i].split(",");
+               if(element[0]!=""){
+                    if(element[6]!="1"){
+                         var entry = document.createElement("li");
+                         var text = document.createElement("a");
+                         text.innerHTML=element[0];
+                         entry.appendChild(text);
+                         pit_table.appendChild(entry);
+                    }
+                    if(element[5]!="1"){
+                         var entry = document.createElement("li");
+                         var text = document.createElement("a");
+                         text.innerHTML=element[0];
+                         entry.appendChild(text);
+                         picture_table.appendChild(entry);
+                    }
+               }
+          }
+     });
+  </script>
+</html>

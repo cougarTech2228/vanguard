@@ -12,7 +12,8 @@ File matchFile = new File(root + "matches.csv");
 List<List<String>> matchCSV = new CsvConverter.Excel().parse(templateString);
 
 void main() {
-     HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
+     HttpServer.bind(InternetAddress.ANY_IP_V4, 8080).then((server) {
+     //HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
           print("Serving at ${server.address}:${server.port}");
           server.listen((HttpRequest request) {
               try{
@@ -137,17 +138,32 @@ String zeros(String str, int length){
 void get_handler(HttpRequest request) {
      if (request.uri.path != "/") {
           //request is for a page/file
+          File file = new File("../src" + request.uri.path);
+          //print(request.headers);
+          
           if (request.uri.path.contains(".html")) {
                request.response.headers.add("Content-Type", "text/html; charset=UTF-8");
           }
           if (request.uri.path.contains(".js")) {
                request.response.headers.add("Content-Type", "text/javascript; charset=UTF-8");
           }
-
-          try {
-               request.response.write(new File("../src" + request.uri.path).readAsStringSync());
-          } catch (e) {
-               request.response.write("404 not found... \n \t ...darn");
+          if (request.uri.path.contains(".css")) {
+               request.response.headers.add("Content-Type", "text/css; charset=UTF-8");
+          }
+         
+          if(request.uri.queryParameters["type"] == "image"){
+               List<int> raw =file.readAsBytesSync();
+               request.response.headers.set('Content-Type', 'image/jpeg');
+               request.response.headers.set('Content-Length', raw.length);
+               request.response.add(raw);
+               
+          }else{
+               
+               try {
+                    request.response.write(file.readAsStringSync());
+               } catch (e) {
+                    request.response.write("404 not found... \n \t ...darn");
+               }
           }
 
           request.response.close();

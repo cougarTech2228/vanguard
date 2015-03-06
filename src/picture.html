@@ -5,15 +5,76 @@
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Vanguard:laserscope</title>
+     <style type="text/css">
+          #number{
+               position: absolute;
+               top:18%;
+               right:50%;
+               width:7%;
+          
+          }
+          #input{
+               position: absolute;
+               top:18%;
+               left:50%;
+               
+               //background-color: #ffffff;
+               
+          }
+          #submit:active{
+              background-color: gray;
+          
+          }
+          
+          #file{
+               opacity:0;
+          }
+          
+          #submit{
+               position: absolute;
+               top:70%;
+               right:38%;
+               width:6%;
+               right:47%;
+               background-color: #ffffff;
+               color: gray;
+               font-weight:bold;
+               border-radius:5px;
+               border:2px solid gray;
+               
+          }
+          
+          #preview{
+               position: absolute;
+               top:25%;
+               right:37.5%;
+               width:24%;
+               height:40%;
+               border-radius:10px;
+               border:3px dashed gray;
+               padding:.5%;               
+          }
+          
+          #anime{
+               position:fixed;
+              bottom:0%;
+              left:0%;
+          }
+
+     </style>
   </head>
  
   <body>   
-    <input id="number" type="textbox" accept="image/jpeg, image/png">
+    <input id="number" type="textbox">
     <input id="file" type="file" accept="image/jpeg, image/png">
+    <input id="input" type="button" value="select file">
+    
     <input id="submit"type="submit">
+    <img id="preview" src="image.jpg">
+     <img id="anime" src="http://127.0.0.1:8080/resources/anime_girl3.png?type=image">
+    
   </body>
    <script type="text/javascript">
-     reader = new FileReader();
      
      document.getElementById("submit").onclick= function (event) {
           event.preventDefault();
@@ -21,6 +82,12 @@
           file = document.getElementById("file").files[0];
           upload(file, file.name.split(".").pop());
      };
+     
+     document.getElementById("file").onchange= preview;
+     
+     document.getElementById("input").onclick= function (event) {
+          document.getElementById("file").click();
+     }
      
      var upload = function (photo, filetype) {
           number = document.getElementById("number").value;
@@ -30,6 +97,33 @@
           request.open('POST', 'http://127.0.0.1:8080/?type=picture&number=' + number + '&filetype=' + filetype);
           request.send(photo);
      };
+     
+     function preview(event) {
+          input = document.getElementById("file");
+
+          if (input.files && input.files[0]) {
+             var reader = new FileReader();
+
+             reader.onload = function (e) {
+                  document.getElementById("preview").src = e.target.result;
+             }
+
+             reader.readAsDataURL(input.files[0]);
+         }
+     }
+     
+     document.onkeydown = function ( event ) {
+         event = event || window.event;
+         key = event.keyCode;    
+         
+         if (/[a-zA-Z0-9-_ ]/.test(String.fromCharCode(key)) || key == 96 || key == 8){
+           document.getElementById( 'number' ).focus();
+         }else if (key == 27){
+           document.getElementById( 'number' ).value = "";
+         }else{
+           event.preventDefault();
+         }
+     }
      
    </script>
 

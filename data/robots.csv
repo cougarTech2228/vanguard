@@ -13,7 +13,7 @@ number,name,location,rank,votes,picture?,pit scouting?
 2056,OP Robotics,Stoney Creek: ON: Canada,1,,,
 2185,RAMAZOIDZ,Toronto: ON: Canada,1,,,
 2198,Paradigm Shift,Toronto: ON: Canada,1,,,
-2228,CougarTech,Honeoye Falls: NY: USA,1,,1,
+2228,CougarTech,Honeoye Falls: NY: USA,1,,1,1
 2340,Xcentrics,Rochester: NY: USA,1,,,
 2852,DM High Voltage,St. Catharines: ON: Canada,1,,,
 2935,NACI Robotics,Toronto: ON: Canada,1,,,
@@ -44,5 +44,5 @@ number,name,location,rank,votes,picture?,pit scouting?
 5094,Blizzard,Brampton: ON: Canada,1,,,
 5428,Breaking Bots,Markham: ON: Canada,1,,,
 5596,Wolverines,Scarborough: ON: Canada,1,,,
-5652,Eagles,Ottawa: ON: Canada,1,,,
+5652,Eagles,Ottawa: ON: Canada,1,,,1
 5719,Titans,Toronto: ON: Canada,1,,,

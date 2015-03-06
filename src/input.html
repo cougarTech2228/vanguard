@@ -8,38 +8,55 @@
   <style> 
     #input {
       position: absolute;
-      top:45%;
-      right:37%;
+      bottom:51.5%;
+      left:25%;
       margin-right:auto;
       margin-left:auto;
-      border: 1px solid #848484; 
+      border: 2px solid #848484; 
       -webkit-border-radius: 30px; 
       -moz-border-radius: 30px; 
       border-radius: 30px; 
       outline:0; 
-      height:25px; 
-      width: 26%; 
+      height:50px; 
+      width: 50%; 
       padding-left:10px; 
       padding-right:10px;
       
       font-family: Monospace;
-      font-size: 1.5em;
+      font-size: 3em;
       font-weight: bold; 
-      letter-spacing: 2px;
+      letter-spacing: 5px;
+      
+      transform-style: preserve-3d;
+      transition: transform 1s;
     } 
     
     #switch{
-      margin-right: auto;  
-      margin-left: auto;  
+     position: fixed;
+     top: 50%;
+     left: 44%;
+     margin-right: auto;  
+     margin-left: auto;  
+     width:12%;
+     height:4%;
+    }
+    
+    img{
+         position:fixed;
+         bottom:0%;
+         right:0%;
+         height:60%;
+         
+         
     }
   </style> 
   
 </head>
 
 <body>
-	<input id="input" type="text" value="078b222811111111111desu">
-	
-  <div id="switch" class="switch-toggle switch-candy">
+	<input id="input" type="text" value="222810116111010best bot">
+	<img src="http://127.0.0.1:8080/resources/anime_girl.png?type=image">
+    <div id="switch" class="switch-toggle switch-android">
     <input id="pit" name="view" type="radio" checked>
     <label for="pit" onclick="">PIT</label>
 
@@ -52,14 +69,19 @@
 </body>
 <script type="text/javascript" src="/lib/jquery.min.js"></script> 
 <script type="text/javascript">
+  rotation = 0;
+
   function submit(){
     rawData = document.getElementById("input").value;
     
     link = "http://127.0.0.1:8080/?";
+    //link = "http://mechasdf.com:8080/?";
     
     if(document.getElementById("pit").checked){
       if(rawData.length < 15){
         alert("invalid entry");
+        return;
+
       }
       
       link += "type=pit";
@@ -86,6 +108,7 @@
     }else if(document.getElementById("match").checked){
       if(rawData.length < 20){
         alert("invalid entry");
+        return;
       } 
       link += "type=match";
       link += "&match=" + rawData.substring(0,3);
@@ -104,9 +127,11 @@
     }
     
     $.post(link,function(data,status){
-     	if(status != "success"){
-			   alert(status);
+      if(status != "success"){
+	    alert(status);
       }else{
+         rotation+=360;
+         document.getElementById("input").style.transform = "rotateX( " + rotation + "deg )"
          document.getElementById( 'input' ).value = "";
       }
     });
