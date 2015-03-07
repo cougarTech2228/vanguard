@@ -89,13 +89,16 @@
       link += "&number=" + rawData.substring(0,4);
       
       if(rawData.substring(4,5)==="1"){
-        link += "&drive=" + "mechanum";        
-      }else if(rawData.substring(5,6)==="1"){
-        link += "&drive=" + "tank";
+        link += "&drive=" + "tank";        
+      }else if(rawData.substring(4,5)==="2"){
+        link += "&drive=" + "strafe";
+      }else if(rawData.substring(4,5)==="3"){
+        link += "&drive=" + "omni";
       }else{
         link += "&drive=" + "other";
       }
       
+      link += "&platform=" + rawData.substring(5,6);
       link += "&tote=" + rawData.substring(6,7);
       link += "&can=" + rawData.substring(7,8);
       link += "&litter=" +rawData.substring(8,9);
