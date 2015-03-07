@@ -12,11 +12,7 @@ File matchFile = new File(root + "matches.csv");
 List<List<String>> matchCSV = new CsvConverter.Excel().parse(matchFile.readAsStringSync());
 
 void main() {
-     HttpServer.bind(InternetAddress.LOOPBACK_IP_V6, 8080).then((server) {
-          esdeath(server);
-     });
-     HttpServer.bind(InternetAddress.ANY_IP_V4, 8080).then((server) {
-     //HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
+     HttpServer.bind(InternetAddress.ANY_IP_V6, 8080).then((server) {
           esdeath(server);
      });
 }
