@@ -280,12 +280,11 @@
                               <td id = totes>totes</td> 
                               <td id = cans>cans</td>
                               <td id = litter>litter</td>
-                              <td id = stack>stack</td>
                          </tr>
                          <tr>
                               <td>Systems:</td>
                               <td id = pneumatics>pnematics</td> 
-                              <td id = vision>vision</td>
+                              <td id = camera>camera</td>
                               <td id = encoders>encoders</td>
                               <td id = range>range finder</td>
                               <td id = gyro>gyro</td>
@@ -855,22 +854,20 @@
 				     }
 				     pit = data[2].split(",");
 				     document.getElementById('drive').innerHTML =  pit[1];
-	                    document.getElementById('comment').innerHTML =  pit[11];
-	                    document.getElementById('stack').innerHTML =  "stack: " + pit[4];
+	                    document.getElementById('comment').innerHTML =  pit[10];
 
                          black = "black";
                          grey = "grey";
                          
 	                    document.getElementById('totes').style.color =  pit[2]=="1" ? black : grey;
 	                    document.getElementById('cans').style.color =  pit[3]=="1" ? black : grey;
-	                    document.getElementById('stack').style.color =  pit[4]!="0" ? black : grey;
-	                    document.getElementById('litter').style.color =  pit[5]=="1" ? black : grey;
+	                    document.getElementById('litter').style.color =  pit[4]=="1" ? black : grey;
 
-                         document.getElementById('pneumatics').style.color =  pit[6]=="1" ? black : grey;
-                         document.getElementById('vision').style.color =  pit[7]=="1" ? black : grey;
-                         document.getElementById('encoders').style.color =  pit[8]=="1" ? black : grey;
-                         document.getElementById('range').style.color =  pit[9]=="1" ? black : grey;
-                         document.getElementById('gyro').style.color =  pit[10]=="1" ? "black" : grey;
+                         document.getElementById('pneumatics').style.color =  pit[5]=="1" ? black : grey;
+                         document.getElementById('camera').style.color =  pit[6]=="1" ? black : grey;
+                         document.getElementById('encoders').style.color =  pit[7]=="1" ? black : grey;
+                         document.getElementById('range').style.color =  pit[8]=="1" ? black : grey;
+                         document.getElementById('gyro').style.color =  pit[9]=="1" ? "black" : grey;
 
       
 				     

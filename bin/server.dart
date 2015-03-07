@@ -68,27 +68,29 @@ void post_handler(HttpRequest request) {
                data[1] = request.uri.queryParameters["drive"];
                data[2] = request.uri.queryParameters["tote"];
                data[3] = request.uri.queryParameters["can"];
-               data[4] = request.uri.queryParameters["stack"];
-               data[5] = request.uri.queryParameters["litter"];
-               data[6] = request.uri.queryParameters["pneumatics"];
-               data[7] = request.uri.queryParameters["vision"];
-               data[8] = request.uri.queryParameters["encoder"];
-               data[9] = request.uri.queryParameters["range"];
-               data[10] = request.uri.queryParameters["gyro"];
-               data[11] = request.uri.queryParameters["comment"];
+               data[4] = request.uri.queryParameters["litter"];
+               data[5] = request.uri.queryParameters["pneumatics"];
+               data[6] = request.uri.queryParameters["camera"];
+               data[7] = request.uri.queryParameters["encoder"];
+               data[8] = request.uri.queryParameters["range"];
+               data[9] = request.uri.queryParameters["gyro"];
+               data[10] = request.uri.queryParameters["comment"];
                robotDataCSV[2] = data;
           } else if (type == "match") {
                List data = new List<String>(12);
                data[0] = request.uri.queryParameters["match"];
                data[1] = request.uri.queryParameters["alliance"];
-               data[2] = request.uri.queryParameters["tote"];
-               data[3] = request.uri.queryParameters["can"];
-               data[4] = request.uri.queryParameters["stack"];
-               data[5] = request.uri.queryParameters["litter"];
-               data[6] = request.uri.queryParameters["landfill"];
-               data[7] = request.uri.queryParameters["playerstation"];
-               data[8] = request.uri.queryParameters["steptotes"];
-               data[9] = request.uri.queryParameters["stepcans"];
+               data[2] = request.uri.queryParameters["push"];
+               data[3] = request.uri.queryParameters["auto"];
+
+               data[4] = request.uri.queryParameters["landfill"];
+               data[5] = request.uri.queryParameters["playerstation"];
+               data[6] = request.uri.queryParameters["litter"];
+
+               data[7] = request.uri.queryParameters["maxcan"];
+               data[8] = request.uri.queryParameters["maxtote"];
+               data[9] = request.uri.queryParameters["numtotes"];
+
                data[10] = request.uri.queryParameters["vote"];
                data[11] = request.uri.queryParameters["comment"];
                robotDataCSV.add(data);

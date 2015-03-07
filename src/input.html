@@ -78,10 +78,9 @@
     //link = "http://mechasdf.com:8080/?";
     
     if(document.getElementById("pit").checked){
-      if(rawData.length < 15){
+      if(rawData.length < 14){
         alert("invalid entry");
         return;
-
       }
       
       link += "type=pit";
@@ -97,33 +96,32 @@
       
       link += "&tote=" + rawData.substring(6,7);
       link += "&can=" + rawData.substring(7,8);
-      link +=  "&stack=" + rawData.substring(8,9);
-      link += "&litter=" +rawData.substring(9,10);
-      link +=   "&pneumatics=" + rawData.substring(10,11);
-      link +=  "&vision=" + rawData.substring(11,12);
-      link += "&encoder=" + rawData.substring(12,13);
-      link +=  "&range=" + rawData.substring(13,14);
-      link += "&gyro=" + rawData.substring(14,15);
-      link += "&comment=" + rawData.substring(15,rawData.length);
+      link += "&litter=" +rawData.substring(8,9);
+      link +=   "&pneumatics=" + rawData.substring(9,10);
+      link +=  "&camera=" + rawData.substring(10,11);
+      link += "&encoder=" + rawData.substring(11,12);
+      link +=  "&range=" + rawData.substring(12,13);
+      link += "&gyro=" + rawData.substring(13,14);
+      link += "&comment=" + rawData.substring(14,rawData.length);
     }else if(document.getElementById("match").checked){
-      if(rawData.length < 20){
+      if(rawData.length < 21){
         alert("invalid entry");
         return;
-      } 
+      }
       link += "type=match";
       link += "&match=" + rawData.substring(0,3);
       link += "&alliance=" + rawData.substring(3,4);
       link += "&number=" + rawData.substring(4,8);
-      link += "&tote=" + rawData.substring(8,9);
-      link += "&can=" + rawData.substring(9,10);
-      link += "&stack=" + rawData.substring(10,11);
-      link += "&landfill=" + rawData.substring(11,12);
-      link += "&playerstation=" +rawData.substring(12,13);
-      link += "&litter=" +rawData.substring(13,14);
-      link += "&stepcans=" + rawData.substring(14,15);
-      link += "&steptotes=" + rawData.substring(15,16);
-      link += "&vote=" + rawData.substring(16,20);
-      link += "&comment=" + rawData.substring(20, rawData.length);
+      link += "&push=" + rawData.substring(8,9);
+      link += "&auto=" + rawData.substring(9,10);
+      link += "&landfill=" + rawData.substring(10,11);
+      link += "&playerstation=" +rawData.substring(11,12);
+      link += "&litter=" +rawData.substring(12,13);
+      link += "&maxcan=" + rawData.substring(13,14);
+      link += "&maxtote=" + rawData.substring(14,15);
+      link += "&numtotes=" + rawData.substring(15,17);
+      link += "&vote=" + rawData.substring(17,21);
+      link += "&comment=" + rawData.substring(21, rawData.length);
     }
     
     $.post(link,function(data,status){

@@ -1,5 +1,5 @@
 pit scouting,,,,,,,,,,,
-team number,drivebase,can pick up totes,can pick up cans,max tote stack,litter in can,pneumatics,vision,encoders,range,gyro,comment
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,
 ,,,,,,,,,,,
 ,,,,,,,,,,,
 vote record,,,,,,,,,,,
@@ -7,4 +7,4 @@ total votes,possible votes,,,,,,,,,,
 ,,,,,,,,,,,
 ,,,,,,,,,,,
 match scouting,,,,,,,,,,,
-match,alliance,Auto tote,auto can,auto stack,litter in can,landfill,Player station,step totes,step cans,vote,comment
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
