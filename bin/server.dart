@@ -15,7 +15,7 @@ void main() {
      HttpServer.bind(InternetAddress.LOOPBACK_IP_V6, 8080).then((server) {
           esdeath(server);
      });
-     HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
+     HttpServer.bind(InternetAddress.ANY_IP_V4, 8080).then((server) {
      //HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
           esdeath(server);
      });
@@ -178,6 +178,7 @@ void get_handler(HttpRequest request) {
                List<int> raw =file.readAsBytesSync();
                request.response.headers.set('Content-Type', 'image/jpeg');
                request.response.headers.set('Content-Length', raw.length);
+               request.response.headers.set('Cache-Control',"public, max-age=31536000");
                request.response.add(raw);
                
           }else{
