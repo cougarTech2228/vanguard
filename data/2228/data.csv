@@ -4,7 +4,7 @@ team number,drivebase,can pick up totes,can pick up cans,max tote stack,litter i
 ,,,,,,,,,,,
 vote record,,,,,,,,,,,
 total votes,possible votes,,,,,,,,,,
-4,2,,,,,,,,,,
+4,4,,,,,,,,,,
 ,,,,,,,,,,,
 match scouting,,,,,,,,,,,
 match,alliance,Auto tote,auto can,auto stack,litter in can,landfill,Player station,step totes,step cans,vote,comment
@@ -37,3 +37,5 @@ match,alliance,Auto tote,auto can,auto stack,litter in can,landfill,Player stati
 001,b,1,1,1,1,1,1,1,1,2424,asdf
 001,b,1,1,1,1,1,1,1,1,2424,asdf
 001,b,1,1,1,1,1,1,1,1,2424,asdf
+001,b,1,1,1,1,1,1,1,12,424t,est
+001,b,1,1,1,1,1,1,1,12,424a,sdf

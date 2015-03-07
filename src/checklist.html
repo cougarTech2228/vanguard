@@ -6,6 +6,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Vanguard:aquapipe</title>
      <style>
+     
           table{
                text-align:center; 
                margin-left:auto; 
@@ -60,12 +61,14 @@
             </tr>
           </table>
      </div>
-          <img id="anime" src="http://127.0.0.1:8080/resources/anime_girl5.png?type=image">
+          <img id="anime" src="/resources/anime_girl5.png?type=image">
      
   </body>
   <script type="text/javascript" src="./lib/jquery.min.js"></script> 
+    <script type="text/javascript" src="./lib/link.js"></script> 
+  
   <script type="text/javascript"> 
-     link="http://127.0.0.1:8080/?type=robots";
+     link="/?type=robots";
      $.get(link,function(data,status){
           data = data.split("\n");
           data.shift();

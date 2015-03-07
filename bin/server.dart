@@ -12,8 +12,8 @@ File matchFile = new File(root + "matches.csv");
 List<List<String>> matchCSV = new CsvConverter.Excel().parse(matchFile.readAsStringSync());
 
 void main() {
-     //HttpServer.bind(InternetAddress.ANY_IP_V4, 8080).then((server) {
-     HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
+     HttpServer.bind(InternetAddress.ANY_IP_V4, 8080).then((server) {
+     //HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
           print("Serving at ${server.address}:${server.port}");
           server.listen((HttpRequest request) {
               try{
@@ -204,19 +204,17 @@ void get_handler(HttpRequest request) {
           String number = request.uri.queryParameters["number"];
           while (number.length < 4) {
                number = "0" + number;
-          }          
-          
-          String path = root + number + "/picture.png";
-          File file = new File(path);
-          if(!file.existsSync()){
-               String path = root + number + "/picture.jpg";
-               file = new File(path);
           }
+                                        
+          Directory location  = new Directory(root + number)..createSync(recursive:false);
+          File file;
           
-          if(!file.existsSync()){
-              file = new File("../src/loading.gif");
+          try{
+               file = location.listSync().where((f)=>f.path.contains("picture")).first;
+          }catch(e){                                              
+               file = new File("../src/loading.gif");
           }
-          
+                                        
           List<int> raw = file.readAsBytesSync();
           request.response.headers.set('Content-Type', 'image/jpeg');
           request.response.headers.set('Content-Length', raw.length);
