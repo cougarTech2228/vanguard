@@ -9,11 +9,11 @@ String templateString = new File(root + "template.csv").readAsStringSync();
 List<List<String>> template = new CsvConverter.Excel().parse(templateString);
 
 File matchFile = new File(root + "matches.csv");
-List<List<String>> matchCSV = new CsvConverter.Excel().parse(templateString);
+List<List<String>> matchCSV = new CsvConverter.Excel().parse(matchFile.readAsStringSync());
 
 void main() {
-     HttpServer.bind(InternetAddress.ANY_IP_V4, 8080).then((server) {
-     //HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
+     //HttpServer.bind(InternetAddress.ANY_IP_V4, 8080).then((server) {
+     HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
           print("Serving at ${server.address}:${server.port}");
           server.listen((HttpRequest request) {
               try{
@@ -27,6 +27,7 @@ void main() {
                 print(error);
                 print(stack);
                 print("satan");
+                request.response.close();
               }
           }).onError((error, stack){
                print(error);
@@ -92,7 +93,11 @@ void post_handler(HttpRequest request) {
                data[11] = request.uri.queryParameters["comment"];
                robotDataCSV.add(data);
                
-               castVote(request.uri.queryParameters["match"], number);
+               try{
+                    castVote(request.uri.queryParameters["match"], request.uri.queryParameters["vote"]);
+               }catch(e,s){
+                    print("CAST VOTE FAILED!!!");
+               }
           }
 
           robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
@@ -107,25 +112,34 @@ void post_handler(HttpRequest request) {
 void castVote(String match, String robot){
   match = zeros(match,3);
   robot = zeros(robot,4);
+  print(match);
+  print(robot);
   
-  List<String> robots = matchCSV.firstWhere((e)=>zeros(e[0],3)==match)..removeAt(0);
+  List<String> robots = matchCSV.firstWhere((e)=>zeros(e[0],3)==match).sublist(1);
+  print(robots);
+
   robots.forEach((number){
+    try{
     number = zeros(number,4);
     
     File robotDataFile = new File(root + number + "/data.csv")..createSync(recursive: true);
     List robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
-    int total = int.parse(robotDataCSV[4][2]);
+    int total = int.parse(robotDataCSV[6][1]);
     total++;
-    robotDataCSV[4][2] = total.toString();
-    robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
+    robotDataCSV[6][1] = total.toString();
+    print( robotDataCSV[6][1]);
+    robotDataFile.writeAsString(new CsvConverter.Excel().compose(robotDataCSV),flush:true).catchError((e)=>print("cries"));
+    }catch(e,s){
+         print("cast vote failed for robot:" + number);
+    }
   });
       
   File robotDataFile = new File(root + robot + "/data.csv")..createSync(recursive: true);
   List robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
-  int total = int.parse(robotDataCSV[4][1]);
+  int total = int.parse(robotDataCSV[6][0]);
   total++;
-  robotDataCSV[4][1] = total.toString();
-  robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
+  robotDataCSV[6][0] = total.toString();
+  robotDataFile.writeAsString(new CsvConverter.Excel().compose(robotDataCSV),flush:true).catchError((e)=>print("cries"));
 }
 
 String zeros(String str, int length){
