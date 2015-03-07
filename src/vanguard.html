@@ -179,8 +179,8 @@
 			.element {
 				width: 120px;
 				height: 160px;
-				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
-				border: 1px solid rgba(127,255,255,0.25);
+				box-shadow: 0px 0px 12px rgba(0,0,0,0.5);
+				border: 5px solid rgba(0,0,0,1);
 				text-align: center;
 				cursor: default;
 				
@@ -196,12 +196,12 @@
 
 			.element:hover {
 				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
-				border: 1px solid rgba(127,255,255,0.75);
+				border: 1px solid rgba(0,255,255,0.75);
 			}
 			
 			.element:focus {
 				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
-				border: 1px solid rgba(127,255,255,0.75);	
+				border: 1px solid rgba(0,255,255,0.75);	
 			}
 
 
@@ -211,7 +211,7 @@
 				top: 20px;
 				right: 20px;
 				font-size: 12px;
-				color: rgba(127,255,255,0.75);
+				color: rgba(0,0,0,0.75);
 			}
 
 			.element .symbol {
@@ -219,10 +219,10 @@
 				top: 40px;
 				left: 0px;
 				right: 0px;
-				font-size: 60px;
+				font-size: 50px;
 				font-weight: bold;
-				color: rgba(255,255,255,0.75);
-				text-shadow: 0 0 10px rgba(0,255,255,0.95);
+				color: rgba(20,20,20,0.75);
+				//text-shadow: 0 0 10px rgba(0,0,0,0.95);
 			}
 
 			.element .details {
@@ -231,7 +231,7 @@
 				left: 0px;
 				right: 0px;
 				font-size: 12px;
-				color: rgba(127,255,255,0.75);
+				color: rgba(0,0,0,0.75);
 			}
 
 			button {
@@ -347,6 +347,7 @@
 			var selected = null;
 			
 			var doRender = true;
+			var doUpdate = true;
 
 			var count = 0;
 			fetch();
@@ -400,7 +401,8 @@
 					var element = document.createElement( 'div' );
 					element.className = 'element';
 					element.id = table[i][0];
-					element.style.backgroundColor = 'rgba(' + (parseInt(table[i][3])*10) + ',70,127,' + ( Math.random() * 0.5 + 0.35 ) + ')';
+					element.style.backgroundColor = 'rgba(255,255,255,1)';
+					//element.style.backgroundColor = 'rgba(' + (parseInt(table[i][3])*10) + ',70,127,' + ( Math.random() * 0.5 + 0.35 ) + ')';
 					//element.style.boxShadow = '0px 0px ' + table[i][4] + 'px rgba(0,255,255,0.5)';
 					element.onclick = function (event){
 						if(expanded === null){
@@ -447,7 +449,7 @@
 				// sphere
 
 				var vector = new THREE.Vector3();
-
+				var radius = 700;
 				for ( var i = 0, l = objects.length; i < l; i ++ ) {
 
 					var phi = Math.acos( -1 + ( 2 * i ) / l );
@@ -455,9 +457,9 @@
 
 					var object = new THREE.Object3D();
 
-					object.position.x = 800 * Math.cos( theta ) * Math.sin( phi );
-					object.position.y = 800 * Math.sin( theta ) * Math.sin( phi );
-					object.position.z = 800 * Math.cos( phi );
+					object.position.x = radius * Math.cos( theta ) * Math.sin( phi );
+					object.position.y = radius * Math.sin( theta ) * Math.sin( phi );
+					object.position.z = radius * Math.cos( phi );
 
 					vector.copy( object.position ).multiplyScalar( 2 );
 
@@ -470,16 +472,18 @@
 				// helix
 
 				var vector = new THREE.Vector3();
+        var radius = 1200;
+        var theta = 2 * Math.PI / objects.length
 
 				for ( var i = 0, l = objects.length; i < l; i ++ ) {
 
-					var phi = i * 0.175 + Math.PI;
+					var phi = i * theta + Math.PI;
 
 					var object = new THREE.Object3D();
 
-					object.position.x = 900 * Math.sin( phi );
-					object.position.y = - ( i * 8 ) + 450;
-					object.position.z = 900 * Math.cos( phi );
+					object.position.x = radius * Math.sin( phi );
+					object.position.y = 0;
+					object.position.z = radius * Math.cos( phi );
 
 					vector.x = object.position.x * 2;
 					vector.y = object.position.y;
@@ -515,7 +519,7 @@
 				
 				controls = new THREE.OrbitControls( camera, renderer.domElement );
 				controls.rotateSpeed = 0.5;
-				//controls.autoRotate = true;
+				controls.autoRotate = true;
 				controls.minDistance = 500;
 				controls.maxDistance = 10000;
 				controls.addEventListener( 'change', render );
@@ -523,7 +527,7 @@
 				
 				var button = document.getElementById( 'table' );
 				button.addEventListener( 'click', function ( event ) {
-
+          doUpdate = false;
 					transform( targets.table, 2000 );
 
 				}, false );
@@ -532,21 +536,21 @@
 				button.addEventListener( 'click', function ( event ) {
 
 					transform( targets.sphere, 2000 );
-
+					doUpdate = true;
 				}, false );
 
 				var button = document.getElementById( 'helix' );
 				button.addEventListener( 'click', function ( event ) {
 
 					transform( targets.helix, 2000 );
-
+					doUpdate = true;
 				}, false );
 
 				var button = document.getElementById( 'grid' );
 				button.addEventListener( 'click', function ( event ) {
-
+				  doUpdate = false;
 					transform( targets.grid, 2000 );
-
+					
 				}, false );
 				
 				document.onkeydown = function ( event ) {
@@ -606,9 +610,10 @@
 						if(value===""){
 							input.blur();
 							
-							transform(targets.sphere,2000);
-							moveCamera(new THREE.Vector3(0,0,3000), new THREE.Vector3(0,0,0), 2000, function () {
-								controls.enabled = true;
+							transform(targets.helix,2000);
+							moveCamera(new THREE.Vector3(0, 596.007992385183, 2940.1997335237215), new THREE.Vector3(-0.19999999652194816, 0, 0), 2000, function () {
+							  doUpdate = true;
+							  controls.enabled = true;
 							});
 							
 							selected = null;
@@ -625,7 +630,9 @@
 					event.preventDefault();
 				});
 
-				transform( targets.sphere, 1500 );
+				transform( targets.helix, 1500 );
+        doUpdate = true;
+        //controls.rotateUp(.2);
 
 				//
 
@@ -634,9 +641,10 @@
 
 			}
 			
-			
 			function search(){
-				transform( targets.table, 700 );
+        doUpdate = false;
+			  transform( targets.table, 700 );
+				
 				controls.enabled = false;
 				scene.add(camera);
 				
@@ -891,8 +899,14 @@
 				if(doRender){
 					render();	
 				}
-				//controls.update();
-
+								
+				if(doUpdate){
+				  //controls.autoRotateSpeed += .01;
+				  
+				  controls.update();
+				}else{
+				  //controls.autoRotateSpeed = 0;
+				}
 			}
 
 			function render() {
