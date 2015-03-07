@@ -6,3 +6,4 @@ TODO:
 	marking teams in aquapipe + implement on server
 	vote ranking in datacrystal
 	query selectors for teams in datacrystal
+	instructions in readme
