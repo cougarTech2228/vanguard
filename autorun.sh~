@@ -3,7 +3,7 @@
 cd vanguard/bin/
 
 killall dart
-../../dart/dart-sdk/bin/dart server.dart &
+dart server.dart &
 
 if which xdg-open > /dev/null
 then

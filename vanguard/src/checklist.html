@@ -6,6 +6,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Vanguard:aquapipe</title>
+        <link href="/lib/global.css" rel="stylesheet" type="text/css">
+        
         <style>
             table {
                 text-align: center;
@@ -40,7 +42,7 @@
                 background: #e0e0e0;
             }
 
-            li.checked {
+            .checked {
                 background: #f0f0f0;
             }
 
@@ -92,10 +94,10 @@
                     if (element[6] != "1") {
                         var entry = document.createElement("li");
                         entry.onclick = function(event) {
-                            if (entry.class === "checked") {
-                                entry.class = "";
+                            if (this.className === "checked") {
+                                this.className = "";
                             } else {
-                                entry.class = "checked";
+                                this.className = "checked";
                             }
                         }
                         var text = document.createElement("a");
@@ -105,6 +107,13 @@
                     }
                     if (element[5] != "1") {
                         var entry = document.createElement("li");
+                        entry.onclick = function(event) {
+                            if (this.className === "checked") {
+                                this.className = "";
+                            } else {
+                                this.className = "checked";
+                            }
+                        }                           
                         var text = document.createElement("a");
                         text.innerHTML = element[0];
                         entry.appendChild(text);
