@@ -1,0 +1,5 @@
+#Eclipse Product File
+#Tue Jan 13 12:46:39 PST 2015
+version=1.8.5.release
+name=Dart Editor
+id=com.google.dart.tools.deploy.product
