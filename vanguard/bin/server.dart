@@ -11,31 +11,28 @@ List<List<String>> template = new CsvConverter.Excel().parse(templateString);
 File matchFile = new File(root + "matches.csv");
 List<List<String>> matchCSV = new CsvConverter.Excel().parse(matchFile.readAsStringSync());
 
-void main() {
-  HttpServer.bind(InternetAddress.ANY_IP_V6, 8080).then((server) {
-    esdeath(server);
-  });
-}
 
-void esdeath(server) {
-  print("Serving at ${server.address}:${server.port}");
-  server.listen((HttpRequest request) {
-    try {
-      print("received request: " + request.method + ": " + request.uri.toString());
-      if (request.method == "POST") {
-        post_handler(request);
-      } else if (request.method == "GET") {
-        get_handler(request);
+void main(List<String> arguments) {
+  HttpServer.bind(InternetAddress.ANY_IP_V6, arguments.isNotEmpty ? int.parse(arguments[0]) : 8080).then((server) {
+    print("Serving at ${server.address}:${server.port}");
+    server.listen((HttpRequest request) {
+      try {
+        print("received request: " + request.method + ": " + request.uri.toString());
+        if (request.method == "POST") {
+          post_handler(request);
+        } else if (request.method == "GET") {
+          get_handler(request);
+        }
+      } catch (error, stack) {
+        print(error);
+        print(stack);
+        print("satan");
+        request.response.close();
       }
-    } catch (error, stack) {
+    }).onError((error, stack) {
       print(error);
       print(stack);
-      print("satan");
-      request.response.close();
-    }
-  }).onError((error, stack) {
-    print(error);
-    print(stack);
+    });
   });
 }
 
