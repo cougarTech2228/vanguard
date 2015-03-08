@@ -1,161 +1,159 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>VANGUARD:spearhead</title>
-  <link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css"> 
-  
-  <style> 
-    #input {
-      position: absolute;
-      bottom:51.5%;
-      left:25%;
-      margin-right:auto;
-      margin-left:auto;
-      border: 2px solid #848484; 
-      -webkit-border-radius: 30px; 
-      -moz-border-radius: 30px; 
-      border-radius: 30px; 
-      outline:0; 
-      height:50px; 
-      width: 50%; 
-      padding-left:10px; 
-      padding-right:10px;
-      
-      font-family: Monospace;
-      font-size: 3em;
-      font-weight: bold; 
-      letter-spacing: 5px;
-      
-      transform-style: preserve-3d;
-      transition: transform 1s;
-    } 
-    
-    #switch{
-     position: fixed;
-     top: 50%;
-     left: 44%;
-     margin-right: auto;  
-     margin-left: auto;  
-     width:12%;
-     height:4%;
-    }
-    
-    img{
-         position:fixed;
-         bottom:0%;
-         right:0%;
-         height:60%;
-    }
-  </style> 
-  
-</head>
 
-<body>
-	<input id="input" type="text" value="001b2228111111112424asdf">
-	<img src="/resources/anime_girl.png?type=image">
-    <div id="switch" class="switch-toggle switch-android">
-    <input id="pit" name="view" type="radio" checked>
-    <label for="pit" onclick="">PIT</label>
+    <head>
+        <meta charset="UTF-8">
+        <title>VANGUARD:spearhead</title>
+        <link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css">
 
-    <input id="match" name="view" type="radio">
-    <label for="match" onclick="">MATCH</label>
+        <style>
+            #input {
+                position: absolute;
+                bottom: 51.5%;
+                left: 25%;
+                margin-right: auto;
+                margin-left: auto;
+                border: 2px solid #848484;
+                -webkit-border-radius: 30px;
+                -moz-border-radius: 30px;
+                border-radius: 30px;
+                outline: 0;
+                height: 50px;
+                width: 50%;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-family: Monospace;
+                font-size: 3em;
+                font-weight: bold;
+                letter-spacing: 5px;
+                transform-style: preserve-3d;
+                transition: transform 1s;
+            }
 
-    <a></a>
-  </div>
-  
-</body>
-<script type="text/javascript" src="/lib/jquery.min.js"></script> 
-    <script type="text/javascript" src="./lib/link.js"></script> 
+            #switch {
+                position: fixed;
+                top: 50%;
+                left: 44%;
+                margin-right: auto;
+                margin-left: auto;
+                width: 12%;
+                height: 4%;
+            }
 
-<script type="text/javascript">
-  rotation = 0;
+            img {
+                position: fixed;
+                bottom: 0%;
+                right: 0%;
+                height: 60%;
+            }
 
-  function submit(){
-    rawData = document.getElementById("input").value;
-    
-    link = "/?";
-    //link = "http://mechasdf.com:8080/?";
-    
-    if(document.getElementById("pit").checked){
-      if(rawData.length < 14){
-        alert("invalid entry");
-        return;
-      }
-      
-      link += "type=pit";
-      link += "&number=" + rawData.substring(0,4);
-      
-      if(rawData.substring(4,5)==="1"){
-        link += "&drive=" + "tank";        
-      }else if(rawData.substring(4,5)==="2"){
-        link += "&drive=" + "strafe";
-      }else if(rawData.substring(4,5)==="3"){
-        link += "&drive=" + "omni";
-      }else{
-        link += "&drive=" + "other";
-      }
-      
-      link += "&platform=" + rawData.substring(5,6);
-      link += "&tote=" + rawData.substring(6,7);
-      link += "&can=" + rawData.substring(7,8);
-      link += "&litter=" +rawData.substring(8,9);
-      link +=   "&pneumatics=" + rawData.substring(9,10);
-      link +=  "&camera=" + rawData.substring(10,11);
-      link += "&encoder=" + rawData.substring(11,12);
-      link +=  "&range=" + rawData.substring(12,13);
-      link += "&gyro=" + rawData.substring(13,14);
-      link += "&comment=" + rawData.substring(14,rawData.length);
-    }else if(document.getElementById("match").checked){
-      if(rawData.length < 21){
-        alert("invalid entry");
-        return;
-      }
-      link += "type=match";
-      link += "&match=" + rawData.substring(0,3);
-      link += "&alliance=" + rawData.substring(3,4);
-      link += "&number=" + rawData.substring(4,8);
-      link += "&push=" + rawData.substring(8,9);
-      link += "&auto=" + rawData.substring(9,10);
-      link += "&landfill=" + rawData.substring(10,11);
-      link += "&playerstation=" +rawData.substring(11,12);
-      link += "&litter=" +rawData.substring(12,13);
-      link += "&maxcan=" + rawData.substring(13,14);
-      link += "&maxtote=" + rawData.substring(14,15);
-      link += "&numtotes=" + rawData.substring(15,17);
-      link += "&vote=" + rawData.substring(17,21);
-      link += "&comment=" + rawData.substring(21, rawData.length);
-    }
-    
-    $.post(link,function(data,status){
-      if(status != "success"){
-	    alert(status);
-      }else{
-         rotation+=360;
-         document.getElementById("input").style.transform = "rotateX( " + rotation + "deg )"
-         document.getElementById( 'input' ).value = "";
-      }
-    });
-  }  
-  
-  document.onkeydown = function ( event ) {
-    event = event || window.event;
-    key = event.keyCode;    
-    
-    if (/[a-zA-Z0-9-_ ]/.test(String.fromCharCode(key)) || key == 96 || key == 8){
-      document.getElementById( 'input' ).focus();
-    }else if (key == 27){
-      document.getElementById( 'input' ).value = "";
-    }else if (key == 13){
-      submit();    
-    }else{
-      //event.preventDefault();
-    }
-    
-    
-  }
+        </style>
 
+    </head>
 
-</script>
+    <body>
+        <input id="input" type="text" value="001b2228111111112424asdf">
+        <img src="/resources/anime_girl.png?type=image">
+        <div id="switch" class="switch-toggle switch-android">
+            <input id="pit" name="view" type="radio" checked>
+            <label for="pit" onclick="">PIT</label>
+
+            <input id="match" name="view" type="radio">
+            <label for="match" onclick="">MATCH</label>
+
+            <a></a>
+        </div>
+
+    </body>
+    <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="./lib/link.js"></script>
+
+    <script type="text/javascript">
+        rotation = 0;
+
+        function submit() {
+            rawData = document.getElementById("input").value;
+
+            link = "/?";
+            //link = "http://mechasdf.com:8080/?";
+
+            if (document.getElementById("pit").checked) {
+                if (rawData.length < 14) {
+                    alert("invalid entry");
+                    return;
+                }
+
+                link += "type=pit";
+                link += "&number=" + rawData.substring(0, 4);
+
+                if (rawData.substring(4, 5) === "1") {
+                    link += "&drive=" + "tank";
+                } else if (rawData.substring(4, 5) === "2") {
+                    link += "&drive=" + "strafe";
+                } else if (rawData.substring(4, 5) === "3") {
+                    link += "&drive=" + "omni";
+                } else {
+                    link += "&drive=" + "other";
+                }
+
+                link += "&platform=" + rawData.substring(5, 6);
+                link += "&tote=" + rawData.substring(6, 7);
+                link += "&can=" + rawData.substring(7, 8);
+                link += "&litter=" + rawData.substring(8, 9);
+                link += "&pneumatics=" + rawData.substring(9, 10);
+                link += "&camera=" + rawData.substring(10, 11);
+                link += "&encoder=" + rawData.substring(11, 12);
+                link += "&range=" + rawData.substring(12, 13);
+                link += "&gyro=" + rawData.substring(13, 14);
+                link += "&comment=" + rawData.substring(14, rawData.length);
+            } else if (document.getElementById("match").checked) {
+                if (rawData.length < 21) {
+                    alert("invalid entry");
+                    return;
+                }
+                link += "type=match";
+                link += "&match=" + rawData.substring(0, 3);
+                link += "&alliance=" + rawData.substring(3, 4);
+                link += "&number=" + rawData.substring(4, 8);
+                link += "&push=" + rawData.substring(8, 9);
+                link += "&auto=" + rawData.substring(9, 10);
+                link += "&landfill=" + rawData.substring(10, 11);
+                link += "&playerstation=" + rawData.substring(11, 12);
+                link += "&litter=" + rawData.substring(12, 13);
+                link += "&maxcan=" + rawData.substring(13, 14);
+                link += "&maxtote=" + rawData.substring(14, 15);
+                link += "&numtotes=" + rawData.substring(15, 17);
+                link += "&vote=" + rawData.substring(17, 21);
+                link += "&comment=" + rawData.substring(21, rawData.length);
+            }
+
+            $.post(link, function(data, status) {
+                if (status != "success") {
+                    alert(status);
+                } else {
+                    rotation += 360;
+                    document.getElementById("input").style.transform = "rotateX( " + rotation + "deg )"
+                    document.getElementById('input').value = "";
+                }
+            });
+        }
+
+        document.onkeydown = function(event) {
+            event = event || window.event;
+            key = event.keyCode;
+
+            if (/[a-zA-Z0-9-_ ]/.test(String.fromCharCode(key)) || key == 96 || key == 8) {
+                document.getElementById('input').focus();
+            } else if (key == 27) {
+                document.getElementById('input').value = "";
+            } else if (key == 13) {
+                submit();
+            } else {
+                //event.preventDefault();
+            }
+
+        }
+
+    </script>
 
 </html>
