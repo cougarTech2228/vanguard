@@ -852,8 +852,8 @@
 
             function fixSize(element) {
                 size = element.getBoundingClientRect();
-                document.getElementById('infoElement').style.width = size.width - 20;
-                document.getElementById('infoElement').style.height = size.height - 20;
+                document.getElementById('infoElement').style.width = size.width + "px";
+                document.getElementById('infoElement').style.height = size.height + "px";
             }
 
             function resetInfo() {
