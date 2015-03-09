@@ -4,9 +4,9 @@ cd vanguard/bin/
 
 killall dart
 
-if which dart > dev/null
-then 
-  dart server.dart
+if which dart > /dev/null
+then
+  dart server.dart &
 else
   ../../dart/dart-sdk/bin/dart server.dart &
 fi
