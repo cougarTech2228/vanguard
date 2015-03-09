@@ -2,8 +2,9 @@
 Vanguard: a web-based, cloud hosted scouting system for FRC competitions
 
 #installing
-1. download the appropriat version of the dart-sdk from here: https://www.dartlang.org/tools/download.html
-2. clone vanguard or download the zip and extract
+1. clone vanguard or download the zip and extract
+(if you are running linux and have dart installed to the PATH skip to setup)
+2 download the appropriat version of the dart-sdk from here: https://www.dartlang.org/tools/download.html
 3. extract the dart-sdk into vanguard/dart
 (the path to the dart-sdk should be dart/dart-sdk/bin/dart.exe)
 
