@@ -1,31 +1,28 @@
 # Vanguard
-Vanguard: a web-based, cloud hosted scouting system for FRC competitions
+A web-based, cloud hosted, scouting system for FRC competitions.
 
-#installing
-1. clone vanguard or download the zip and extract
-(if you are running linux and have dart installed to the PATH skip to setup)
-2 download the appropriat version of the dart-sdk from here: https://www.dartlang.org/tools/download.html
-3. extract the dart-sdk into vanguard/dart
-(the path to the dart-sdk should be dart/dart-sdk/bin/dart.exe)
+## Installing
+1. Clone Vanguard or download the ZIP and extract. If you are running Linux and have Dart installed to the PATH, skip to the setup section.
+2. Download the appropriate version of the Dart SDK from [here](https://www.dartlang.org/tools/download.html).
+3. Extract the Dart SDK into `Vanguard/dart` The path to the Dart SDK should be `dart/dart-sdk/bin/dart.exe`.
 
-#setup
-1. vanguard requires a list of matches, and of robots in the form of csv spreadsheets
-2. add these manually by editing the robots.csv and matches.csv files found in /vanguard/data 
-(csv files can be opened and edited by most spreadsheet programs, just remember to save as csv, no matter how much excel tries to trick you not to)
+## Setup
+1. Vanguard requires a list of matches and of robots in the form of CSV spreadsheets.
+2. Add these manually by editing the `robots.csv` and match files found in `Vanguard/data`. CSV files can be opened and edited by most spreadsheet programs; just remember to save as CSV no matter how much Excel tries to trick you not to.
 
-#running
+## Running
 
-1. easy way
+### Easy Way
 
-run the server by clicking on autorun.sh(Linux/Mac) or autorun.bat(Windows)
-(the server will listen on port 8080)
+Run the server by clicking on `autorun.sh` (Linux/Mac) or `autorun.bat` (Windows).
+The server will listen on TCP port 8080.
 
-2. command line
+### Command Line
 
-navigate to vanguard's directory and run autorun
-(this will allow you to see all requests to the server and any error, so you can tell if vanguard is working properly)
+Navigate to Vanguard's directory and run autorun.
+This will allow you to see all requests to the server and any error, so you can tell if Vanguard is working properly.
 
-#contact
-please report any bugs you find to the issues page above
-if you have questions contact me at erichspaker@gmail.com  
-any ideas or help are welcome
+## Contact
+Please report any bugs you find to the issues page above.
+If you have questions contact me at erichspaker@gmail.com.
+Any ideas or help are welcome.
