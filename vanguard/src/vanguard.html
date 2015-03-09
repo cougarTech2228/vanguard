@@ -445,7 +445,7 @@
 
                 for (var i = 0; i < table.length; i += 1) {
                     lookup[table[i][0]] = i;
-
+                    
                     var element = document.createElement('div');
                     element.className = 'element';
                     element.id = table[i][0];
@@ -575,7 +575,7 @@
                 controls.minDistance = 500;
                 controls.maxDistance = 10000;
                 controls.addEventListener('change', render);
-
+                
                 document.onkeydown = function(event) {
                     event = event || window.event;
                     key = event.keyCode;
@@ -631,7 +631,8 @@
 
                         if (value === "") {
                             input.blur();
-
+                            
+                            window.history.replaceState("", "", "/vanguard.html");
                             transform(targets.helix, 2000);
                             moveCamera(new THREE.Vector3(0, 596.007992385183, 2940.1997335237215), new THREE.Vector3(-0.19999999652194816, 0, 0), 2000, function() {
                                 doUpdate = true;
@@ -656,20 +657,31 @@
                 doUpdate = true;
                 //controls.rotateUp(.2);
 
-                //
+                if(queryParameter("search") != ""){
+                  search(queryParameter("search"));
+                }
+                
+                if(queryParameter("robot") != ""){
+                  search(queryParameter("robot"));
+                  setTimeout(function () {
+                    expand(objects[selected]);
+                  },500);
+                }
 
                 window.addEventListener('resize', onWindowResize, false);
 
             }
 
-            function search() {
+            function search(text) {
                 doUpdate = false;
                 transform(targets.table, 700);
 
                 controls.enabled = false;
                 scene.add(camera);
 
-                text = document.getElementById("input").value;
+                if(text === null){
+                  text = document.getElementById("input").value;
+                }
                 result = null;
 
                 for (index in objects) {
@@ -678,7 +690,7 @@
                         if (result === null) {
                             result = index;
                         }
-
+                        
                         other = objects[result].element.id.trim();
                         if (id.indexOf(text) < other.indexOf(text)) {
                             result = index;
@@ -709,6 +721,10 @@
                     rotation = new THREE.Vector3(-0.5404195050688696, -0.33042263908520075, -0.1922612103679613);
 
                     moveCamera(position, rotation, 1500);
+                }
+                
+                if(selected != null){
+                  window.history.replaceState("", "", "/vanguard.html?search=" + objects[selected].element.id);
                 }
             }
 
@@ -836,7 +852,9 @@
                         fixSize(object.element);
                         infoPanel.position.set(position.x, position.y, position.z + 1);
                         infoPanel.element.style.opacity = 1;
+                        fixSize(object.element);
                         infoElement.style.opacity = 1;
+                        window.history.replaceState("", "", "/vanguard.html?robot=" + objects[selected].element.id);
                     })
                     .start();
 
