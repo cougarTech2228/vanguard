@@ -1,14 +1,14 @@
 # Vanguard
-A web-based, cloud hosted, scouting system for FRC competitions.
+A web-based, cloud hosted, scouting system for [FRC](http://www.usfirst.org/roboticsprograms/frc).
 
 ## Installing
 1. Clone Vanguard or download the ZIP and extract. If you are running Linux and have Dart installed to the PATH, skip to the setup section.
 2. Download the appropriate version of the Dart SDK from [here](https://www.dartlang.org/tools/download.html).
-3. Extract the Dart SDK into `Vanguard/dart` The path to the Dart SDK should be `dart/dart-sdk/bin/dart.exe`.
+3. Extract the Dart SDK into `vanguard/dart` The path to the Dart SDK should be `dart/dart-sdk/bin/dart.exe`.
 
 ## Setup
 1. Vanguard requires a list of matches and of robots in the form of CSV spreadsheets.
-2. Add these manually by editing the `robots.csv` and match files found in `Vanguard/data`. CSV files can be opened and edited by most spreadsheet programs; just remember to save as CSV no matter how much Excel tries to trick you not to.
+2. Add these manually by editing the `robots.csv` and `matches.csv` files found in `vanguard/data`. CSV files can be opened and edited by most spreadsheet programs; just remember to save as CSV no matter how much Excel tries to trick you not to.
 
 ## Running
 
