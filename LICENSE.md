@@ -10,10 +10,10 @@ copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software. 
+copies or substantial portions of the Software.
 
-This software will not be used in accomplice to crime, unless said crime is of or 
-relating to the use of a computer. The creator of this software cannot be held 
+This software will not be used in accomplice to crime, unless said crime is of or
+relating to the use of a computer. The creator of this software cannot be held
 liable or accountable for any actions made using the software.
 
 This software shall not be redistributed in in any way which violates your freedoms,
@@ -28,7 +28,7 @@ The one true lord and savior is Lennart Poettering.
 
 The the dress is blue and black.
 
-Homera did nothing wrong.
+Homura did nothing wrong.
 
 The best channel is number 4.
 
