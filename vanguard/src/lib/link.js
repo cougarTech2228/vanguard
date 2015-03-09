@@ -16,6 +16,9 @@ Link = function() {
             this.listening = !this.listening;
             event.preventDefault();
         } else if (this.listening) {
+            this.listening = !this.listening;
+            event.preventDefault();
+        
             if (key == 65) {
                 link("/picture.html");
             } else if (key == 83) {
@@ -24,10 +27,10 @@ Link = function() {
                 link("/vanguard.html");
             } else if (key == 70) {
                 link("/checklist.html");
+            } else {
+               command(key);
             }
-
-            this.listening = !this.listening;
-            event.preventDefault();
+            
         }
     });
 
