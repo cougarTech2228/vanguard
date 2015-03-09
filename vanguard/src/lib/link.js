@@ -33,7 +33,15 @@ Link = function() {
             
         }
     });
-
+    container = document.createElement('div');
+    container.className = "github_container";
+    
+    github = document.createElement('div');
+    github.innerHTML = '<a href="https://github.com/cougarTech2228/Vanguard" target="_blank">Fork me on GitHub</a>';
+    github.className = "github";
+    
+    container.appendChild(github);
+    document.querySelector("body").appendChild(container);
 }
 
 new Link();
