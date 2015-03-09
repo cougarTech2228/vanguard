@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <title>Vanguard:datacrystal</title>
         <link href="/lib/global.css" rel="stylesheet" type="text/css">
-        
+
         <style>
             html,
             body {
@@ -202,7 +202,6 @@
                 right: 20px;
                 font-size: 12px;
                 color: rgba(0, 0, 0, 0.75);
-                
                 -webkit-transition: opacity .5s ease;
                 -moz-transition: opacity .5s ease;
                 -ms-transition: opacity .5s ease;
@@ -219,22 +218,20 @@
                 font-weight: bold;
                 color: rgba(20, 20, 20, 0.75);
                 //text-shadow: 0 0 10px rgba(0,0,0,0.95);
-                
                 -webkit-transition: top 1s ease;
                 -moz-transition: top 1s ease;
                 -ms-transition: top 1s ease;
                 -o-transition: top 1s ease;
                 transition: top 1s ease;
-                
                 -webkit-transition: opacity .5s ease;
                 -moz-transition: opacity .5s ease;
                 -ms-transition: opacity .5s ease;
                 -o-transition: opacity .5s ease;
                 transition: opacity .5s ease;
             }
-            
-            .element .symbol.picture_mode{
-               top: 180px;
+
+            .element .symbol.picture_mode {
+                top: 180px;
             }
 
             .element .details {
@@ -244,19 +241,17 @@
                 right: 0px;
                 font-size: 12px;
                 color: rgba(0, 0, 0, 0.75);
-                
                 -webkit-transition: opacity .5s ease;
                 -moz-transition: opacity .5s ease;
                 -ms-transition: opacity .5s ease;
                 -o-transition: opacity .5s ease;
                 transition: opacity .5s ease;
             }
-            
-            .card_image{
-               width:100%;
-               height:100%;
-               opacity:0;
-               
+
+            .card_image {
+                width: 100%;
+                height: 100%;
+                opacity: 0;
                 -webkit-transition: opacity 1s ease;
                 -moz-transition: opacity 1s ease;
                 -ms-transition: opacity 1s ease;
@@ -281,15 +276,15 @@
                 color: #000000;
                 background-color: rgba(0, 255, 255, 0.75);
             }
-            
-            #rank{
-               position:absolute;
-               right:5%;
-               bottom:5%;
-               font-size: 1.5em;
-               font-weight: bold;
+
+            #rank {
+                position: absolute;
+                right: 5%;
+                bottom: 5%;
+                font-size: 1.5em;
+                font-weight: bold;
             }
-     
+
         </style>
     </head>
 
@@ -335,11 +330,11 @@
                     <tr>
                         <td>Comment:</td>
                         <td id=comment>Hmm...</td>
-                        
+
                     </tr>
                 </table>
                 <div id="rank">100</div>
-                
+
             </div>
             <div id=info_match class="info">
                 <table id="match_data" style="width:100%">
@@ -368,7 +363,7 @@
         <div id="infoPanel"></div>
 
         <div id="menu">
-            
+
         </div>
 
         <script>
@@ -395,7 +390,7 @@
 
             var doRender = true;
             var doUpdate = true;
-            
+
             var pictureMode_flg = false;
 
             var count = 0;
@@ -475,7 +470,7 @@
                     details.className = 'details';
                     details.innerHTML = table[i][1] + '<br>' + table[i][2];
                     element.appendChild(details);
-                    
+
                     var image = document.createElement('img');
                     image.className = 'card_image';
                     image.src = "/?type=picture&nogif&number=" + table[i][0];
@@ -801,7 +796,7 @@
                 }
 
                 object.element.querySelector(".symbol").style.opacity = 0;
-                
+
                 displayInfo(object.element.id);
 
                 expanded = object;
@@ -902,7 +897,7 @@
                 //do http request here
                 url = "/?type=data&number=" + number;
                 $.get(url, function(data, status) {
-                    
+
                     data = data.split("\n");
 
                     tbl = document.getElementById('match_data');
@@ -937,37 +932,37 @@
                     document.getElementById('range').style.color = pit[8] == "1" ? black : grey;
                     document.getElementById('gyro').style.color = pit[9] == "1" ? "black" : grey;
 
-                    votes =data[6].split(",");
+                    votes = data[6].split(",");
                     document.getElementById("rank").innerHTML = 100 * parseInt(votes[0]) / parseInt(votes[1]);
 
                 }).fail(function() {
                     alert('"being scouting lead is suffering"');
                 });
             }
-            
-            function pictureMode(){
-                 for(index in objects){
-                      element = objects[index].element;
-                      element.querySelector(".card_image").style.opacity = 1;
-                      element.querySelector(".details").style.opacity = 0;
-                      element.querySelector(".number").style.opacity = 0;
-                      element.querySelector(".symbol").className += " picture_mode";
-                 }
-                 
-                 pictureMode_flg = true;
+
+            function pictureMode() {
+                for (index in objects) {
+                    element = objects[index].element;
+                    element.querySelector(".card_image").style.opacity = 1;
+                    element.querySelector(".details").style.opacity = 0;
+                    element.querySelector(".number").style.opacity = 0;
+                    element.querySelector(".symbol").className += " picture_mode";
+                }
+
+                pictureMode_flg = true;
 
             }
-            
-            function unPictureMode(){
-                 for(index in objects){
-                      element = objects[index].element;
-                      element.querySelector(".card_image").style.opacity = 0;
-                      element.querySelector(".details").style.opacity = 1;
-                      element.querySelector(".number").style.opacity = 1;
-                      element.querySelector(".symbol").className = "symbol";
-                 }
-                 
-                 pictureMode_flg = false;
+
+            function unPictureMode() {
+                for (index in objects) {
+                    element = objects[index].element;
+                    element.querySelector(".card_image").style.opacity = 0;
+                    element.querySelector(".details").style.opacity = 1;
+                    element.querySelector(".number").style.opacity = 1;
+                    element.querySelector(".symbol").className = "symbol";
+                }
+
+                pictureMode_flg = false;
             }
 
             function onWindowResize() {
@@ -999,15 +994,15 @@
                     //controls.autoRotateSpeed = 0;
                 }
             }
-            
-            function command(keycode){
-                 if(keycode == 80){
-                      if(pictureMode_flg){
-                           unPictureMode();
-                      }else{
-                           pictureMode();
-                      }
-                 }
+
+            function command(keycode) {
+                if (keycode == 80) {
+                    if (pictureMode_flg) {
+                        unPictureMode();
+                    } else {
+                        pictureMode();
+                    }
+                }
             }
 
             function render() {

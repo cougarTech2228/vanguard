@@ -1,6 +1,6 @@
 library csv_utils;
 
-//this isn't a package because pub tries to symlink instead of copy the file, 
+//this isn't a package because pub tries to symlink instead of copy the file,
 //which is not what we want
 
 /*
