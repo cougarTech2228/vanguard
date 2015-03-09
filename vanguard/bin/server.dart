@@ -216,10 +216,10 @@ void get_handler(HttpRequest request) {
     try {
       file = location.listSync().where((f) => f.path.contains("picture")).first;
     } catch (e) {
-      if(request.uri.queryParameters.containsKey("nogif")){
-          file = new File("../src/resources/noinmage.jpg");
-      }else{
-          file = new File("../src/loading.gif");
+      if (request.uri.queryParameters.containsKey("nogif")) {
+        file = new File("../src/resources/noinmage.jpg");
+      } else {
+        file = new File("../src/loading.gif");
       }
     }
 
