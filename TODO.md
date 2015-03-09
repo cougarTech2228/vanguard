@@ -5,5 +5,4 @@ TODO:
 	error detection in spearhead
 	marking teams in aquapipe + implement on server
 	query selectors for teams in datacrystal
-	picture mode in datacrystal
 	cool intro rice
