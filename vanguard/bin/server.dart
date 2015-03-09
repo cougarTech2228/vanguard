@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:csv_utils/csv_utils.dart';
+import 'csv_utils.dart';
 
 String root = "../data/";
 File robotListFile = new File(root + "robots.csv")..createSync(recursive: true);
