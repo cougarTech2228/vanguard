@@ -4,5 +4,5 @@ TODO:
 	recall records for editing
 	error detection in spearhead
 	marking teams in aquapipe + implement on server
-	query selectors for teams in datacrystal
 	cool intro rice
+	Display command dialoge
