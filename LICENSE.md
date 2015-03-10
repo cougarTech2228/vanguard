@@ -28,7 +28,7 @@ The one true lord and savior is Lennart Poettering.
 
 The the dress is blue and black.
 
-Homura did nothing wrong.
+~~Homura~~ Dred Pirate Roberts did nothing wrong.
 
 The best channel is number 4.
 
