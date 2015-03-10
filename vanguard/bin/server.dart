@@ -33,6 +33,15 @@ void main(List<String> arguments) {
       print(error);
       print(stack);
     });
+  }).catchError((Exception error, stack){
+    if(error.runtimeType == SocketException){
+      print("Error: could not start server, unable to bind port");
+      print("Do you have another instance of the server running?");
+    }else{
+      print(error);
+      print(stack);
+    }
+    
   });
 }
 
@@ -55,6 +64,21 @@ void post_handler(HttpRequest request) {
           request.response.close();
         })
         ..onError(print);
+  } else if(type == "check"){
+    String check = request.uri.queryParameters["checked"];
+    String kind = request.uri.queryParameters["kind"];
+    List<String> data = robotListCSV.firstWhere((List<String> l)=>zeros(l[0],4) == number);
+    
+    if(kind=="picture"){
+      data[7]=check;
+    }else if(kind == "pit"){
+      data[8]=check;
+    }
+    
+    robotListFile.writeAsStringSync(new CsvConverter.Excel().compose(robotListCSV));
+    request.response.close();
+    
+    
   } else {
     File robotDataFile = new File(root + number + "/data.csv")..createSync(recursive: true);
     List robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
@@ -113,7 +137,6 @@ void post_handler(HttpRequest request) {
 
 }
 
-//UNTESTED
 void castVote(String match, String robot) {
   match = zeros(match, 3);
   robot = zeros(robot, 4);

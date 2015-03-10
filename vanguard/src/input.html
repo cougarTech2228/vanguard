@@ -1,160 +1,308 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>VANGUARD:spearhead</title>
-        <link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css">
-        <link href="/lib/global.css" rel="stylesheet" type="text/css">
+<head>
+<meta charset="UTF-8">
+<title>VANGUARD:spearhead</title>
+<link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css">
+<link href="/lib/global.css" rel="stylesheet" type="text/css">
 
-        <style>
-            #input {
-                position: absolute;
-                bottom: 51.5%;
-                left: 25%;
-                margin-right: auto;
-                margin-left: auto;
-                border: 2px solid #848484;
-                -webkit-border-radius: 30px;
-                -moz-border-radius: 30px;
-                border-radius: 30px;
-                outline: 0;
-                height: 50px;
-                width: 50%;
-                padding-left: 10px;
-                padding-right: 10px;
-                font-family: Monospace;
-                font-size: 3em;
-                font-weight: bold;
-                letter-spacing: 5px;
-                transform-style: preserve-3d;
-                transition: transform 1s;
+<style>
+body {
+  overflow: hidden;
+}
+
+#input {
+  position: absolute;
+  bottom: 51.5%;
+  left: 25%;
+  margin-right: auto;
+  margin-left: auto;
+  border: 2px solid #848484;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  outline: 0;
+  height: 50px;
+  width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: Monospace;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 5px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+#switch {
+  position: fixed;
+  top: 50%;
+  left: 44%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 12%;
+  height: 4%;
+}
+
+img {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  height: 60%;
+}
+</style>
+
+</head>
+
+<body>
+  <input id="input" type="text" value="001b2228111111112424asdf">
+  <img src="/resources/anime_girl.png?type=image">
+  <div id="switch" class="switch-toggle switch-android">
+    <input id="pit" name="view" type="radio" checked> <label
+      for="pit" onclick="">PIT</label> <input id="match" name="view"
+      type="radio"> <label for="match" onclick="">MATCH</label>
+
+    <a></a>
+  </div>
+
+</body>
+<script type="text/javascript" src="/lib/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/link.js"></script>
+
+<script type="text/javascript">
+      rotation = 0;
+
+      function submit(map) {
+          link = "/?";
+          //link = "http://mechasdf.com:8080/?";
+
+          
+          for(key in map){
+            link += "&" + key + "=" + map[key];
+          }
+          
+          link.replace("&","");
+
+          $.post(link, function(data, status) {
+              if (status != "success") {
+                  alert(status);
+              } else {
+                  rotation += 360;
+                  document.getElementById("input").style.transform = "rotateX( " + rotation + "deg )"
+                  document.getElementById('input').value = "";
+              }
+          });
+      }
+
+      document.onkeydown = function(event) {
+          event = event || window.event;
+          key = event.keyCode;
+
+          if (/[a-zA-Z0-9-_ ]/.test(String.fromCharCode(key)) || key == 96 || key == 8) {
+              document.getElementById('input').focus();
+          } else if (key == 27) {
+              document.getElementById('input').value = "";
+          } else if (key == 13) {
+              data = getData();
+              if(errorChecker(data) === "OK"){
+                submit(data);
+              }
+          } else {
+              //event.preventDefault();
+          }
+      }
+      
+      document.onkeyup = function(event){
+        staticAnalysis();
+      }
+      
+      document.getElementById("input").onfocus = function (event){
+        staticAnalysis();
+      }
+      
+      document.getElementById("input").ondefocus = function (event){
+        linker.info_close();
+      }
+      
+      function getData(){
+        rawData = document.getElementById("input").value;
+        
+        map = {};
+        
+        try{
+          if (document.getElementById("pit").checked) {
+  
+              map["type"]="pit";
+              
+              map["number"] = rawData.substring(0, 4);
+  
+              if (rawData.substring(4, 5) === "1") {
+                map["drive"] = "tank";
+              } else if (rawData.substring(4, 5) === "2") {
+                map["drive"] = "strafe";
+              } else if (rawData.substring(4, 5) === "3") {
+                map["drive"] = "omni";
+              } else {
+                map["drive"] = "other";
+              }
+  
+              map["platform"] = rawData.substring(5, 6);
+              map["tote"] = rawData.substring(6, 7);
+              map["can"] = rawData.substring(7, 8);
+              map["litter"] = rawData.substring(8, 9);
+              map["pneumatics"] = rawData.substring(9, 10);
+              map["camera"] = rawData.substring(10, 11);
+              map["encoder"] = rawData.substring(11, 12);
+              map["range"] = rawData.substring(12, 13);
+              map["gyro"] = rawData.substring(13, 14);
+              map["comment"] = rawData.substring(14, rawData.length);
+          } else if (document.getElementById("match").checked) {
+              link["type"] = "match";
+              
+              map["match"] = rawData.substring(0, 3);
+              map["alliance"] = rawData.substring(3, 4);
+              map["number"] = rawData.substring(4, 8);
+              map["push"] = rawData.substring(8, 9);
+              map["auto"] = rawData.substring(9, 10);
+              map["landfill"] = rawData.substring(10, 11);
+              map["playerstation"] = rawData.substring(11, 12);
+              map["litter"] = rawData.substring(12, 13);
+              map["maxcan"] = rawData.substring(13, 14);
+              map["maxtote"] = rawData.substring(14, 15);
+              map["numtotes"] = rawData.substring(15, 17);
+              map["vote"] = rawData.substring(17, 21);
+              map["comment"] = rawData.substring(21, rawData.length);
+          }
+        }catch(e){}
+        
+        return map;
+      }
+      
+      function errorChecker(data){
+        return "OK";
+        //scans text for errors
+        message="data";
+        if (document.getElementById("pit").checked) {
+          for(key in data){
+            value = data[key];
+            
+            if(key === ""){
+              
+            }else if (key === ""){
+              
             }
-
-            #switch {
-                position: fixed;
-                top: 50%;
-                left: 44%;
-                margin-right: auto;
-                margin-left: auto;
-                width: 12%;
-                height: 4%;
-            }
-
-            img {
-                position: fixed;
-                bottom: 0%;
-                right: 0%;
-                height: 60%;
-            }
-
-        </style>
-
-    </head>
-
-    <body>
-        <input id="input" type="text" value="001b2228111111112424asdf">
-        <img src="/resources/anime_girl.png?type=image">
-        <div id="switch" class="switch-toggle switch-android">
-            <input id="pit" name="view" type="radio" checked>
-            <label for="pit" onclick="">PIT</label>
-
-            <input id="match" name="view" type="radio">
-            <label for="match" onclick="">MATCH</label>
-
-            <a></a>
-        </div>
-
-    </body>
-    <script type="text/javascript" src="/lib/jquery.min.js"></script>
-    <script type="text/javascript" src="./lib/link.js"></script>
-
-    <script type="text/javascript">
-        rotation = 0;
-
-        function submit() {
-            rawData = document.getElementById("input").value;
-
-            link = "/?";
-            //link = "http://mechasdf.com:8080/?";
-
-            if (document.getElementById("pit").checked) {
-                if (rawData.length < 14) {
-                    alert("invalid entry");
-                    return;
-                }
-
-                link += "type=pit";
-                link += "&number=" + rawData.substring(0, 4);
-
-                if (rawData.substring(4, 5) === "1") {
-                    link += "&drive=" + "tank";
-                } else if (rawData.substring(4, 5) === "2") {
-                    link += "&drive=" + "strafe";
-                } else if (rawData.substring(4, 5) === "3") {
-                    link += "&drive=" + "omni";
-                } else {
-                    link += "&drive=" + "other";
-                }
-
-                link += "&platform=" + rawData.substring(5, 6);
-                link += "&tote=" + rawData.substring(6, 7);
-                link += "&can=" + rawData.substring(7, 8);
-                link += "&litter=" + rawData.substring(8, 9);
-                link += "&pneumatics=" + rawData.substring(9, 10);
-                link += "&camera=" + rawData.substring(10, 11);
-                link += "&encoder=" + rawData.substring(11, 12);
-                link += "&range=" + rawData.substring(12, 13);
-                link += "&gyro=" + rawData.substring(13, 14);
-                link += "&comment=" + rawData.substring(14, rawData.length);
-            } else if (document.getElementById("match").checked) {
-                if (rawData.length < 21) {
-                    alert("invalid entry");
-                    return;
-                }
-                link += "type=match";
-                link += "&match=" + rawData.substring(0, 3);
-                link += "&alliance=" + rawData.substring(3, 4);
-                link += "&number=" + rawData.substring(4, 8);
-                link += "&push=" + rawData.substring(8, 9);
-                link += "&auto=" + rawData.substring(9, 10);
-                link += "&landfill=" + rawData.substring(10, 11);
-                link += "&playerstation=" + rawData.substring(11, 12);
-                link += "&litter=" + rawData.substring(12, 13);
-                link += "&maxcan=" + rawData.substring(13, 14);
-                link += "&maxtote=" + rawData.substring(14, 15);
-                link += "&numtotes=" + rawData.substring(15, 17);
-                link += "&vote=" + rawData.substring(17, 21);
-                link += "&comment=" + rawData.substring(21, rawData.length);
-            }
-
-            $.post(link, function(data, status) {
-                if (status != "success") {
-                    alert(status);
-                } else {
-                    rotation += 360;
-                    document.getElementById("input").style.transform = "rotateX( " + rotation + "deg )"
-                    document.getElementById('input').value = "";
-                }
-            });
+            
+          }
+        } else if (document.getElementById("match").checked) {
+          
         }
-
-        document.onkeydown = function(event) {
-            event = event || window.event;
-            key = event.keyCode;
-
-            if (/[a-zA-Z0-9-_ ]/.test(String.fromCharCode(key)) || key == 96 || key == 8) {
-                document.getElementById('input').focus();
-            } else if (key == 27) {
-                document.getElementById('input').value = "";
-            } else if (key == 13) {
-                submit();
-            } else {
-                //event.preventDefault();
-            }
-
+        
+      }
+      
+      function staticAnalysis(){
+        // will print help text during input
+        error = false;
+        
+        text = document.getElementById("input").value;
+        l = text.length;         //input text length
+        p = document.getElementById("input").selectionStart; //cursor position
+        position = "";
+        
+        if (document.getElementById("pit").checked) {
+          switch (true) {
+              case (p<4 ):
+                  position = "number";
+                  break;
+              case (p<5 ):
+                  position = "drive";
+                  break;
+              case (p<6 ):
+                  position = "platform";
+                  break;
+              case (p<7 ):
+                  position = "tote";
+                  break;
+              case (p<8 ):
+                  position = "can";
+                  break;
+              case (p<9 ):
+                  position = "litter";
+                  break;
+              case (p<10 ):
+                  position = "pneumatics";
+                  break;
+              case (p<11 ):
+                  position = "camera";
+                  break;
+              case (p<12 ):
+                  position = "encoder";
+                  break;
+              case (p<13 ):
+                  position = "range";
+                  break;
+              case (p<14 ):
+                  position = "gyro";
+                  break;
+              default:
+                  position = "comment";
+                  break;
+          }
+        }else if (document.getElementById("match").checked) {
+          switch (true) {
+              case (p<3):
+                  position = "match";
+                  break;
+              case (p<4):
+                  position = "alliance";
+                  break;
+              case (p<8):
+                  position = "number";
+                  break;
+              case (p<9):
+                  position = "push";
+                  break;
+              case (p<10):
+                  position = "auto";
+                  break;
+              case (p<11):
+                  position = "landfill";
+                  break;
+              case (p<12):
+                  position = "playerstation";
+                  break;
+              case (p<13):
+                  position = "litter";
+                  break;
+              case (p<14):
+                  position = "maxcan";
+                  break;
+              case (p<15):
+                  position = "maxtote";
+                  break;
+              case (p<17):
+                  position = "numtotes";
+                  break;
+              case (p<21):
+                  position = "vote";
+                  break;
+              default:
+                  position = "comment";
+                  break;
+          }
         }
+        
+        if(l == 0){
+          linker.info_close();
+        }else{
+          linker.info_open();
+          linker.info_text(position);
+        }
+        
+        //data = getData();
+        //errorChecker(data);
+      }
 
-    </script>
+   </script>
 
 </html>

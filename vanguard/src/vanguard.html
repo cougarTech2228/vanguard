@@ -1016,11 +1016,16 @@
             function command(keycode) {
                 if (keycode == 80) {
                     if (pictureMode_flg) {
+                        linker.info_say("exiting picture mode");
                         unPictureMode();
                     } else {
+                        linker.info_say("entering picture mode");
                         pictureMode();
                     }
+                }else{
+                  linker.info_say("unknown command");
                 }
+                
             }
 
             function render() {
