@@ -18,7 +18,7 @@ Link = function() {
         } else if (this.listening) {
             this.listening = !this.listening;
             event.preventDefault();
-        
+
             if (key == 65) {
                 link("/picture.html");
             } else if (key == 83) {
@@ -28,18 +28,18 @@ Link = function() {
             } else if (key == 70) {
                 link("/checklist.html");
             } else {
-               command(key);
+                command(key);
             }
-            
+
         }
     });
     container = document.createElement('div');
     container.className = "github_container";
-    
+
     github = document.createElement('div');
     github.innerHTML = '<a href="https://github.com/cougarTech2228/Vanguard" target="_blank">Fork me on GitHub</a>';
     github.className = "github";
-    
+
     container.appendChild(github);
     document.querySelector("body").appendChild(container);
 }

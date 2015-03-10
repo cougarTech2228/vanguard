@@ -1,52 +1,47 @@
 .best_font {
-     font-family: Proxima-Nova-n6, Proxima-Nova-1, Proxima-Nova-2,
-          'Proxima Nova', sans-serif;
-     font-size: 40px;
-     font-style: normal;
-     font-weight: 600;
+    font-family: Proxima-Nova-n6, Proxima-Nova-1, Proxima-Nova-2, 'Proxima Nova', sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
 }
 
-div.github_container{
-     opacity:0;
-     
-     -webkit-transition: opacity .5s ease;
-     -moz-transition: opacity .5s ease;
-     -ms-transition: opacity .5s ease;
-     -o-transition: opacity .5s ease;
-     transition: opacity .5s ease;
-     
-          
-     position: absolute;
-     right: -50px;
-     top: 40px;
+div.github_container {
+    opacity: 0;
+    -webkit-transition: opacity .5s ease;
+    -moz-transition: opacity .5s ease;
+    -ms-transition: opacity .5s ease;
+    -o-transition: opacity .5s ease;
+    transition: opacity .5s ease;
+    position: absolute;
+    right: -50px;
+    top: 40px;
 }
 
 div.github {
-     background-color: #eee;
-     overflow: hidden;
-     white-space: nowrap;
-
-     -webkit-transform: rotate(45deg);
-     -moz-transform: rotate(45deg);
-     -ms-transform: rotate(45deg);
-     -o-transform: rotate(45deg);
-     transform: rotate(45deg);
-     -webkit-box-shadow: 0 0 10px #888;
-     -moz-box-shadow: 0 0 10px #888;
-     box-shadow: 0 0 10px #888;
+    background-color: #eee;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-box-shadow: 0 0 10px #888;
+    -moz-box-shadow: 0 0 10px #888;
+    box-shadow: 0 0 10px #888;
 }
 
 div.github_container:hover {
-     opacity: 1;
+    opacity: 1;
 }
 
 .github a {
-     border: 1px solid #666;
-     color: #000;
-     display: block;
-     font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
-     margin: 1px 0;
-     padding: 10px 50px;
-     text-align: center;
-     text-decoration: none;
-     }
+    border: 1px solid #666;
+    color: #000;
+    display: block;
+    font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 1px 0;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+}
