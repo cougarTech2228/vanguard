@@ -2,7 +2,6 @@ TODO:
 	implement sheet id
 	"drive over step" implement in server and datacrystal
 	recall records for editing
-	error detection in spearhead
-	marking teams in aquapipe + implement on server
+	error detection in spearhead (in progress)
 	cool intro rice
-	Display command dialoge
+	fix LF vs CRLF issue
