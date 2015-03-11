@@ -4,4 +4,5 @@ TODO:
 	recall records for editing
 	error detection in spearhead (in progress)
 	cool intro rice
-	fix LF vs CRLF issue
+	multible themes
+	picture quick entry

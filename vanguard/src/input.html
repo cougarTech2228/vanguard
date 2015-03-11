@@ -158,7 +158,7 @@ img {
               map["gyro"] = rawData.substring(13, 14);
               map["comment"] = rawData.substring(14, rawData.length);
           } else if (document.getElementById("match").checked) {
-              link["type"] = "match";
+              map["type"] = "match";
               
               map["match"] = rawData.substring(0, 3);
               map["alliance"] = rawData.substring(3, 4);

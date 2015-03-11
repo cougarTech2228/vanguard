@@ -5,9 +5,9 @@ number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
 781,Kinetic Knights,Kincardine: ON: Canada,1,,1,,,0
 886,Wildcats,North York: ON: Canada,1,,1,,,0
 1241,THEORY6,Mississauga: ON: Canada,1,,1,1,,
-1246,Agincourt Lancers,Toronto: ON: Canada,1,,1,,,0
+1246,Agincourt Lancers,Toronto: ON: Canada,1,,1,,,1
 1305,Ice Cubed,North Bay: ON: Canada,1,,1,,,0
-1325,Inverse Paradox,Mississauga: ON: Canada,1,,1,,,0
+1325,Inverse Paradox,Mississauga: ON: Canada,1,,1,,,1
 1815,Black Scots,Toronto: ON: Canada,1,,1,,,0
 2013,Cybergnomes,Clearview Township: ON: Canada,1,,1,,,0
 2056,OP Robotics,Stoney Creek: ON: Canada,1,,1,,,
@@ -16,10 +16,10 @@ number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
 2228,CougarTech,Honeoye Falls: NY: USA,1,,1,1,,
 2340,Xcentrics,Rochester: NY: USA,1,,,,0,
 2852,DM High Voltage,St. Catharines: ON: Canada,1,,,,0,
-2935,NACI Robotics,Toronto: ON: Canada,1,,,,0,
-3117,Harfangs,Sherbrooke: QC: Canada,1,,,,0,
+2935,NACI Robotics,Toronto: ON: Canada,1,,,,1,
+3117,Harfangs,Sherbrooke: QC: Canada,1,,,,1,
 3173,IgKnighters,Rochester: NY: USA,1,,,,0,
-3386,Tornades,Montr�al: QC: Canada,1,,,,0,
+3386,Tornades,Montr�al: QC: Canada,1,,,,1,
 3387,Les Aigles d'Or,Montr�al: QC: Canada,1,,,,0,
 3530,Patriotix,Montreal: QC: Canada,1,,,,0,
 3550,Robotronix,Lasalle: QC: Canada,1,,,,,

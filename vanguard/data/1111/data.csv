@@ -1,0 +1,15 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,
+,,,,,,,,,,,
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+2,9,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
+
+002,b,0,1,1,0,1,0,0,11,1111,sdg
+002,b,0,1,1,0,1,0,0,11,1111,sdg
+002,b,0,1,1,0,1,0,0,11,2228,sdg
+002,b,0,1,1,0,1,0,0,11,1111,sdg
