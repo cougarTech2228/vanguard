@@ -1,7 +1,8 @@
 taskkill /IM dart.exe
 
-start "" http://localhost:8080/vanguard.html
-
 cd vanguard/bin/
 
+start "" http://localhost:8080/vanguard.html 
+
 ..\..\dart\dart-sdk\bin\dart.exe server.dart
+
