@@ -1,10 +1,10 @@
 pit scouting,,,,,,,,,,,
 team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,
-2228,tank,1,1,1,0,1,1,0,1,this is the best robot ever lol
+2228,tank,1,1,1,1,1,1,1,1, testing,1
 ,,,,,,,,,,,
 vote record,,,,,,,,,,,
 total votes,possible votes,,,,,,,,,,
-13,19,,,,,,,,,,
+18,24,,,,,,,,,,
 ,,,,,,,,,,,
 match scouting,,,,,,,,,,,
 match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
@@ -43,3 +43,10 @@ ight,number of totes,vote,comment
 001,b,1,1,1,1,1,1,1,15,2228,this is the best bot ever omg omg omg omg omg !!!!!!!!!!!!!
 001,b,1,1,1,1,1,1,1,11,2228,asdf
 001,b,1,1,1,1,1,6,6,12,2228,testing 123
+001,b,1,1,1,1,1,6,6,11,2228,rtyu
+001,r,1,0,0,1,0,0,1,11,2228,test
+001,r,1,1,0,0,1,1,0,01,2228,test
+001,b,0,0,0,0,0,0,0,00,2228,test
+001,b,0,0,0,0,0,0,0,00,2228,test
+001,b,0,0,0,0,0,0,0,00,2228,test
+001,b,r,1,1,1,0,3,3,08,2228,this robot got 3 fouls but almost made a 6 stack plus can

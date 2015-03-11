@@ -193,7 +193,7 @@ img {
         for(key in data){
           value = data[key];
           
-          if(value == ""){
+          if(value == "" && key != "comment"){
             missing.push(key);
             continue;
           }
@@ -210,13 +210,17 @@ img {
               //TODO
             } 
           } else if (document.getElementById("match").checked) {
-            if(["push","auto","landfill","playerstation","litter"].indexOf(key) != -1){
+            if(["auto","landfill","playerstation","litter"].indexOf(key) != -1){
               if(value != "1" && value != "0" ){
                 errors.push( key + ": value must be '1' or '0'");                
               }
             }else if(["maxcan","maxtote"].indexOf(key) != -1){
               if(value.match(/^[0-9]$/) === null || value.length != 1){
                 errors.push( key + ": value must be a one digit number");
+              }
+            }else if (key === "push"){
+              if(["0","r","t","c"].indexOf(value) === -1 || value.length != 1){
+                errors.push( key + ": value must be '0', 'r', 't', or 'c'");
               }
             }else if (key === "number"){
               if(value.match(/^[0-9]+$/) === null || value.length != 4){

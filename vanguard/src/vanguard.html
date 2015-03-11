@@ -312,6 +312,7 @@
                     <tr>
                         <td>Drive:</td>
                         <td id=drive>mechanum</td>
+                        <td id=platform>platform</td>
                     </tr>
                     <tr>
                         <td>Mechanisms:</td>
@@ -938,7 +939,9 @@
 
                     black = "black";
                     grey = "grey";
-
+                    
+                    document.getElementById('platform').style.color = pit[11] == "1" ? black : grey;
+                    
                     document.getElementById('totes').style.color = pit[2] == "1" ? black : grey;
                     document.getElementById('cans').style.color = pit[3] == "1" ? black : grey;
                     document.getElementById('litter').style.color = pit[4] == "1" ? black : grey;

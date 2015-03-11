@@ -54,12 +54,20 @@ void post_handler(HttpRequest request) {
   String type = request.uri.queryParameters["type"];
 
   if (type == "picture") {
+    Directory location = new Directory(root + number)..createSync(recursive: false);
+    Iterable<File> oldfiles = location.listSync().where((f) => f.path.contains("picture") && f is File);
+    
     File imgFile = new File(root + number + "/picture." + request.uri.queryParameters["filetype"]);
     List<int> bytes = [];
     request.listen((data) {
       bytes.addAll(data);
     })
         ..onDone(() {
+          try{
+            oldfiles.forEach((File f)=>f.deleteSync());
+          }catch(e,s){
+            print("ERROR: could not delete old picture file");
+          }
           imgFile.create(recursive: true).then((f) => f.writeAsBytes(bytes));
           request.response.close();
         })
@@ -90,7 +98,7 @@ void post_handler(HttpRequest request) {
     if (type == "pit") {
       //List data = new List<List<String>>.generate(3, (i)=>new List<String>(15));
       //TODO implement platform
-      List data = new List<String>(11);
+      List data = new List<String>(12);
       data[0] = number;
       data[1] = request.uri.queryParameters["drive"];
       data[2] = request.uri.queryParameters["tote"];
@@ -105,6 +113,9 @@ void post_handler(HttpRequest request) {
       if(data[10]==null){
         data[10]="";
       }
+      
+      //quick fix
+      data[11] = request.uri.queryParameters["platform"];
       
       robotDataCSV[2] = data;
     } else if (type == "match") {
@@ -152,10 +163,20 @@ void castVote(String match, String robot) {
   robot = zeros(robot, 4);
 
   List<String> robots = matchCSV.firstWhere((e) => zeros(e[0], 3) == match).sublist(1);
-
+  List<String> red = robots.sublist(0,3);
+  List<String> blue = robots.sublist(3);
+  if(red.any((e) => robot == zeros(e,4))){
+    robots = red; 
+  }else if(blue.any((e) => robot == zeros(e,4))){
+    robots = blue; 
+  }else{
+    print("CASTVOTE FAILED: " + robot + " was not in match " + match);
+    return;
+  }
+  
   robots.forEach((number) {
     try {
-      print("increaseing potencial for robot:" + number);
+      print("cast vote:" + number);
       number = zeros(number, 4);
 
       File robotDataFile = new File(root + number + "/data.csv")..createSync(recursive: true);
@@ -190,7 +211,6 @@ void castVote(String match, String robot) {
         robotDataCSV[6][0] = total.toString();        
       }
       
-      print(robotDataCSV);
       robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
     } catch (e, s) {
       print("cast vote failed for robot:" + number);
