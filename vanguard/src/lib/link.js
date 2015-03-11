@@ -60,7 +60,7 @@ Link = function() {
 }
 
 Link.prototype.info_say = function (text){
-  delay = 2000;
+  delay = 1000;
   this.info_open();
   this.info_text(text);
   setTimeout(this.info_close,delay);

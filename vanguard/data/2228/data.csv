@@ -1,10 +1,10 @@
 pit scouting,,,,,,,,,,,
 team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,
-2228,tank,1,1,0,1,1,1,1,1,asdf our bot
+2228,tank,1,1,1,0,1,1,0,1,this is the best robot ever lol
 ,,,,,,,,,,,
 vote record,,,,,,,,,,,
 total votes,possible votes,,,,,,,,,,
-11,17,,,,,,,,,,
+13,19,,,,,,,,,,
 ,,,,,,,,,,,
 match scouting,,,,,,,,,,,
 match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
@@ -41,3 +41,5 @@ ight,number of totes,vote,comment
 001,b,1,1,1,1,1,1,1,12,2228,asdf
 001,b,1,1,1,1,1,1,1,12,2424,asdf
 001,b,1,1,1,1,1,1,1,15,2228,this is the best bot ever omg omg omg omg omg !!!!!!!!!!!!!
+001,b,1,1,1,1,1,1,1,11,2228,asdf
+001,b,1,1,1,1,1,6,6,12,2228,testing 123
