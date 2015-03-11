@@ -33,15 +33,15 @@ void main(List<String> arguments) {
       print(error);
       print(stack);
     });
-  }).catchError((Exception error, stack){
-    if(error.runtimeType == SocketException){
+  }).catchError((Exception error, stack) {
+    if (error.runtimeType == SocketException) {
       print("Error: could not start server, unable to bind port");
       print("Do you have another instance of the server running?");
-    }else{
+    } else {
       print(error);
       print(stack);
     }
-    
+
   });
 }
 
@@ -64,21 +64,21 @@ void post_handler(HttpRequest request) {
           request.response.close();
         })
         ..onError(print);
-  } else if(type == "check"){
+  } else if (type == "check") {
     String check = request.uri.queryParameters["checked"];
     String kind = request.uri.queryParameters["kind"];
-    List<String> data = robotListCSV.firstWhere((List<String> l)=>zeros(l[0],4) == number);
-    
-    if(kind=="picture"){
-      data[7]=check;
-    }else if(kind == "pit"){
-      data[8]=check;
+    List<String> data = robotListCSV.firstWhere((List<String> l) => zeros(l[0], 4) == number);
+
+    if (kind == "picture") {
+      data[7] = check;
+    } else if (kind == "pit") {
+      data[8] = check;
     }
-    
+
     robotListFile.writeAsStringSync(new CsvConverter.Excel().compose(robotListCSV));
     request.response.close();
-    
-    
+
+
   } else {
     File robotDataFile = new File(root + number + "/data.csv")..createSync(recursive: true);
     List robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
@@ -102,10 +102,10 @@ void post_handler(HttpRequest request) {
       data[8] = request.uri.queryParameters["range"];
       data[9] = request.uri.queryParameters["gyro"];
       data[10] = request.uri.queryParameters["comment"];
-      if(data[10]==null){
-        data[10]="";
+      if (data[10] == null) {
+        data[10] = "";
       }
-      
+
       robotDataCSV[2] = data;
     } else if (type == "match") {
       List data = new List<String>(12);
@@ -124,18 +124,18 @@ void post_handler(HttpRequest request) {
 
       data[10] = request.uri.queryParameters["vote"];
       data[11] = request.uri.queryParameters["comment"];
-      
-      if(data[11]==null){
-        data[11]="";
+
+      if (data[11] == null) {
+        data[11] = "";
       }
-      
+
       robotDataCSV.add(data);
     }
     robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
     request.response.statusCode = HttpStatus.OK;
     request.response.close();
-    
-    if (type == "match"){
+
+    if (type == "match") {
       try {
         castVote(request.uri.queryParameters["match"], request.uri.queryParameters["vote"]);
       } catch (e, s) {
@@ -159,37 +159,37 @@ void castVote(String match, String robot) {
       number = zeros(number, 4);
 
       File robotDataFile = new File(root + number + "/data.csv")..createSync(recursive: true);
-      List<List <String>> robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
+      List<List<String>> robotDataCSV = new CsvConverter.Excel().parse(robotDataFile.readAsStringSync());
       if (robotDataCSV.length < template.length) {
         robotDataCSV = new CsvConverter.Excel().parse(templateString);
       }
-      
+
       String t = robotDataCSV[6][1];
       int total;
-      
-      try{
+
+      try {
         total = int.parse(robotDataCSV[6][1]);
-      }catch(e){
+      } catch (e) {
         total = 0;
       }
-      
+
       total++;
       robotDataCSV[6][1] = total.toString();
-      
-      if(number==robot){
+
+      if (number == robot) {
         String t = robotDataCSV[6][0];
         int total;
-        
-        try{
+
+        try {
           total = int.parse(robotDataCSV[6][0]);
-        }catch(e){
+        } catch (e) {
           total = 0;
         }
-        
+
         total++;
-        robotDataCSV[6][0] = total.toString();        
+        robotDataCSV[6][0] = total.toString();
       }
-      
+
       print(robotDataCSV);
       robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
     } catch (e, s) {

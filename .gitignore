@@ -1,7 +1,6 @@
-﻿
 *~
-
 /dart/*
+
 
 # https://raw.githubusercontent.com/github/gitignore/64ca10514b6a09781b3cda3af9ccdbac28728fd3/Dart.gitignore
 # Don’t commit the following directories created by pub.
@@ -18,11 +17,5 @@ packages
 
 
 # https://raw.githubusercontent.com/github/gitignore/12d95d1ff8094a0a35741cfc3f6a383b43fd871e/Global/DartEditor.gitignore
-<<<<<<< HEAD
-.project 
-.buildlog
->>>>>>> f308be2a333e948d0ad42fa9b0dd5007076ceea3
-=======
 .project
 .buildlog
->>>>>>> f308be2a333e948d0ad42fa9b0dd5007076ceea3
