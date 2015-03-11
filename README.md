@@ -1,5 +1,5 @@
 # Vanguard
-A web-based, cloud hosted, scouting system for [FRC](http://www.usfirst.org/roboticsprograms/frc), using [THREE.js](threejs.org), and [Dart](https://www.dartlang.org/).
+A web-based, cloud hosted, scouting system for [FRC](http://www.usfirst.org/roboticsprograms/frc), using [THREE.js](http://threejs.org), and [Dart](https://www.dartlang.org/).
 
 ## Installing
 1. Clone Vanguard or download the ZIP and extract. If you are running Linux and have Dart installed to the PATH, skip to the setup section.
