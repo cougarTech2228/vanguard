@@ -6,3 +6,4 @@ TODO:
 	cool intro rice
 	multible themes
 	picture quick entry
+	delete entries in datacrystal

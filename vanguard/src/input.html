@@ -182,21 +182,41 @@ img {
       function errorChecker(data){
         return "OK";
         //scans text for errors
-        message="data";
+        errors = [];
         if (document.getElementById("pit").checked) {
           for(key in data){
             value = data[key];
             
-            if(key === ""){
-              
-            }else if (key === ""){
-              
+            if(["platform","tote","can","litter","pneumatics","camera","encoder","range","gyro"].contains(key)){
+              if(value != "1" && value != "0" ){
+                errors.add( key + ": value must be '1' or '0'");                
+              }
+            }else if (key === "number"){
+              if(value.match(/^[0-9]+$/)){
+                errors.add( key + ": value must be a four digit team number");
+              }
+            }else if (key === "drive"){
+              //TODO
+            }
+            
+            if(key.contains("\r") || key.contains("\n")){
+              errors.add( key + ": value may not contain newlines of returns");
+            }
+            
+            if(key.contains(",") || key.contains("'") || key.contains('"')){
+              errors.add( key + ": value may not contain commas, quotations, or apostrophes");
             }
             
           }
         } else if (document.getElementById("match").checked) {
           
         }
+        
+        
+        if(errors == []){
+          
+        }
+        
         
       }
       
@@ -298,6 +318,7 @@ img {
           linker.info_open();
           linker.info_text(position);
         }
+        
         
         //data = getData();
         //errorChecker(data);
