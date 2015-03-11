@@ -1,7 +1,7 @@
 number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
 378,The Circuit Stompers,Newfane: NY: USA,1, ,1,1,,
 578,Red Raider Robotics,Fairport: NY: USA,1,,1,1,,
-746,Gearheads,Torornto: ON: Canada,1,,1,,,0
+746,Gearheads,Torornto: ON: Canada,1,,1,1,,0
 781,Kinetic Knights,Kincardine: ON: Canada,1,,1,,,0
 886,Wildcats,North York: ON: Canada,1,,1,,,0
 1241,THEORY6,Mississauga: ON: Canada,1,,1,1,,
@@ -10,8 +10,8 @@ number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
 1325,Inverse Paradox,Mississauga: ON: Canada,1,,1,,,1
 1815,Black Scots,Toronto: ON: Canada,1,,1,,,0
 2013,Cybergnomes,Clearview Township: ON: Canada,1,,1,,,0
-2056,OP Robotics,Stoney Creek: ON: Canada,1,,1,,,
-2185,RAMAZOIDZ,Toronto: ON: Canada,1,,1,,,
+2056,OP Robotics,Stoney Creek: ON: Canada,1,,1,,,1
+2185,RAMAZOIDZ,Toronto: ON: Canada,1,,1,,,1
 2198,Paradigm Shift,Toronto: ON: Canada,1,,1,,,
 2228,CougarTech,Honeoye Falls: NY: USA,1,,1,1,,
 2340,Xcentrics,Rochester: NY: USA,1,,,,0,
@@ -20,10 +20,10 @@ number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
 3117,Harfangs,Sherbrooke: QC: Canada,1,,,,1,
 3173,IgKnighters,Rochester: NY: USA,1,,,,0,
 3386,Tornades,Montr�al: QC: Canada,1,,,,1,
-3387,Les Aigles d'Or,Montr�al: QC: Canada,1,,,,0,
+3387,Les Aigles d'Or,Montr�al: QC: Canada,1,,,,1,
 3530,Patriotix,Montreal: QC: Canada,1,,,,0,
 3550,Robotronix,Lasalle: QC: Canada,1,,,,,
-3710,FSS Cyber Falcons,Kingston: ON: Canada,1,,,,,
+3710,FSS Cyber Falcons,Kingston: ON: Canada,1,,,,1,
 3986,Express-O,St laurent: QC: Canada,1,,,,,
 3988,Scarabot,Montreal: QC: Canada,1,,,,,
 3990,Tech for Kids,Montr�al: QC: Canada,1,,,,,

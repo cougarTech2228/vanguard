@@ -6,3 +6,4 @@ TODO:
 	cool intro rice
 	multible themes
 	picture quick entry
+	change votes from match to alliance based
