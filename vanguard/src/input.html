@@ -226,6 +226,10 @@ img {
               if(value.match(/^[0-9]+$/) === null || value.length != 4){
                 errors.push( key + ": value must be a four digit team number");
               }
+            }else if (key === "vote"){
+              if(value.match(/^[0-9]+$/) === null || value.length != 4){
+                errors.push( key + ": value must be a four digit team number");
+              }
             }else if (key === "match"){
               if(value.match(/^[0-9]+$/) === null || value.length != 3){
                 errors.push( key + ": value must be a three digit match number");

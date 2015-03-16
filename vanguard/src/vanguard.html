@@ -301,7 +301,7 @@
             <input id="input" type="text" size="40" placeholder="Search..." />
         </div>
         <div id="infoElement">
-            <img id="info_image" class="info" src="/loading.gif">
+            <img id="info_image" class="info" src="/loading.gif?type=image">
             <div id="info_title">
                 <div id="info_number">2228</div>
                 <div id="info_name">CougarTech</div>
@@ -341,14 +341,14 @@
                     <tr>
                         <td>Match</td>
                         <td>Alliance</td>
-                        <td>auto tote</td>
-                        <td>auto can</td>
-                        <td>auto stack</td>
-                        <td>litter in can</td>
+                        <td>push</td>
+                        <td>auto</td>
                         <td>landfill</td>
                         <td>player station</td>
-                        <td>step totes</td>
-                        <td>step cans</td>
+                        <td>litter in can</td>
+                        <td>max can</td>
+                        <td>max tote</td>
+                        <td>number of totes</td>
                         <td>vote</td>
                         <td>comment</td>
 
@@ -382,8 +382,11 @@
                 table: [],
                 sphere: [],
                 helix: [],
-                grid: []
+                grid: [],
+                sort: []
             };
+            
+            var sorting = [];
 
             var expanded = null;
             var selected = null;
@@ -492,6 +495,11 @@
 
                     targets.table.push(target);
 
+                    var target = new THREE.Object3D();
+                    target.position.x = (i * 140) - 1330;
+                    target.position.y = 0;
+
+                    targets.sort.push(target);
                 }
 
                 // sphere
@@ -656,6 +664,7 @@
                   search(queryParameter("search"));
                 }
                 
+                 
                 if(queryParameter("robot") != ""){
                   search(queryParameter("robot"));
                   setTimeout(function () {
@@ -665,6 +674,147 @@
 
                 window.addEventListener('resize', onWindowResize, false);
 
+            }
+            
+            var rank_function = rank_Cummulative;
+            
+            function rankBy_Random(data){
+              return Math.random() * 100;
+            }
+            
+            function rankBy_Votes(data){
+              votes = data[6];
+              console.log(votes);
+              console.log(parseInt(votes[0]) / parseInt(votes[1]));
+              return parseInt(votes[0]) / parseInt(votes[1]);
+            }
+            
+            function rankBy_NumTotes(data){
+              sum = 0;
+              num = 0;
+              
+              for (i = 10; i < data.length; i++) {
+                d = parseInt(data[i][9]);
+                if(d<15){
+                  sum += d;
+                  num += 1;
+                }else{
+                  //alert(d);
+                }
+              }
+              
+              return sum / num; 
+            }
+            
+            function rankBy_MaxTotes(data){
+              sum = 0;
+              num = 0;
+              
+              for (i = 10; i < data.length; i++) {
+                d = parseInt(data[i][8]);
+                if(d<7){
+                  sum += d;
+                  num += 1;
+                }
+              }
+              
+              return sum / num;
+            }
+            
+            function rankBy_MaxCans(data){
+              sum = 0;
+              num = 0;
+              
+              for (i = 10; i < data.length; i++) {
+                d = parseInt(data[i][7]);
+                if(d<8){
+                  sum += d;
+                  num += 1;
+                }
+              }
+              
+              if(num != 0){
+                return sum / num;
+              }else{
+                return 0;
+              }
+            }
+            
+            function rankBy_Auto(data){
+              sum = 0;
+              num = 0;
+              
+              for (i = 10; i < data.length; i++) {
+                sum += parseInt(data[i][3]);
+                push = data[i][2];
+                if(push === "r"){
+                  sum +=1;
+                }else if(push === "t"){
+                  sum +=2;
+                }else if(push === "c"){
+                  sum +=2;
+                }
+                
+                num += 1;
+              }
+              
+              console.log(sum/num);
+              return sum / num;
+            }
+            
+            function rank_Cummulative(data){
+              //alert("ranking...");
+              sum = rankBy_NumTotes(data);
+              sum += rankBy_MaxTotes(data);
+              sum += rankBy_MaxCans(data);
+              //sum += rankBy_Auto(data);
+              sum += rankBy_Votes(data)*10;
+              return sum;
+            }
+            
+            function sort(){
+              sorting = [];
+              sort_next(0);
+            }
+            
+            function sort_next(i){
+              if(i < objects.length){
+                element = objects[i].element;
+                url = "/?type=data&number=" + element.id;
+                $.get(url, function(data, status) {
+                    data = data.split("\n");
+                    data = data.map(function (l){return l.split(",");});
+                    try{
+                      rank = rank_function(data);
+                    }catch(e){
+                      //console.log(e);
+                      rank = -1;
+                    }
+                    element.rank = rank;
+                    sorting.push(element);
+                    sort_next(++i);
+                }); 
+              }else{
+                sorting.sort(function (a,b){return a.rank - b.rank;});
+                sort_update();
+              }
+            }
+            
+            function sort_update(){
+              for (var i = 0; i < sorting.length; i += 1) {
+                number = sorting[i].id;
+                index = lookup[number];
+                //alert(number + " " + index);
+                var target = new THREE.Object3D();
+                target.position.x = (i * 140) - 1330;
+                target.position.y = 0;
+
+                targets.sort[index]=target;
+              }
+              
+              targets.table = targets.sort;
+              
+              transform(targets.sort, 1000);
             }
 
             function search(text) {
@@ -813,6 +963,7 @@
 
                 object.element.querySelector(".symbol").style.opacity = 0;
 
+                resetInfo();
                 displayInfo(object.element.id);
 
                 expanded = object;
@@ -870,7 +1021,7 @@
 
                 rotation = targets.table[objects.indexOf(object)].rotation;
                 position = targets.table[objects.indexOf(object)].position;
-
+                
                 new TWEEN.Tween(object.rotation)
                     .to({
                         x: rotation.x,
@@ -878,7 +1029,7 @@
                         z: rotation.z
                     }, 900)
                     .easing(TWEEN.Easing.Exponential.InOut)
-                    .onComplete(resetInfo)
+                    .onComplete()
                     .start();
 
                 new TWEEN.Tween(object.position)
@@ -903,13 +1054,38 @@
 
             function resetInfo() {
                 document.getElementById("info_image").src = "/loading.gif";
+                
+                document.getElementById('drive').innerHTML = "";
+                document.getElementById('comment').innerHTML = "No Pit Scouting Found!!!";
+
+                grey = "grey";
+                
+                document.getElementById('platform').style.color = grey;
+                
+                document.getElementById('totes').style.color = grey;
+                document.getElementById('cans').style.color = grey;
+                document.getElementById('litter').style.color = grey;
+
+                document.getElementById('pneumatics').style.color = grey;
+                document.getElementById('camera').style.color = grey;
+                document.getElementById('encoders').style.color = grey;
+                document.getElementById('range').style.color = grey;
+                document.getElementById('gyro').style.color = grey;
+
+                document.getElementById("rank").innerHTML = "NaN";
+
+                tbl = document.getElementById('match_data');
+
+                lables = tbl.children[0].children[0];
+                tbl.children[0].innerHTML = "";
+                tbl.children[0].appendChild(lables);
             }
 
             function displayInfo(number) {
                 document.getElementById('info_name').innerHTML = table[lookup[number]][1];
                 document.getElementById('info_number').innerHTML = number;
                 document.getElementById('info_location').innerHTML = table[lookup[number]][2];
-
+                 
                 document.getElementById("info_image").src = "/?type=picture&number=" + number;
 
                 //do http request here
@@ -952,8 +1128,7 @@
                     document.getElementById('range').style.color = pit[8] == "1" ? black : grey;
                     document.getElementById('gyro').style.color = pit[9] == "1" ? "black" : grey;
 
-                    votes = data[6].split(",");
-                    document.getElementById("rank").innerHTML = 100 * parseInt(votes[0]) / parseInt(votes[1]);
+                    document.getElementById("rank").innerHTML = 100 * rankBy_Votes(data);
 
                 }).fail(function() {
                     alert('"being scouting lead is suffering"');

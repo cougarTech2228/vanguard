@@ -154,8 +154,11 @@ void post_handler(HttpRequest request) {
       }
     }
   }
+  try{
   logEntry(type, number);
-
+  }catch(e){
+    print("could not log post");
+  }
 }
 
 void castVote(String match, String robot) {
@@ -249,7 +252,6 @@ void get_handler(HttpRequest request) {
       request.response.headers.set('Content-Length', raw.length);
       request.response.headers.set('Cache-Control', "public, max-age=31536000");
       request.response.add(raw);
-
     } else {
 
       try {

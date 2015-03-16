@@ -1,48 +1,48 @@
 number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
-378,The Circuit Stompers,Newfane: NY: USA,1, ,1,1,,
-578,Red Raider Robotics,Fairport: NY: USA,1,,1,1,,
-746,Gearheads,Torornto: ON: Canada,1,,1,,,1
-781,Kinetic Knights,Kincardine: ON: Canada,1,,1,,,1
-886,Wildcats,North York: ON: Canada,1,,1,,,1
-1241,THEORY6,Mississauga: ON: Canada,1,,1,1,,
-1246,Agincourt Lancers,Toronto: ON: Canada,1,,1,,,0
-1305,Ice Cubed,North Bay: ON: Canada,1,,1,,,0
-1325,Inverse Paradox,Mississauga: ON: Canada,1,,1,,,1
-1815,Black Scots,Toronto: ON: Canada,1,,1,,,0
-2013,Cybergnomes,Clearview Township: ON: Canada,1,,1,,,0
-2056,OP Robotics,Stoney Creek: ON: Canada,1,,1,,,
-2185,RAMAZOIDZ,Toronto: ON: Canada,1,,1,,,
-2198,Paradigm Shift,Toronto: ON: Canada,1,,1,,,1
+378,The Circuit Stompers,Newfane: NY: USA,1, ,1,1,0,1
+578,Red Raider Robotics,Fairport: NY: USA,1,,1,1,,1
+746,Gearheads,Torornto: ON: Canada,1,,1,1,0,1
+781,Kinetic Knights,Kincardine: ON: Canada,1,,1,1,,1
+886,Wildcats,North York: ON: Canada,1,,1,1,,1
+1241,THEORY6,Mississauga: ON: Canada,1,,1,1,,0
+1246,Agincourt Lancers,Toronto: ON: Canada,1,,1,1,,
+1305,Ice Cubed,North Bay: ON: Canada,1,,1,1,,1
+1325,Inverse Paradox,Mississauga: ON: Canada,1,,1,1,1,
+1815,Black Scots,Toronto: ON: Canada,1,,1,1,,0
+2013,Cybergnomes,Clearview Township: ON: Canada,1,,1,1,,1
+2056,OP Robotics,Stoney Creek: ON: Canada,1,,1,1,,1
+2185,RAMAZOIDZ,Toronto: ON: Canada,1,,1,1,,0
+2198,Paradigm Shift,Toronto: ON: Canada,1,,1,1,,1
 2228,CougarTech,Honeoye Falls: NY: USA,1,,1,1,,
-2340,Xcentrics,Rochester: NY: USA,1,,,,1,
-2852,DM High Voltage,St. Catharines: ON: Canada,1,,,,0,
-2935,NACI Robotics,Toronto: ON: Canada,1,,,,0,
-3117,Harfangs,Sherbrooke: QC: Canada,1,,,,0,
-3173,IgKnighters,Rochester: NY: USA,1,,,,1,
-3386,Tornades,Montr�al: QC: Canada,1,,,,1,
-3387,Les Aigles d'Or,Montr�al: QC: Canada,1,,,,1,
-3530,Patriotix,Montreal: QC: Canada,1,,,,0,
-3550,Robotronix,Lasalle: QC: Canada,1,,,,,
-3710,FSS Cyber Falcons,Kingston: ON: Canada,1,,,,,
-3986,Express-O,St laurent: QC: Canada,1,,,,,
-3988,Scarabot,Montreal: QC: Canada,1,,,,,
-3990,Tech for Kids,Montr�al: QC: Canada,1,,,,,
-4015,Jag,Mississauga: ON: Canada,1,,,,,
-4248,Bits & Pieces,Whitby: ON: Canada,1,,,,,
-4252,Cardinal Robotics,Markham: ON: Canada,1,,,,,
-4476,W.A.F.F.L.E.S.,Kingston: ON: Canada,1,,,,,
-4627,MANNING ROBOTICS,Calgary: AB: Canada,1,,,,,
-4704,Northern Lights Robotics,Timmins: ON: Canada,1,,,,,
-4718,RoboPanthers,Toronto: ON: Canada,1,,,,,
-4732,SWC Robotics,Thunder Bay: ON: Canada,1,,,,,
-4783,RoboRavens,Ottawa: ON: Canada,1,,,,,
-4825,The Coltenoids,Ottawa: ON: Canada,1,,,,,
-5031,Team Frank,Toronto: ON: Canada,1,,,,,
-5036,The Robo Devils,Scarborough: ON: Canada,1,,,,,
-5051,Fast Eddie Community Robotics,Port Perry: ON: Canada,1,,,,,
-5076,Stormbots,Ajax: ON: Canada,1,,,,,
-5094,Blizzard,Brampton: ON: Canada,1,,,,,
-5428,Breaking Bots,Markham: ON: Canada,1,,,,,
-5596,Wolverines,Scarborough: ON: Canada,1,,,,,
-5652,Eagles,Ottawa: ON: Canada,1,,,1,,
-5719,Titans,Toronto: ON: Canada,1,,,,,
+2340,Xcentrics,Rochester: NY: USA,1,,1,1,,1
+2852,DM High Voltage,St. Catharines: ON: Canada,1,,1,1,,
+2935,NACI Robotics,Toronto: ON: Canada,1,,1,1,,
+3117,Harfangs,Sherbrooke: QC: Canada,1,,1,1,,
+3173,IgKnighters,Rochester: NY: USA,1,,1,1,,1
+3386,Tornades,Montr�al: QC: Canada,1,,1,1,,1
+3387,Les Aigles d'Or,Montr�al: QC: Canada,1,,1,1,,1
+3530,Patriotix,Montreal: QC: Canada,1,,1,1,,1
+3550,Robotronix,Lasalle: QC: Canada,1,,1,1,1,1
+3710,FSS Cyber Falcons,Kingston: ON: Canada,1,,1,1,,
+3986,Express-O,St laurent: QC: Canada,1,,1,,,0
+3988,Scarabot,Montreal: QC: Canada,1,,1,1,,
+3990,Tech for Kids,Montr�al: QC: Canada,1,,1,1,,
+4015,Jag,Mississauga: ON: Canada,1,,1,1,,
+4248,Bits & Pieces,Whitby: ON: Canada,1,,1,1,,
+4252,Cardinal Robotics,Markham: ON: Canada,1,,1,1,,
+4476,W.A.F.F.L.E.S.,Kingston: ON: Canada,1,,1,1,,
+4627,MANNING ROBOTICS,Calgary: AB: Canada,1,,1,1,0,
+4704,Northern Lights Robotics,Timmins: ON: Canada,1,,1,1,0,
+4718,RoboPanthers,Toronto: ON: Canada,1,,1,1,0,
+4732,SWC Robotics,Thunder Bay: ON: Canada,1,,1,1,0,
+4783,RoboRavens,Ottawa: ON: Canada,1,,1,1,1,
+4825,The Coltenoids,Ottawa: ON: Canada,1,,1,1,,
+5031,Team Frank,Toronto: ON: Canada,1,,1,1,0,
+5036,The Robo Devils,Scarborough: ON: Canada,1,,1,1,0,
+5051,Fast Eddie Community Robotics,Port Perry: ON: Canada,1,,1,1,,
+5076,Stormbots,Ajax: ON: Canada,1,,1,1,0,
+5094,Blizzard,Brampton: ON: Canada,1,,1,1,0,
+5428,Breaking Bots,Markham: ON: Canada,1,,1,1,0,
+5596,Wolverines,Scarborough: ON: Canada,1,,1,1,,
+5652,Eagles,Ottawa: ON: Canada,1,,1,1,0,
+5719,Titans,Toronto: ON: Canada,1,,1,1,,

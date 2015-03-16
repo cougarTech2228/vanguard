@@ -9,6 +9,10 @@
         <link href="/lib/global.css" rel="stylesheet" type="text/css">
 
         <style type="text/css">
+            html{
+              overflow:hidden;
+            }
+            
             #number {
                 position: absolute;
                 top: 18%;
@@ -95,11 +99,17 @@
 
         var upload = function(photo, filetype) {
             number = document.getElementById("number").value;
-
-            var request = new XMLHttpRequest();
-
-            request.open('POST', '/?type=picture&number=' + number + '&filetype=' + filetype);
-            request.send(photo);
+            if(number.match(/^[0-9]+$/) !== null){  
+              var request = new XMLHttpRequest();
+  
+              request.open('POST', '/?type=picture&number=' + number + '&filetype=' + filetype);
+              request.onload = function (){
+                document.getElementById("preview").src = "";
+                document.getElementById("number").value = "";
+                document.getElementById("file").files = [];
+              };
+              request.send(photo);
+            }
         };
 
         function preview(event) {
