@@ -5,4 +5,6 @@ TODO:
 	multible themes
 	picture quick entry
 	delete entries in datacrystal
+	scouters timecard
+	create lists
 	

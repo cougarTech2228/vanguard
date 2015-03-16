@@ -11,6 +11,7 @@ List<List<String>> template = new CsvConverter.Excel().parse(templateString);
 File matchFile = new File(root + "matches.csv");
 List<List<String>> matchCSV = new CsvConverter.Excel().parse(matchFile.readAsStringSync());
 
+File archive = new File(root + "archive.csv");
 
 void main(List<String> arguments) {
   HttpServer.bind(InternetAddress.ANY_IP_V6, arguments.isNotEmpty ? int.parse(arguments[0]) : 8080).then((server) {
@@ -46,6 +47,10 @@ void main(List<String> arguments) {
 }
 
 void post_handler(HttpRequest request) {
+  String a = "";
+  request.uri.queryParameters.forEach((k,v)=>a+=k+":"+v+","); 
+  archive.writeAsString(a, mode:"append");
+  
   String number = request.uri.queryParameters["number"];
   while (number.length < 4) {
     number = "0" + number;
