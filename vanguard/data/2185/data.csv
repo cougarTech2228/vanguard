@@ -1,0 +1,17 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform
+2185,tank,1,1,0,0,1,1,0,1,adjustable elevator rack,1
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+1,14,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
+
+004,r,0,0,0,0,0,0,0,00,0317,3 got stuck no stacks
+014,r,0,0,0,1,0,0,2,02,0000,
+023,r,0,0,1,0,0,0,0,00,1246,poorlifter
+028,b,0,0,1,0,0,0,2,00,3565,2helps:slow at grabbing
+042,b,0,0,1,0,0,0,2,00,0781,
+052,b,0,1,1,0,0,2,2,02,3550,

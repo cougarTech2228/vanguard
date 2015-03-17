@@ -1,0 +1,19 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform
+4718,tank,1,1,0,0,0,1,0,0,possibly not working,1
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+3,23,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
+
+001,b,0,0,0,1,0,0,1,01,5051,good mobility trouble moving totes
+012,r,0,0,0,1,0,0,2,03,3550, take time to aline
+024,r,r,1,0,0,0,0,0,00,0000,fell over almost instantly: went over bump to fast
+029,b,0,0,0,0,0,0,0,00,1305,did not move
+037,r,r,1,0,1,0,0,1,04,4718,only moved 1 totte at a time
+040,b,r,0,0,1,0,0,2,04,1246,
+050,b,0,1,0,1,0,0,2,05,0378,
+056,b,0,1,0,1,0,0,1,02,3387, stopped moving

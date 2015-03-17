@@ -1,0 +1,17 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform
+1241,tank,1,1,0,1,1,1,0,0,wheel fed elevator,1
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+8,12,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
+
+005,r,0,1,1,0,0,0,5,81,2412, at once hold 5 in robot large
+010,b,0,1,1,0,0,0,3,06,1241,stacked 2 yellows uses landfill
+021,b,c,1,1,0,0,0,4,06,2228,
+027,r,t,1,1,0,0,0,2,07,3986,
+043,b,0,0,0,1,0,0,5,15,1241,
+054,b,0,1,0,1,0,0,5,07,1241,ramp:lost 30%

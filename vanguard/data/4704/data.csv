@@ -1,0 +1,16 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform
+4704,tank,1,1,1,1,1,1,0,0,5 stack: carry 3,1
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+1,16,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
+
+007,r,0,0,0,1,0,0,1,13,990 ,poor grabber
+013,r,0,0,0,1,0,0,1,02,5031,couldnt grab cans
+022,b,0,0,0,1,0,0,1,01,3986,
+025,r,0,0,0,0,0,0,0,00,1325,
+040,b,0,0,0,1,0,0,1,03,1246,fast

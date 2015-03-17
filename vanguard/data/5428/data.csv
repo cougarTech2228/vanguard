@@ -1,0 +1,17 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform
+5428,tank,1,0,0,0,1,1,0,0,chain based elevator,1
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+3,16,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
+
+005,b,0,0,1,0,0,0,3,07,5428,decent robot
+013,r,0,0,1,1,0,0,4,07,5031,very good stacking
+024,r,t,1,1,0,0,0,1,03,4476,stable lifter : slow
+030,b,r,1,1,0,0,0,3,04,2228,efficient stacking:only holds one tote
+039,r,0,1,0,0,0,0,0,00,1325,foul
+042,r,r,1,1,0,0,0,1,03,5428,

@@ -1,0 +1,18 @@
+pit scouting,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform
+1246,tank,1,0,0,1,0,1,1,0,wheel based feeder,0
+,,,,,,,,,,,
+vote record,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,
+4,17,,,,,,,,,,
+,,,,,,,,,,,
+match scouting,,,,,,,,,,,
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
+
+002,b,0,1,1,0,0,0,1,01,3550,
+014,b,0,0,1,0,0,0,2,02,3386,takes a while to grab totes   not good at it
+023,r,0,0,1,0,0,1,0,00,0000,nope: not the one
+030,r,0,0,0,0,0,0,0,00,3117,
+035,b,c,1,1,0,0,0,1,00,3886,fast only 1 tote at a time
+040,b,t,1,1,0,0,2,1,01,4704,
+054,b,0,0,0,1,0,0,2,03,2056,
