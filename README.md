@@ -48,7 +48,7 @@ This will allow you to see all requests to the server and any error, so you can 
 2. analytics
 3. lists
 4. mobile forms for scouting directly into the system
---for more see the projects TODO file
+5. --for more see the projects TODO file
 
 ## Contact
 Please report any bugs you find to the issues page above, I will try to fix problems as soon as possible.
