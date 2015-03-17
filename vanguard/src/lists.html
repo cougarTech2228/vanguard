@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lists</title>
+  </head>
+ 
+  <body>   
+    <table>
+      <tr id = "container">
+        <ul class="robot_list">
+          <li id = "HEAD", class="list-entry-header">
+               
+          </li>
+        </ul>
+      </tr>
+    </table>
+  </body>
+  
+  <script type="text/javascript" src="/lib/PapaParse/papaparse.js">
+  <script>
+  var lists = {};
+  var datas = {};
+  
+  function init(){
+    fetchData("HEAD");
+  }
+  
+  function parseData(data){
+    var number = data[1][0];
+    
+    element = document.parseAsHTML("
+        <li class="list-entry">
+            <div class="entry-index">?</div>
+            <div class="entry-number">?</div>
+            <div class="entry-field">?</div>
+        </li>
+    ");
+    element.id = number;
+    
+    element.querySelector(".entry-number").innerHTML = data[1][0];
+    
+    return element;
+  }
+  
+  function displayInfo(number) { 
+      document.getElementById("info_image").src = "/?type=picture&number=" + number;
+
+      //do http request here
+      url = "/?type=data&number=" + number;
+      $.get(url, function(data, status) {
+
+          data = data.split("\n");
+
+          tbl = document.getElementById('match_data');
+
+          lables = tbl.children[0].children[0];
+          tbl.children[0].innerHTML = "";
+          tbl.children[0].appendChild(lables);
+
+          for (i = 10; i < data.length; i++) {
+              row = tbl.insertRow();
+              row.className = "data_entry";
+              info = data[i].split(",");
+              for (d = 0; d < info.length; d++) {
+                  cell = row.insertCell();
+                  cell.innerHTML = info[d];
+              }
+          }
+          pit = data[2].split(",");
+          document.getElementById('drive').innerHTML = pit[1];
+          document.getElementById('comment').innerHTML = pit[10];
+
+          black = "black";
+          grey = "grey";
+          
+          document.getElementById('platform').style.color = pit[11] == "1" ? black : grey;
+          
+          document.getElementById('totes').style.color = pit[2] == "1" ? black : grey;
+          document.getElementById('cans').style.color = pit[3] == "1" ? black : grey;
+          document.getElementById('litter').style.color = pit[4] == "1" ? black : grey;
+
+          document.getElementById('pneumatics').style.color = pit[5] == "1" ? black : grey;
+          document.getElementById('camera').style.color = pit[6] == "1" ? black : grey;
+          document.getElementById('encoders').style.color = pit[7] == "1" ? black : grey;
+          document.getElementById('range').style.color = pit[8] == "1" ? black : grey;
+          document.getElementById('gyro').style.color = pit[9] == "1" ? "black" : grey;
+
+          document.getElementById("rank").innerHTML = 100 * rankBy_Votes(data);
+
+      }).fail(function() {
+          alert('"being scouting lead is suffering"');
+      });
+  }
+  
+  function fetchData(list_id, element){
+    //first get robot list
+    //then fetch robot data files and call parse data for each
+    //list data
+    
+    url = "/?type=list&id="+list_id;
+    $.get(url, function(csv, status) {
+      var data = Papa.parse(csv);
+      lists[list_id] = data();
+      
+      var list_element = document.createElement("ul");
+      list_element.className = "robot_list";
+      list_element.id = list_id;
+      var table_element = document.createElement("tr");
+      table_element.appendChild(list_element);
+      document.body.querySelector("#container").appendChild(table_element);
+     
+      list_element.appendChild(list_headers());
+      for(index in data){
+        var entry = data[index];
+        var number = entry[0];
+        
+        url = "/?type=data&number="+number;
+        $.get(url, function(robotData_CSV, status) {
+          datas[number] = Papa.parse(robotData_CSV);
+          var element = parseData(number);
+          list_element.appendChild(element);
+        }
+        
+      }
+    }).fail(function() {
+      alert();
+    });
+        
+    function list_headers(){
+      //todo
+    }
+  }
+  
+  </script>
+  
+  
+</html>
