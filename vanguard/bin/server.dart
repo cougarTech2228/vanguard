@@ -285,6 +285,13 @@ void get_handler(HttpRequest request) {
     request.response.write(text);
     request.response.close();
 
+  } else if (request.uri.queryParameters["type"] == "list") {
+    String id = request.uri.queryParameters["id"];
+    File customListFile = new File(root + "lists/" + id + ".CSV");//..createSync(recursive: true);
+    String text = customListFile.readAsStringSync().replaceAll("\r", "\n").replaceAll("\n\n", "\n");
+    request.response.write(text);
+    request.response.close();
+
   } else if (request.uri.queryParameters["type"] == "picture") {
     String number = request.uri.queryParameters["number"];
     while (number.length < 4) {
