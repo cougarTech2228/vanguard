@@ -49,7 +49,7 @@ void main(List<String> arguments) {
 void post_handler(HttpRequest request) {
   String a = "";
   request.uri.queryParameters.forEach((k,v)=>a+=k+":"+v+","); 
-  archive.writeAsString(a, mode:"append");
+  archive.writeAsString(a, mode:FileMode.APPEND);
   
   String number = request.uri.queryParameters["number"];
   while (number.length < 4) {
@@ -287,7 +287,7 @@ void get_handler(HttpRequest request) {
 
   } else if (request.uri.queryParameters["type"] == "list") {
     String id = request.uri.queryParameters["id"];
-    File customListFile = new File(root + "lists/" + id + ".CSV");//..createSync(recursive: true);
+    File customListFile = new File(root + "lists/" + id + ".csv");//..createSync(recursive: true);
     String text = customListFile.readAsStringSync().replaceAll("\r", "\n").replaceAll("\n\n", "\n");
     request.response.write(text);
     request.response.close();
