@@ -5,6 +5,9 @@ String root = "../data/";
 File robotListFile = new File(root + "robots.csv")..createSync(recursive: true);
 List<List<String>> robotListCSV = new CsvConverter.Excel().parse(robotListFile.readAsStringSync());
 
+File dataSheetFile = new File(root + "alldata.csv")..createSync(recursive: true);
+List<List<String>> dataSheetCSV = new CsvConverter.Excel().parse(dataSheetFile.readAsStringSync());
+
 String templateString = new File(root + "template.csv").readAsStringSync();
 List<List<String>> template = new CsvConverter.Excel().parse(templateString);
 
@@ -124,7 +127,7 @@ void post_handler(HttpRequest request) {
       
       robotDataCSV[2] = data;
     } else if (type == "match") {
-      List data = new List<String>(12);
+      List data = new List<String>(18);
       data[0] = request.uri.queryParameters["match"];
       data[1] = request.uri.queryParameters["alliance"];
       data[2] = request.uri.queryParameters["push"];
@@ -132,20 +135,29 @@ void post_handler(HttpRequest request) {
 
       data[4] = request.uri.queryParameters["landfill"];
       data[5] = request.uri.queryParameters["playerstation"];
-      data[6] = request.uri.queryParameters["litter"];
+      data[6] = request.uri.queryParameters["tips"];
+      data[7] = request.uri.queryParameters["coop"];
+      data[8] = request.uri.queryParameters["stepcan"];
 
-      data[7] = request.uri.queryParameters["maxcan"];
-      data[8] = request.uri.queryParameters["maxtote"];
-      data[9] = request.uri.queryParameters["numtotes"];
-
-      data[10] = request.uri.queryParameters["vote"];
-      data[11] = request.uri.queryParameters["comment"];
+      data[9] = request.uri.queryParameters["maxcan"];
+      data[10] = request.uri.queryParameters["numcans_top"];
+      data[11] = request.uri.queryParameters["numcans_raise"];
+      data[12] = request.uri.queryParameters["litter"];
+      data[13] = request.uri.queryParameters["maxtote"];
+      data[14] = request.uri.queryParameters["numtotes"];
+      data[15] = request.uri.queryParameters["numstacks"];
+      data[16] = request.uri.queryParameters["vote"];
+      data[17] = request.uri.queryParameters["comment"];
       
-      if(data[11]==null){
-        data[11]="";
+      if(data[17]==null){
+        data[17]="";
       }
       
       robotDataCSV.add(data);
+      
+      //UNTESTED
+      dataSheetCSV.add(data.toList()..insert(0, number));
+      dataSheetFile.writeAsStringSync(new CsvConverter.Excel().compose(dataSheetCSV));
     }
     robotDataFile.writeAsStringSync(new CsvConverter.Excel().compose(robotDataCSV));
     request.response.statusCode = HttpStatus.OK;

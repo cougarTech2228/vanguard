@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
-
-<head>
+<!-- saved from url=(0032)http://localhost:8080/input.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
 <title>VANGUARD:spearhead</title>
-<link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css">
-<link href="/lib/global.css" rel="stylesheet" type="text/css">
+<link href="./VANGUARD spearhead_files/toggle-switch.css" rel="stylesheet" type="text/css">
+<link href="./VANGUARD spearhead_files/global.css" rel="stylesheet" type="text/css">
 
 <style>
 body {
@@ -62,7 +61,7 @@ img {
   color: #222;
 }
 
-#errorList_OFF {
+#errorList {
   position:absolute;
   bottom: 2%;
   right: 30%;
@@ -75,18 +74,16 @@ img {
 
 <body>
   <input id="input" type="text" value="">
-  <img src="/resources/anime_girl.png?type=image">
+  <img src="./VANGUARD spearhead_files/anime_girl.png">
   <div id="switch" class="switch-toggle switch-android">
-    <input id="pit" name="view" type="radio" checked> <label
-      for="pit" onclick="">PIT</label> <input id="match" name="view"
-      type="radio"> <label for="match" onclick="">MATCH</label>
+    <input id="pit" name="view" type="radio" checked=""> <label for="pit" onclick="">PIT</label> <input id="match" name="view" type="radio"> <label for="match" onclick="">MATCH</label>
 
     <a></a>
   </div>
   <div id="errorList"></div>
-</body>
-<script type="text/javascript" src="/lib/jquery.min.js"></script>
-<script type="text/javascript" src="./lib/link.js"></script>
+
+<script type="text/javascript" src="./VANGUARD spearhead_files/jquery.min.js"></script>
+<script type="text/javascript" src="./VANGUARD spearhead_files/link.js"></script><div id="info_bar" style="opacity: 0;">vote</div><div class="github_container"><div class="github"><a href="https://github.com/cougarTech2228/Vanguard" target="_blank">Fork me on GitHub</a></div></div>
 
 <script type="text/javascript">
       rotation = 0;
@@ -183,24 +180,19 @@ img {
               map["type"] = "match";
               
               map["match"] = rawData.substring(0, 3);
-              map["alliance"] = "b";
-              map["number"] = rawData.substring(3, 7);
-              map["push"] = rawData.substring(7, 8);
-              map["auto"] = rawData.substring(8, 9);
-              map["landfill"] = rawData.substring(9, 10);
-              map["playerstation"] = rawData.substring(10, 11);
-              map["tips"] = rawData.substring(11, 12);
-              map["coop"] = rawData.substring(11, 12);
-              map["stepcan"] = rawData.substring(11, 12);
-              map["maxcan_top"] = rawData.substring(12, 13);
-              map["maxcan_raise"] = rawData.substring(11, 12);
-              map["numcans"] = rawData.substring(13, 14);
-              map["litter"] = rawData.substring(11, 12);
-              map["maxtote"] = rawData.substring(14,15);
-              map["numtotes"] = rawData.substring(15, 17);
-              map["numstacks"] = rawData.substring(7, 8);
-              map["vote"] = rawData.substring(17, 21);
-              map["comment"] = rawData.substring(21, rawData.length);
+              map["alliance"] = rawData.substring(3, 4);
+              map["number"] = rawData.substring(4, 8);
+              map["push"] = rawData.substring(8, 9);
+              map["auto"] = rawData.substring(9, 10);
+              map["landfill"] = rawData.substring(10, 11);
+              map["playerstation"] = rawData.substring(11, 12);
+              map["litter"] = rawData.substring(12, 13);
+              map["maxcan"] = rawData.substring(13, 14);
+              map["numcans"] = rawData.substring(14, 15);
+              map["maxtote"] = rawData.substring(15,16);
+              map["numtotes"] = rawData.substring(16, 18);
+              map["vote"] = rawData.substring(18, 22);
+              map["comment"] = rawData.substring(22, rawData.length);
               
           }
         }catch(e){}
@@ -368,37 +360,40 @@ img {
               case (p<3):
                   position = "match";
                   break;
-              case (p< 7):
-                  position = "number";
+              case (p<4):
+                  position = "alliance";
                   break;
               case (p<8):
-                  position = "push";
+                  position = "number";
                   break;
               case (p<9):
-                  position = "auto";
+                  position = "push";
                   break;
               case (p<10):
-                  position = "landfill";
+                  position = "auto";
                   break;
               case (p<11):
-                  position = "playerstation";
+                  position = "landfill";
                   break;
               case (p<12):
-                  position = "litter";
+                  position = "playerstation";
                   break;
               case (p<13):
-                  position = "maxcan";
+                  position = "litter";
                   break;
               case (p<14):
-                  position = "numcans";
+                  position = "maxcan";
                   break;
               case (p<15):
+                  position = "numcans";
+                  break;
+              case (p<16):
                   position = "maxtote";
                   break;
-              case (p<17):
+              case (p<18):
                   position = "numtotes";
                   break;
-              case (p<21):
+              case (p<22):
                   position = "vote";
                   break;
               default:
@@ -420,4 +415,5 @@ img {
 
    </script>
 
-</html>
+
+</body></html>

@@ -1,13 +1,16 @@
-pit scouting,,,,,,,,,,,
-team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform
-2228,omni,1,1,1,1,1,1,1,1,this is our bot:so kawaii,1
-,,,,,,,,,,,
-vote record,,,,,,,,,,,
-total votes,possible votes,,,,,,,,,,
-5,11,,,,,,,,,,
-,,,,,,,,,,,
-match scouting,,,,,,,,,,,
-match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,max tote height,number of totes,vote,comment
+pit scouting,,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+vote record,,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,,
+5,5,,,,,,,,,,,
+,,,,,,,,,,,,
+match scouting,,,,,,,,,,,,
+match,alliance,push/move into auto zone,has autonomous,landfill,Player station,litter in can,max can height,number of cans,max tote height,number of totes,vote,comment
 
-022,b,0,0,0,1,0,0,4,07,1241,
-030,b,r,1,0,1,1,4,3,07,2228,
+11,b,t,auto,landfill,playerstation,1,2,3,6,2,2228,op
+11,b,t,1,1,0,3,1,0,0,1,2228,op
+11,b,t,1,1,0,3,1,0,0,1,2228,op
+11,b,r,1,1,0,0,3,0,1,15,2228,op
+11,b,t,1,1,1,0,4,2,3,15,2228,triangle

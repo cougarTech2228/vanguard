@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>VANGUARD:spearhead</title>
+<link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css">
+<link href="/lib/global.css" rel="stylesheet" type="text/css">
+
+<style>
+  html{
+    overflow-x:wrap;
+  }
+  #confirm{
+    opacity:0;
+  }
+</style>
+  
+</head>
+
+<body>
+  <form id="form">
+  <input type ="number" id="match"></input>match number<br>
+  <input type ="number" id="number"></input>team number<br>
+  <br>
+  <h1>Autonomous</h1>
+  <hr>
+  <select id="push"> 
+    <option value="0" selected>None</option>
+    <option value="r">Robot</option>
+    <option value="t">Tote</option>
+    <option value="c">Can</option>
+  </select>Moves into the auto zone with?<br>
+  <input type="checkbox" id="auto" value="auto">Robot moves in autonomous?<br>
+  <br>
+  <h1>Tele-op</h1>
+  <hr>
+  <input type="checkbox" id="landfill" value="landfill">Gets a tote from the landfill?<br>
+  <input type="checkbox" id="playerstation" value="playerstation">Gets a tote from the playerstation?<br>
+  <select id="litter">
+    <option value="0">None</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>litter put in cans?<br>
+  <select id="maxcan">
+    <option value="0">None</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+  </select>maximum can height?<br>
+  <select id="numcans">
+    <option value="0">None</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>number of cans?<br><br>
+  
+  <select id="maxtote">
+    <option value="0">None</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+  </select>maximum tote height<br>
+  <select id="numtotes">
+    <option value="00">None</option>
+    <option value="01">1</option>
+    <option value="02">2</option>
+    <option value="03">3</option>
+    <option value="04">4</option>
+    <option value="05">5</option>
+    <option value="06">6</option>
+    <option value="07">7</option>
+    <option value="08">8</option>
+    <option value="09">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+  </select>number of totes<br>
+  
+  <br><hr>
+  
+  <input id="vote" type ="number" id="number"></input>vote: out to the three robots on the alliance, which was the best<br>
+  <input id="comment" type="textarea">comment<br>
+  <br>
+  Look over data before submiting!<br>
+  <button id = "submit">submit</button>
+  <button id = "confirm">confirm</button>
+  </form>
+  <hr>
+  <h1>VANGUARD</h1>
+</body>
+<script type="text/javascript" src="/lib/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/link.js"></script>
+
+<script type="text/javascript">
+      rotation = 0;
+
+      function submit(map) {
+          console.log(map);
+            
+          
+          link = "/?";
+          //link = "http://mechasdf.com:8080/?";
+          
+          for(key in map){
+            link += "&" + key + "=" + map[key];
+          }
+          
+          link.replace("&","");
+
+          $.post(link, function(data, status) {
+              if (status != "success") {
+                  alert(status);
+              } else {
+                  clear();
+              }
+          });
+      }
+      
+      document.getElementById("submit").onclick = function (event){
+        document.getElementById("confirm").style.opacity = 1;
+        document.getElementById("confirm").onclick = function (event){
+          event.preventDefault();
+          submit(getData());
+        };
+        event.preventDefault();
+      }
+      
+      document.getElementById("confirm").onclick = function (event){
+        event.preventDefault();
+      };
+      
+      function clear(){
+        document.getElementById("form").reset();
+        document.getElementById("confirm").style.opacity = 0;
+        document.getElementById("confirm").onclick = function (event){
+          event.preventDefault();
+        };
+      }
+      
+      function getData(){
+        map = {};
+      
+        map["type"] = "match";
+        
+        map["match"] = document.getElementById("match").value;
+        
+        map["alliance"] = "b";
+        map["number"] = document.getElementById("number").value;
+        map["push"] = document.getElementById("push").value;
+        map["auto"] = document.getElementById("auto").checked ? "1":"0";
+        map["landfill"] = document.getElementById("landfill").checked ? "1":"0";
+        map["playerstation"] = document.getElementById("playerstation").checked ? "1":"0";
+        map["litter"] = document.getElementById("litter").value;
+        map["maxcan"] = document.getElementById("maxcan").value;
+        map["numcans"] = document.getElementById("numcans").value;
+        map["maxtote"] = document.getElementById("maxtote").value;
+        map["numtotes"] = document.getElementById("numtotes").value;
+        map["vote"] = document.getElementById("vote").value;
+        map["comment"] = document.getElementById("comment").value;
+        
+        message = errorChecker(map);  
+        
+        if(message="OK"){
+          return map;
+        }else{
+          //TODO
+        }
+      }
+      
+      function message(data){
+        return "OK";
+        //TODO
+      }
+
+   </script>
+
+</html>

@@ -12,8 +12,18 @@
       <tr id = "container">
       </tr>
     </table>
+    <iframe src="/vanguard.html"></iframe>
   </body>
+  
   <style>
+     iframe{
+        position: fixed;
+        right: 0%;
+        top:0%;
+        width:70%;
+        height:98%;
+     }
+  
      .entry-field, .entry-number{
          text-align: center;
      }
@@ -36,6 +46,9 @@
   <script type="text/javascript" src="/lib/jquery.min.js"></script>
   <script type="text/javascript" src="/lib/PapaParse/papaparse.js"></script>
   <script>
+  
+    //WARN does not work with new sheet
+  
     var lists = {};
     var datas = {};
     
@@ -48,8 +61,8 @@
     function parseData(number){
       var data = datas[number];
       var matchData = data.slice(10);
-      //console.log(data);
-      //console.log(number);
+      console.log(data);
+      console.log(number);
       
       var element = document.createElement("tr");
       element.className="list-entry";
@@ -57,12 +70,13 @@
       
       element.innerHTML =
         '<td class="entry-index"></td>' +
-        '<td class="entry-number">number</td>' +
+        '<th class="entry-number">number</th>' +
         '<td id="landfill" class="entry-field">LF</td>' +
         '<td id="numtotes" class="entry-field">NT</td>' +
         '<td id="maxtotes" class="entry-field">MT</td>' +
         '<td id="maxcans" class="entry-field">MC</td>' +
-        '<td id="reliability" class="entry-field">RL</td>';
+        '<td id="reliability" class="entry-field">RL</td>' +
+        '<td id="votes" class="entry-field">VO</td>';
           
       element.id = number;
       
@@ -73,7 +87,8 @@
       element.querySelector("#maxtotes.entry-field").innerHTML = average(matchData, 8).toPrecision(3);
       element.querySelector("#maxcans.entry-field").innerHTML = average(matchData, 7).toPrecision(3);
       element.querySelector("#reliability.entry-field").innerHTML = reliablityAnalysis(matchData).toPrecision(3);
-
+      element.querySelector("#votes.entry-field").innerHTML = (parseInt(data[6][0])/parseInt(data[6][1])).toPrecision(3);
+      
       return element;
     }
     
@@ -196,7 +211,8 @@
           '<th id="numtotes" class="entry-field">NT</th>' +
           '<th id="maxtotes" class="entry-field">MT</th>' +
           '<th id="maxcans" class="entry-field">MC</th>' +
-          '<th id="reliability" class="entry-field">RL</th>';
+          '<th id="reliability" class="entry-field">RL</th>' +
+          '<th id="votes" class="entry-field">VO</th>';
         return element;
       }
     }
