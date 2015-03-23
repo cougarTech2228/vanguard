@@ -190,18 +190,17 @@ img {
               map["landfill"] = rawData.substring(9, 10);
               map["playerstation"] = rawData.substring(10, 11);
               map["tips"] = rawData.substring(11, 12);
-              map["coop"] = rawData.substring(11, 12);
-              map["stepcan"] = rawData.substring(11, 12);
-              map["maxcan_top"] = rawData.substring(12, 13);
-              map["maxcan_raise"] = rawData.substring(11, 12);
-              map["numcans"] = rawData.substring(13, 14);
-              map["litter"] = rawData.substring(11, 12);
-              map["maxtote"] = rawData.substring(14,15);
-              map["numtotes"] = rawData.substring(15, 17);
-              map["numstacks"] = rawData.substring(7, 8);
-              map["vote"] = rawData.substring(17, 21);
-              map["comment"] = rawData.substring(21, rawData.length);
-              
+              map["coop"] = rawData.substring(12, 13);
+              map["stepcan"] = rawData.substring(13, 14);
+              map["maxcan_top"] = rawData.substring(14, 15);
+              map["maxcan_raise"] = rawData.substring(15, 16);
+              map["numcans"] = rawData.substring(16, 17);
+              map["litter"] = rawData.substring(17, 18);
+              map["maxtote"] = rawData.substring(18, 19);
+              map["numtotes"] = rawData.substring(19, 21);
+              map["numstacks"] = rawData.substring(21, 22);
+              map["vote"] = rawData.substring(22, 26);
+              map["comment"] = rawData.substring(26, rawData.length);
           }
         }catch(e){}
         
@@ -233,11 +232,11 @@ img {
               //TODO
             } 
           } else if (document.getElementById("match").checked) {
-            if(["auto","landfill","playerstation"].indexOf(key) != -1){
+            if(["auto","landfill","playerstation","tips","coop","stepcan"].indexOf(key) != -1){
               if(value != "1" && value != "0" ){
                 errors.push( key + ": value must be '1' or '0'");                
               }
-            }else if(["maxcan","maxtote","litter","numcans"].indexOf(key) != -1){
+            }else if(["maxcan_top","maxcan_raise","maxtote","litter","numcans","numstacks"].indexOf(key) != -1){
               if(value.match(/^[0-9]$/) === null || value.length != 1){
                 errors.push( key + ": value must be a one digit number");
               }
@@ -384,21 +383,36 @@ img {
                   position = "playerstation";
                   break;
               case (p<12):
-                  position = "litter";
+                  position = "tips";
                   break;
               case (p<13):
-                  position = "maxcan";
+                  position = "coop";
                   break;
               case (p<14):
-                  position = "numcans";
+                  position = "stepcan";
                   break;
               case (p<15):
-                  position = "maxtote";
+                  position = "maxcan_top";
+                  break;
+              case (p<16):
+                  position = "maxcan_raise";
                   break;
               case (p<17):
-                  position = "numtotes";
+                  position = "numcans";
+                  break;
+              case (p<18):
+                  position = "litter";
+                  break;
+              case (p<19):
+                  position = "maxtote";
                   break;
               case (p<21):
+                  position = "numtotes";
+                  break;
+              case (p<22):
+                  position = "numstacks";
+                  break;
+              case (p<26):
                   position = "vote";
                   break;
               default:

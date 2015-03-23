@@ -345,10 +345,16 @@
                         <td>auto</td>
                         <td>landfill</td>
                         <td>player station</td>
-                        <td>litter in can</td>
-                        <td>max can</td>
+                        <td>ruins stack</td>
+                        <td>coopertition</td>
+                        <td>gets a step can</td>                        
+                        <td>max can on top</td>
+                        <td>max can in stack</td>          
+                        <td>number of cans</td>                                     
+                        <td>litter in can</td>                            
                         <td>max tote</td>
                         <td>number of totes</td>
+                        <td>number of stacks</td>
                         <td>vote</td>
                         <td>comment</td>
 
@@ -1091,7 +1097,6 @@
                 //do http request here
                 url = "/?type=data&number=" + number;
                 $.get(url, function(data, status) {
-
                     data = data.split("\n");
 
                     tbl = document.getElementById('match_data');
@@ -1128,7 +1133,9 @@
                     document.getElementById('range').style.color = pit[8] == "1" ? black : grey;
                     document.getElementById('gyro').style.color = pit[9] == "1" ? "black" : grey;
 
-                    document.getElementById("rank").innerHTML = 100 * rankBy_Votes(data);
+                    votes = data[6].split(",");
+                    
+                    document.getElementById("rank").innerHTML = 100 * parseInt(votes[0]) / parseInt(votes[1]);
 
                 }).fail(function() {
                     alert('"being scouting lead is suffering"');

@@ -6,7 +6,7 @@
 <title>VANGUARD:spearhead</title>
 <link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css">
 <link href="/lib/global.css" rel="stylesheet" type="text/css">
-
+<title>recon</title>
 <style>
   html{
     overflow-x:wrap;
@@ -37,7 +37,10 @@
   <hr>
   <input type="checkbox" id="landfill" value="landfill">Gets a tote from the landfill?<br>
   <input type="checkbox" id="playerstation" value="playerstation">Gets a tote from the playerstation?<br>
-  <select id="litter">
+  <input type="checkbox" id="tips" value="tips">Ruins/tips over a stack?<br>
+  <input type="checkbox" id="coop" value="coop">Scores Coopertition Points?<br>
+  <input type="checkbox" id="stepcan" value="stepcan">Gets a can from the step?<br>
+  <select id="maxcan_top">
     <option value="0">None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -45,9 +48,8 @@
     <option value="4">4</option>
     <option value="5">5</option>
     <option value="6">6</option>
-    <option value="7">7</option>
-  </select>litter put in cans?<br>
-  <select id="maxcan">
+  </select>maximum can height(placed onto a stack)?<br>
+  <select id="maxcan_raise">
     <option value="0">None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -55,7 +57,7 @@
     <option value="4">4</option>
     <option value="5">5</option>
     <option value="6">6</option>
-  </select>maximum can height?<br>
+  </select>maximum can height(raised up with a stack)?<br>
   <select id="numcans">
     <option value="0">None</option>
     <option value="1">1</option>
@@ -66,7 +68,16 @@
     <option value="6">6</option>
     <option value="7">7</option>
   </select>number of cans?<br><br>
-  
+    <select id="litter">
+    <option value="0">None</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select>litter put in cans?<br>
   <select id="maxtote">
     <option value="0">None</option>
     <option value="1">1</option>
@@ -103,6 +114,18 @@
     <option value="23">23</option>
     <option value="24">24</option>
   </select>number of totes<br>
+  <select id="numstacks">
+    <option value="0">None</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="6">7</option>
+    <option value="6">8</option>
+    <option value="9">9+</option>
+  </select>number of stacks<br>
   
   <br><hr>
   
@@ -178,11 +201,16 @@
         map["auto"] = document.getElementById("auto").checked ? "1":"0";
         map["landfill"] = document.getElementById("landfill").checked ? "1":"0";
         map["playerstation"] = document.getElementById("playerstation").checked ? "1":"0";
+        map["tips"] = document.getElementById("tips").checked ? "1":"0";
+        map["coop"] = document.getElementById("coop").checked ? "1":"0";
+        map["stepcan"] = document.getElementById("stepcan").checked ? "1":"0";
         map["litter"] = document.getElementById("litter").value;
-        map["maxcan"] = document.getElementById("maxcan").value;
+        map["maxcan_top"] = document.getElementById("maxcan_top").value;
+        map["maxcan_raise"] = document.getElementById("maxcan_raise").value;
         map["numcans"] = document.getElementById("numcans").value;
         map["maxtote"] = document.getElementById("maxtote").value;
         map["numtotes"] = document.getElementById("numtotes").value;
+        map["numstacks"] = document.getElementById("numstacks").value;
         map["vote"] = document.getElementById("vote").value;
         map["comment"] = document.getElementById("comment").value;
         
@@ -195,7 +223,7 @@
         }
       }
       
-      function message(data){
+      function errorChecker(data){
         return "OK";
         //TODO
       }

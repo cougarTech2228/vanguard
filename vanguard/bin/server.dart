@@ -139,9 +139,9 @@ void post_handler(HttpRequest request) {
       data[7] = request.uri.queryParameters["coop"];
       data[8] = request.uri.queryParameters["stepcan"];
 
-      data[9] = request.uri.queryParameters["maxcan"];
-      data[10] = request.uri.queryParameters["numcans_top"];
-      data[11] = request.uri.queryParameters["numcans_raise"];
+      data[9] = request.uri.queryParameters["maxcan_top"];
+      data[10] = request.uri.queryParameters["maxcan_raise"];
+      data[11] = request.uri.queryParameters["numcans"];
       data[12] = request.uri.queryParameters["litter"];
       data[13] = request.uri.queryParameters["maxtote"];
       data[14] = request.uri.queryParameters["numtotes"];
