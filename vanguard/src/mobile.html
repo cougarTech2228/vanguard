@@ -8,57 +8,108 @@
 <link href="/lib/global.css" rel="stylesheet" type="text/css">
 <title>recon</title>
 <style>
-  html{
-    overflow-x:hidden;
-    font:2em proxima-nova;
+  html, body {
+    background: #fff;
+    padding: 3px;
+    color: #000;
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: none;
   }
+  
+  ::-webkit-scrollbar { 
+    display: none; 
+  }
+  
   h1{
-    font:5em proxima-nova;
+    display:block;
+    font:3.5em proxima-nova;
     text-align:center;
     padding:0px;
+    margin:0px;
   }
+  
+  h3{
+    display:inline;
+    font:2em proxima-nova;
+    text-align:left;
+    padding:0px;
+    margin:0px;
+  }
+  
+  div{
+    width:96%;
+    margin:2%;
+    text-align:left;
+  }
+  
+  div.left{
+    text-align:left;
+  }
+  
   #confirm{
     opacity:0;
   }
-  input[type=text], input[type=number] {
-  -webkit-appearance: none; -moz-appearance: none;
-  display: block;
-  margin: 0;
-  width: 100%; height: 5em;
-  line-height: 5em; font-size: 17px;
-  border: 1px solid #bbb;
-}
   
-  select{
-
+  input[type=text], input[type=number] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline;
+    position:absolute;
+    right:0px;
+    vertical-align: bottom;
+    text-align:left;
+    height: 2em;
+    margin-right: 2%;
+    line-height: 5em;
+    font-size: 17px;
+    border: 1px solid #bbb;
   }
+    
+  
+  input[type=checkbox] {
+    /* All browsers except webkit*/
+    transform: scale(2);
+  
+    /* Webkit browsers*/
+    -webkit-transform: scale(2));
+    
+    margin-right:5%;
+    
+  }
+  
+  
 </style>
   
 </head>
 
 <body>
+  <h1>VANGUARD</h1><hr><br>
   <form id="form">
-  <input type ="number" id="match"></input>match number<br>
-  <input type ="number" id="number"></input>team number<br>
+  <div class="left"><h3>match#</h3><input type ="number" id="match"></input></div>
+  <div class="left"><h3>team#</h3><input type ="number" id="number"></input></div>
   <br>
   <h1>Autonomous</h1>
   <hr>
-  <select id="push"> 
+  <div> <select id="push"> 
     <option value="0" selected>None</option>
     <option value="r">Robot</option>
     <option value="t">Tote</option>
     <option value="c">Can</option>
-  </select>Moves into the auto zone with?<br>
-  <input type="checkbox" id="auto" value="auto">Robot moves in autonomous?<br>
+  </select>Moves into the auto zone with?</div>
+  
+  <div> <input type="checkbox" id="auto" value="auto">Robot moves in autonomous?</div>
+  
   <br>
   <h1>Tele-op</h1>
   <hr>
-  <input type="checkbox" id="landfill" value="landfill">Gets a tote from the landfill?<br>
-  <input type="checkbox" id="playerstation" value="playerstation">Gets a tote from the playerstation?<br>
-  <input type="checkbox" id="tips" value="tips">Ruins/tips over a stack?<br>
-  <input type="checkbox" id="coop" value="coop">Scores Coopertition Points?<br>
-  <input type="checkbox" id="stepcan" value="stepcan">Gets a can from the step?<br>
-  <select id="maxcan_top">
+  
+  <div> <input type="checkbox" id="landfill" value="landfill">Gets a tote from the landfill?</div>
+  <div> <input type="checkbox" id="playerstation" value="playerstation">Gets a tote from the playerstation?</div>
+  <div> <input type="checkbox" id="tips" value="tips">Ruins/tips over a stack?</div>
+  <div> <input type="checkbox" id="coop" value="coop">Scores Coopertition Points?</div>
+  <div> <input type="checkbox" id="stepcan" value="stepcan">Gets a can from the step?</div>
+  <div> <select id="maxcan_top">
     <option value="0">None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -66,8 +117,9 @@
     <option value="4">4</option>
     <option value="5">5</option>
     <option value="6">6</option>
-  </select>maximum can height(placed onto a stack)?<br>
-  <select id="maxcan_raise">
+  </select>maximum can height(placed onto a stack)?</div>
+  
+  <div> <select id="maxcan_raise">
     <option value="0">None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -75,8 +127,9 @@
     <option value="4">4</option>
     <option value="5">5</option>
     <option value="6">6</option>
-  </select>maximum can height(raised up with a stack)?<br>
-  <select id="numcans">
+  </select>maximum can height(raised up with a stack)?</div>
+  
+  <div> <select id="numcans">
     <option value="0">None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -85,8 +138,9 @@
     <option value="5">5</option>
     <option value="6">6</option>
     <option value="7">7</option>
-  </select>number of cans?<br><br>
-    <select id="litter">
+  </select>number of cans?</div>
+    
+  <div> <select id="litter">
     <option value="0">None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -95,8 +149,9 @@
     <option value="5">5</option>
     <option value="6">6</option>
     <option value="7">7</option>
-  </select>litter put in cans?<br>
-  <select id="maxtote">
+  </select>litter put in cans?</div>
+  
+  <div> <select id="maxtote">
     <option value="0">None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -104,8 +159,9 @@
     <option value="4">4</option>
     <option value="5">5</option>
     <option value="6">6</option>
-  </select>maximum tote height<br>
-  <select id="numtotes">
+  </select>maximum tote height</div>
+  
+  <div> <select id="numtotes">
     <option value="00">None</option>
     <option value="01">1</option>
     <option value="02">2</option>
@@ -131,8 +187,9 @@
     <option value="22">22</option>
     <option value="23">23</option>
     <option value="24">24</option>
-  </select>number of totes<br>
-  <select id="numstacks">
+  </select>number of totes</div>
+  
+  <div> <select id="numstacks">
     <option value="0">None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -143,22 +200,23 @@
     <option value="6">7</option>
     <option value="6">8</option>
     <option value="9">9+</option>
-  </select>number of stacks<br>
+  </select>number of stacks</div>
   
   <br><hr>
   
-  <input id="vote" type ="number" id="number"></input>vote: out to the three robots on the alliance, which was the best<br>
-  <input id="comment" type="textarea">comment<br>
+  <div> <input id="vote" type ="number" id="number"></input>vote: out to the three robots on the alliance, which was the best</div>
+  <div> <input id="comment" type="textarea">comment</div>
   <br>
   Look over data before submiting!<br>
-  <button id = "submit">submit</button>
-  <button id = "confirm">confirm</button>
+  <div> 
+    <button id = "submit">submit</button>
+    <button id = "confirm">confirm</button>
+  </div>  
   </form>
   <hr>
   <h1>VANGUARD</h1>
 </body>
 <script type="text/javascript" src="/lib/jquery.min.js"></script>
-<script type="text/javascript" src="./lib/link.js"></script>
 
 <script type="text/javascript">
       rotation = 0;
