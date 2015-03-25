@@ -31,6 +31,7 @@ void main(List<String> arguments) {
         print(error);
         print(stack);
         print("satan");
+        request.response.statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
         request.response.close();
       }
     }).onError((error, stack) {

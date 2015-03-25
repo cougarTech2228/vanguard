@@ -401,7 +401,25 @@ select {
       
       function errorChecker(data){
         return "OK";
-        //TODO
+        
+        if (key === "number"){
+            if(value.match(/^[0-9]+$/) === null || value.length != 4){
+               return "team number must be a number"   
+            
+            }
+          }
+        if (key === "vote"){
+            if(value.match(/^[0-9]+$/) === null || value.length != 4){
+                 return "MVP vote must be a number"   
+
+            }
+          }
+          if (key === "match"){
+            if(value.match(/^[0-9]+$/) === null || value.length != 3){
+                 
+                 return "match must be a number"   
+
+            }
       }
 
    </script>
