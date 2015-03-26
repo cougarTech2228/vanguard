@@ -1,45 +1,46 @@
-20,The Rocketeers,Clifton Park: NY: USA
-73,The Illumination,Rochester: NY: USA
-174,Arctic Warriors,Liverpool: NY: USA
-191,X-CATS,Rochester: NY: USA
-250,Dynamos,Colonie: NY: USA
-340,G.R.R. (Greater Rochester Robotics),Churchville: NY: USA
-378,The Circuit Stompers,Newfane: NY: USA
-395,2 TrainRobotics,Bronx: NY: USA
-578,Red Raider Robotics,Fairport: NY: USA
-743,Technobots,Bronx: NY: USA
-1126,SPARX,Webster: NY: USA
-1155,SciBorgs,Bronx: NY: USA
-1405,Finney Falcons,Penfield: NY: USA
-1450,XQ RobotiX,Rochester: NY: USA
-1507,Warlocks,Lockport: NY: USA
-1511,Rolling Thunder,Penfield: NY: USA
-1518,Raider Robotics,Palmyra: NY: USA
-1551,The Grapes of Wrath,Naples: NY: USA
-1559,Devil-Tech,Victor: NY: USA
-1585,Scitobor Robotics,Shortsville: NY: USA
-1591,Greece Gladiators,Rochester: NY: USA
-1660,Harlem Knights,New York: NY: USA
-1765,E1Bots,Cheektowaga: NY: USA
-2228,CougarTech,Honeoye Falls: NY: USA
-2265,Fe Maidens,Bronx: NY: USA
-2340,Xcentrics,Rochester: NY: USA
-2791,Shaker Robotics,Latham: NY: USA
-2809,K-Botics,Kingston: ON: Canada
-3003,TAN(X),Canandaigua: NY: USA
-3015,Ranger Robotics,Spencerport: NY: USA
-3044,Team 0xBE4,Ballston Spa: NY: USA
-3157,Eastridge Robotics,Rochester: NY: USA
-3173,IgKnighters,Rochester: NY: USA
-3181,Pittsford Panthers,Pittsford: NY: USA
-3799,Electric Fire,Elmira: NY: USA
-3838,Roc City Robotix,Rochester: NY: USA
-3951,SUITS,Honeoye: NY: USA
-4039,MakeShift Robotics,Hamilton: ON: Canada
-4093,Joe's Average Slackers,Orleans County: NY: USA
-4505,McDonogh Eagle Robotics,Owings Mills: MD: USA
-5030,The Second Mouse,Utica: NY: USA
-5254,Robot Raiders,Trumansburg: NY: USA
-5349,RoboEagles,Central Square: NY: USA
-5433,Blinding Light,Webster: NY: USA
-5590,Alumiboti,Buffalo: NY: USA
+number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
+20,The Rocketeers,Clifton Park: NY: USA,,,,,,
+73,The Illumination,Rochester: NY: USA,,,,,,
+174,Arctic Warriors,Liverpool: NY: USA,,,,,,
+191,X-CATS,Rochester: NY: USA,,,,,,
+250,Dynamos,Colonie: NY: USA,,,,,,
+340,G.R.R. (Greater Rochester Robotics),Churchville: NY: USA,,,,,,
+378,The Circuit Stompers,Newfane: NY: USA,,,,,,
+395,2 TrainRobotics,Bronx: NY: USA,,,,,,
+578,Red Raider Robotics,Fairport: NY: USA,,,,,,
+743,Technobots,Bronx: NY: USA,,,,,,
+1126,SPARX,Webster: NY: USA,,,,,,
+1155,SciBorgs,Bronx: NY: USA,,,,,,
+1405,Finney Falcons,Penfield: NY: USA,,,,,,
+1450,XQ RobotiX,Rochester: NY: USA,,,,,,
+1507,Warlocks,Lockport: NY: USA,,,,,,
+1511,Rolling Thunder,Penfield: NY: USA,,,,,,
+1518,Raider Robotics,Palmyra: NY: USA,,,,,,
+1551,The Grapes of Wrath,Naples: NY: USA,,,,,,
+1559,Devil-Tech,Victor: NY: USA,,,,,,
+1585,Scitobor Robotics,Shortsville: NY: USA,,,,,,
+1591,Greece Gladiators,Rochester: NY: USA,,,,,,
+1660,Harlem Knights,New York: NY: USA,,,,,,
+1765,E1Bots,Cheektowaga: NY: USA,,,,,,
+2228,CougarTech,Honeoye Falls: NY: USA,,,,,,
+2265,Fe Maidens,Bronx: NY: USA,,,,,,
+2340,Xcentrics,Rochester: NY: USA,,,,,,
+2791,Shaker Robotics,Latham: NY: USA,,,,,,
+2809,K-Botics,Kingston: ON: Canada,,,,,,
+3003,TAN(X),Canandaigua: NY: USA,,,,,,
+3015,Ranger Robotics,Spencerport: NY: USA,,,,,,
+3044,Team 0xBE4,Ballston Spa: NY: USA,,,,,,
+3157,Eastridge Robotics,Rochester: NY: USA,,,,,,
+3173,IgKnighters,Rochester: NY: USA,,,,,,
+3181,Pittsford Panthers,Pittsford: NY: USA,,,,,,
+3799,Electric Fire,Elmira: NY: USA,,,,,,
+3838,Roc City Robotix,Rochester: NY: USA,,,,,,
+3951,SUITS,Honeoye: NY: USA,,,,,,
+4039,MakeShift Robotics,Hamilton: ON: Canada,,,,,,
+4093,Joe's Average Slackers,Orleans County: NY: USA,,,,,,
+4505,McDonogh Eagle Robotics,Owings Mills: MD: USA,,,,,,
+5030,The Second Mouse,Utica: NY: USA,,,,,,
+5254,Robot Raiders,Trumansburg: NY: USA,,,,,,
+5349,RoboEagles,Central Square: NY: USA,,,,,,
+5433,Blinding Light,Webster: NY: USA,,,,,,
+5590,Alumiboti,Buffalo: NY: USA,,,,,,

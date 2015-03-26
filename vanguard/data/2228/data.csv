@@ -4,7 +4,7 @@ team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,came
 ,,,,,,,,,,,,,,,,,
 vote record,,,,,,,,,,,,,,,,,
 total votes,possible votes,,,,,,,,,,,,,,,,
-2,3,,,,,,,,,,,,,,,,
+3,4,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,
 match scouting,,,,,,,,,,,,,,,,,
 match,alliance,push/move into auto zone,moves in auto,landfill,Player station,ruins a stack,coop points,Gets a step can,max can height top,max can height raised,number of cans,litter in can,max tote height,number of totes,number of stacks,vote,comment
@@ -12,3 +12,4 @@ match,alliance,push/move into auto zone,moves in auto,landfill,Player station,ru
 011,b,r,1,1,1,1,0,0,4,0,3,3,4,12,6,2228,this is test 1
 11,b,c,1,1,0,1,1,1,2,4,2,3,5,15,9,1815,this is test 3
 11,b,r,1,0,1,0,1,0,6,3,3,3,6,06,3,2228,This is test 4
+11,b,0,0,0,0,0,0,0,0,0,0,0,0,00,0,2228,
