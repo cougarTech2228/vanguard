@@ -63,7 +63,7 @@ div {
 }
 
 div.left{
-   margin-left:5%;
+   margin:5%;
 }
 
 h1 {
@@ -80,7 +80,7 @@ h2{
   padding: 0px;
   margin: 0px; //
   margin-bottom: 5px;
-  font-size: 4em;
+  font-size: 4.5em;
 }
 
 h3{
@@ -108,8 +108,8 @@ hr{
 }
 
 input[type=checkbox] {
-  width: 5em;
-  height: 5em;
+  width: 6.5em;
+  height: 6.5em;
   -webkit-border-radius: 22px;
   -moz-border-radius: 22px;
   border-radius: 22px;
@@ -117,7 +117,7 @@ input[type=checkbox] {
 }
 
 select {
-  font-size: 4em;
+  font-size: 3.7em;
 }
 </style>
 
@@ -350,7 +350,7 @@ select {
           submit(getData());
         };
         event.preventDefault();
-      }
+      };
       
       document.getElementById("confirm").onclick = function (event){
         event.preventDefault();
@@ -362,6 +362,11 @@ select {
         document.getElementById("confirm").onclick = function (event){
           event.preventDefault();
         };
+        
+        document.body.style.backgroundColor   = "blue";
+        setTimeout(function (){
+             document.body.style.backgroundColor = "white";
+        },1000);
       }
       
       function getData(){
@@ -392,34 +397,34 @@ select {
         
         message = errorChecker(map);  
         
-        if(message="OK"){
+        if(message=="OK"){
           return map;
         }else{
-          //TODO
+           document.body.style.backgroundColor = "red";
+           setTimeout(function (){
+                document.body.style.backgroundColor = "white";
+           },1000);
+           
+           return null;
         }
       }
       
       function errorChecker(data){
-        return "OK";
-        
-        if (key === "number"){
-            if(value.match(/^[0-9]+$/) === null || value.length != 4){
-               return "team number must be a number"   
-            
-            }
-          }
-        if (key === "vote"){
-            if(value.match(/^[0-9]+$/) === null || value.length != 4){
-                 return "MVP vote must be a number"   
-
-            }
-          }
-          if (key === "match"){
-            if(value.match(/^[0-9]+$/) === null || value.length != 3){
-                 
-                 return "match must be a number"   
-
-            }
+           if(document.getElementById("number").checkValidity() && 
+                document.getElementById("match").checkValidity() && 
+                document.getElementById("vote").checkValidity() &&
+                data["number"].length>0 && 
+                data["number"].length<5 && 
+                data["vote"].length<5 && 
+                data["match"].length>0 && 
+                data["match"].length<4
+                )
+           {
+                return "OK"
+           }else{
+                return "ERROR"
+           }
+          
       }
 
    </script>
