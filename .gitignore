@@ -1,9 +1,6 @@
 *~
 
-/dart/*
-
-/vanguard/data/*
-/vanguard/data
+/dart/
 
 # https://raw.githubusercontent.com/github/gitignore/64ca10514b6a09781b3cda3af9ccdbac28728fd3/Dart.gitignore
 # Don’t commit the following directories created by pub.
