@@ -1,46 +1,46 @@
 number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
-20,The Rocketeers,Clifton Park: NY: USA,,,,1,,1
-73,The Illumination,Rochester: NY: USA,,,,1,,1
+20,The Rocketeers,Clifton Park: NY: USA,,,1,1,1,1
+73,The Illumination,Rochester: NY: USA,,,1,1,0,1
 174,Arctic Warriors,Liverpool: NY: USA,,,1,1,,1
-191,X-CATS,Rochester: NY: USA,,,,1,,0
-250,Dynamos,Colonie: NY: USA,,,,1,,1
-340,G.R.R. (Greater Rochester Robotics),Churchville: NY: USA,,,,1,,1
-378,The Circuit Stompers,Newfane: NY: USA,,,,,,0
-395,2 TrainRobotics,Bronx: NY: USA,,,,1,,0
-578,Red Raider Robotics,Fairport: NY: USA,,,,1,,0
-743,Technobots,Bronx: NY: USA,,,,,,
-1126,SPARX,Webster: NY: USA,,,,1,,
-1155,SciBorgs,Bronx: NY: USA,,,,1,,
-1405,Finney Falcons,Penfield: NY: USA,,,,1,,
-1450,XQ RobotiX,Rochester: NY: USA,,,,1,,
+191,X-CATS,Rochester: NY: USA,,,1,1,,0
+250,Dynamos,Colonie: NY: USA,,,1,1,1,1
+340,G.R.R. (Greater Rochester Robotics),Churchville: NY: USA,,,1,1,1,1
+378,The Circuit Stompers,Newfane: NY: USA,,,1,,1,0
+395,2 TrainRobotics,Bronx: NY: USA,,,1,1,1,0
+578,Red Raider Robotics,Fairport: NY: USA,,,1,1,1,0
+743,Technobots,Bronx: NY: USA,,,1,,1,
+1126,SPARX,Webster: NY: USA,,,1,1,1,
+1155,SciBorgs,Bronx: NY: USA,,,1,1,1,
+1405,Finney Falcons,Penfield: NY: USA,,,1,1,0,
+1450,XQ RobotiX,Rochester: NY: USA,,,1,1,1,
 1507,Warlocks,Lockport: NY: USA,,,1,1,,
-1511,Rolling Thunder,Penfield: NY: USA,,,,1,,
-1518,Raider Robotics,Palmyra: NY: USA,,,,1,,
-1551,The Grapes of Wrath,Naples: NY: USA,,,,1,,
-1559,Devil-Tech,Victor: NY: USA,,,,1,,
-1585,Scitobor Robotics,Shortsville: NY: USA,,,,1,,
-1591,Greece Gladiators,Rochester: NY: USA,,,,1,,
-1660,Harlem Knights,New York: NY: USA,,,,1,,
-1765,E1Bots,Cheektowaga: NY: USA,,,,1,,
-2228,CougarTech,Honeoye Falls: NY: USA,,,,1,,
-2265,Fe Maidens,Bronx: NY: USA,,,,1,,
-2340,Xcentrics,Rochester: NY: USA,,,,1,,
-2791,Shaker Robotics,Latham: NY: USA,,,,1,,
-2809,K-Botics,Kingston: ON: Canada,,,,1,,
-3003,TAN(X),Canandaigua: NY: USA,,,,1,,
-3015,Ranger Robotics,Spencerport: NY: USA,,,,1,,
-3044,Team 0xBE4,Ballston Spa: NY: USA,,,,1,,
-3157,Eastridge Robotics,Rochester: NY: USA,,,,1,,
-3173,IgKnighters,Rochester: NY: USA,,,,1,,
-3181,Pittsford Panthers,Pittsford: NY: USA,,,,1,,
-3799,Electric Fire,Elmira: NY: USA,,,,1,,
-3838,Roc City Robotix,Rochester: NY: USA,,,,1,,
-3951,SUITS,Honeoye: NY: USA,,,,1,,
+1511,Rolling Thunder,Penfield: NY: USA,,,1,1,1,
+1518,Raider Robotics,Palmyra: NY: USA,,,1,1,,
+1551,The Grapes of Wrath,Naples: NY: USA,,,1,1,1,
+1559,Devil-Tech,Victor: NY: USA,,,1,1,1,
+1585,Scitobor Robotics,Shortsville: NY: USA,,,1,1,1,
+1591,Greece Gladiators,Rochester: NY: USA,,,1,1,,
+1660,Harlem Knights,New York: NY: USA,,,1,1,,
+1765,E1Bots,Cheektowaga: NY: USA,,,1,1,1,
+2228,CougarTech,Honeoye Falls: NY: USA,,,1,1,1,
+2265,Fe Maidens,Bronx: NY: USA,,,1,1,,
+2340,Xcentrics,Rochester: NY: USA,,,1,1,,
+2791,Shaker Robotics,Latham: NY: USA,,,1,1,1,
+2809,K-Botics,Kingston: ON: Canada,,,1,1,,
+3003,TAN(X),Canandaigua: NY: USA,,,1,1,1,
+3015,Ranger Robotics,Spencerport: NY: USA,,,1,1,,
+3044,Team 0xBE4,Ballston Spa: NY: USA,,,1,1,,
+3157,Eastridge Robotics,Rochester: NY: USA,,,1,1,1,
+3173,IgKnighters,Rochester: NY: USA,,,1,1,,
+3181,Pittsford Panthers,Pittsford: NY: USA,,,1,1,,
+3799,Electric Fire,Elmira: NY: USA,,,1,1,,
+3838,Roc City Robotix,Rochester: NY: USA,,,1,1,,
+3951,SUITS,Honeoye: NY: USA,,,1,1,,
 4039,MakeShift Robotics,Hamilton: ON: Canada,,,1,1,,
-4093,Joe's Average Slackers,Orleans County: NY: USA,,,,1,,
-4505,McDonogh Eagle Robotics,Owings Mills: MD: USA,,,,1,,
-5030,The Second Mouse,Utica: NY: USA,,,,1,,
-5254,Robot Raiders,Trumansburg: NY: USA,,,,1,,
-5349,RoboEagles,Central Square: NY: USA,,,,1,,
-5433,Blinding Light,Webster: NY: USA,,,,1,,
-5590,Alumiboti,Buffalo: NY: USA,,,,1,,
+4093,Joe's Average Slackers,Orleans County: NY: USA,,,1,1,,
+4505,McDonogh Eagle Robotics,Owings Mills: MD: USA,,,1,1,,
+5030,The Second Mouse,Utica: NY: USA,,,1,1,1,
+5254,Robot Raiders,Trumansburg: NY: USA,,,1,1,1,
+5349,RoboEagles,Central Square: NY: USA,,,1,1,1,
+5433,Blinding Light,Webster: NY: USA,,,1,1,1,
+5590,Alumiboti,Buffalo: NY: USA,,,1,1,,
