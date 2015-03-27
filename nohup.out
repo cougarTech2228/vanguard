@@ -1643,3 +1643,471 @@ received request: GET: /apple-touch-icon.png
 received request: GET: /apple-touch-icon.png
 received request: GET: /vanguard.html
 received request: GET: /favicon.ico
+received request: GET: /mobile.html
+received request: GET: /lib/toggle-switch.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/global.css
+received request: GET: /apple-touch-icon-120x120-precomposed.png
+received request: GET: /apple-touch-icon-120x120.png
+received request: GET: /apple-touch-icon.png
+received request: GET: /apple-touch-icon.png
+received request: GET: /mobile.html
+received request: GET: /lib/global.css
+received request: GET: /lib/toggle-switch.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /picture.html
+received request: GET: /lib/global.css
+received request: GET: /image.jpg
+received request: GET: /lib/link.js
+received request: GET: /lib/jquery.min.js
+received request: GET: /resources/anime_girl3.png?type=image
+FileSystemException: Cannot open file, path = '../src/resources/anime_girl3.png' (OS Error: No such file or directory, errno = 2)
+#0      _File.throwIfError (dart:io/file_impl.dart:553)
+#1      _File.openSync (dart:io/file_impl.dart:405)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:464)
+#3      get_handler (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:268:43)
+#4      main.<anonymous closure>.<anonymous closure> (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:28:22)
+#5      _RootZone.runUnaryGuarded (dart:async/zone.dart:1089)
+#6      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:341)
+#7      _BufferingStreamSubscription._add (dart:async/stream_impl.dart:270)
+#8      _StreamController&&_SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:587)
+#9      _StreamController._add (dart:async/stream_controller.dart:462)
+#10     _StreamController.add (dart:async/stream_controller.dart:410)
+#11     _HttpServer._handleRequest.<anonymous closure> (dart:io/http_impl.dart:2305)
+#12     Timer._createTimer.<anonymous closure> (dart:async-patch/timer_patch.dart:12)
+#13     _handleTimeout (dart:io/timer_impl.dart:292)
+#14     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:130)
+
+satan
+received request: GET: /picture.html
+received request: GET: /lib/global.css
+received request: GET: /image.jpg
+received request: GET: /resources/anime_girl3.png?type=image
+FileSystemException: Cannot open file, path = '../src/resources/anime_girl3.png' (OS Error: No such file or directory, errno = 2)
+#0      _File.throwIfError (dart:io/file_impl.dart:553)
+#1      _File.openSync (dart:io/file_impl.dart:405)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:464)
+#3      get_handler (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:268:43)
+#4      main.<anonymous closure>.<anonymous closure> (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:28:22)
+#5      _RootZone.runUnaryGuarded (dart:async/zone.dart:1089)
+#6      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:341)
+#7      _BufferingStreamSubscription._add (dart:async/stream_impl.dart:270)
+#8      _StreamController&&_SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:587)
+#9      _StreamController._add (dart:async/stream_controller.dart:462)
+#10     _StreamController.add (dart:async/stream_controller.dart:410)
+#11     _HttpServer._handleRequest.<anonymous closure> (dart:io/http_impl.dart:2305)
+#12     Timer._createTimer.<anonymous closure> (dart:async-patch/timer_patch.dart:12)
+#13     _handleTimeout (dart:io/timer_impl.dart:292)
+#14     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:130)
+
+satan
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/link.js
+received request: POST: /?type=picture&number=174&filetype=jpg
+received request: POST: /?type=picture&number=1507&filetype=jpg
+received request: POST: /?type=picture&number=4039&filetype=jpg
+received request: POST: /?&type=match&match=10&alliance=b&number=5254&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&litter=1&maxcan_top=0&maxcan_raise=6&numcans=2&maxtote=6&numtotes=16&numstacks=3&vote=5254&comment=human%20foul
+CASTVOTE FAILED: 5254 was not in match 010
+received request: GET: /vanguard.html
+received request: GET: /lib/global.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/three.min.js
+received request: GET: /favicon.ico
+received request: POST: /?&type=match&match=11&alliance=b&number=3951&push=0&auto=0&landfill=1&playerstation=0&tips=1&coop=0&stepcan=0&litter=0&maxcan_top=1&maxcan_raise=0&numcans=1&maxtote=6&numtotes=01&numstacks=1&vote=4030&comment=
+CASTVOTE FAILED: 4030 was not in match 011
+received request: GET: /vanguard.html
+received request: GET: /lib/global.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/three.min.js
+received request: GET: /lib/tween.min.js
+received request: GET: /lib/OrbitControls.js
+received request: GET: /lib/CSS3DRenderer.js
+received request: GET: /lib/link.js
+received request: GET: /loading.gif?type=image
+received request: GET: /mobile.html
+received request: GET: /mobile.html
+received request: GET: /lib/global.css
+received request: GET: /lib/toggle-switch.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /favicon.ico
+received request: GET: /input.html
+received request: GET: /lib/toggle-switch.css
+received request: GET: /lib/global.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /resources/anime_girl.png?type=image
+FileSystemException: Cannot open file, path = '../src/resources/anime_girl.png' (OS Error: No such file or directory, errno = 2)
+#0      _File.throwIfError (dart:io/file_impl.dart:553)
+#1      _File.openSync (dart:io/file_impl.dart:405)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:464)
+#3      get_handler (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:268:43)
+#4      main.<anonymous closure>.<anonymous closure> (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:28:22)
+#5      _RootZone.runUnaryGuarded (dart:async/zone.dart:1089)
+#6      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:341)
+#7      _BufferingStreamSubscription._add (dart:async/stream_impl.dart:270)
+#8      _StreamController&&_SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:587)
+#9      _StreamController._add (dart:async/stream_controller.dart:462)
+#10     _StreamController.add (dart:async/stream_controller.dart:410)
+#11     _HttpServer._handleRequest.<anonymous closure> (dart:io/http_impl.dart:2305)
+#12     Timer._createTimer.<anonymous closure> (dart:async-patch/timer_patch.dart:12)
+#13     _handleTimeout (dart:io/timer_impl.dart:292)
+#14     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:130)
+
+satan
+received request: GET: /lib/link.js
+received request: GET: /favicon.ico
+received request: POST: /?&type=match&match=12&alliance=b&number=174&push=0&auto=1&landfill=0&playerstation=0&tips=0&coop=0&stepcan=0&litter=0&maxcan_top=0&maxcan_raise=0&numcans=0&maxtote=0&numtotes=00&numstacks=0&vote=1585&comment=failed%20coop
+CASTVOTE FAILED: 1585 was not in match 012
+received request: GET: /vanguard.html
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/tween.min.js
+received request: GET: /lib/three.min.js
+received request: GET: /lib/global.css
+received request: GET: /lib/OrbitControls.js
+received request: GET: /lib/CSS3DRenderer.js
+received request: GET: /lib/link.js
+received request: GET: /loading.gif?type=image
+received request: GET: /?type=robots
+received request: GET: /favicon.ico
+received request: GET: /?type=picture&nogif&number=73
+received request: GET: /?type=picture&nogif&number=174
+received request: GET: /?type=picture&nogif&number=191
+received request: GET: /?type=picture&nogif&number=20
+received request: GET: /?type=picture&nogif&number=340
+received request: GET: /?type=picture&nogif&number=250
+received request: GET: /?type=picture&nogif&number=3157
+received request: GET: /?type=picture&nogif&number=1405
+received request: GET: /?type=picture&nogif&number=2791
+received request: GET: /?type=picture&nogif&number=3951
+received request: GET: /?type=picture&nogif&number=5254
+received request: GET: /?type=picture&nogif&number=1155
+received request: GET: /?type=picture&nogif&number=1507
+received request: GET: /?type=picture&nogif&number=3181
+received request: GET: /?type=picture&nogif&number=578
+received request: GET: /?type=picture&nogif&number=5590
+received request: GET: /?type=picture&nogif&number=1585
+received request: GET: /?type=picture&nogif&number=1559
+received request: GET: /?type=picture&nogif&number=3044
+received request: GET: /?type=picture&nogif&number=378
+received request: GET: /?type=picture&nogif&number=2340
+received request: GET: /?type=picture&nogif&number=3838
+received request: GET: /?type=picture&nogif&number=3015
+received request: GET: /?type=picture&nogif&number=1765
+received request: GET: /?type=picture&nogif&number=1591
+received request: GET: /?type=picture&nogif&number=2265
+received request: GET: /?type=picture&nogif&number=5349
+received request: GET: /?type=picture&nogif&number=1126
+received request: GET: /?type=picture&nogif&number=2228
+received request: GET: /?type=picture&nogif&number=1450
+received request: GET: /?type=picture&nogif&number=3003
+received request: GET: /?type=picture&nogif&number=4505
+received request: GET: /?type=picture&nogif&number=3799
+received request: GET: /?type=picture&nogif&number=5433
+received request: GET: /?type=picture&nogif&number=4039
+received request: GET: /?type=picture&nogif&number=1511
+received request: GET: /?type=picture&nogif&number=4093
+received request: GET: /?type=picture&nogif&number=395
+received request: GET: /?type=picture&nogif&number=2809
+received request: GET: /?type=picture&nogif&number=1660
+received request: GET: /?type=picture&nogif&number=1518
+received request: GET: /?type=picture&nogif&number=743
+received request: GET: /?type=picture&nogif&number=1551
+received request: GET: /?type=picture&nogif&number=3173
+received request: GET: /?type=picture&nogif&number=5030
+received request: POST: /?&type=match&match=13&alliance=b&number=1126&push=0&auto=1&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&litter=1&maxcan_top=0&maxcan_raise=6&numcans=2&maxtote=6&numtotes=12&numstacks=2&vote=1126&comment=
+CASTVOTE FAILED: 1126 was not in match 013
+received request: POST: /?&type=match&match=14&alliance=b&number=5433&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&litter=0&maxcan_top=0&maxcan_raise=0&numcans=0&maxtote=0&numtotes=01&numstacks=1&vote=395&comment=foul%20human
+CASTVOTE FAILED: 0395 was not in match 014
+received request: POST: /?&type=match&match=001&alliance=b&number=1155&push=t&auto=1&landfill=1&playerstation=0&tips=0&coop=1&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=2&litter=0&maxtote=2&numtotes=02&numstacks=0&vote=0000&comment=lanfill:weak
+CASTVOTE FAILED: 0000 was not in match 001
+received request: POST: /?&type=match&match=002&alliance=b&number=1551&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=1&maxcan_top=0&maxcan_raise=3&numcans=1&litter=0&maxtote=3&numtotes=05&numstacks=2&vote=0000&comment=good%20stack:shoot%20totes%20tip
+CASTVOTE FAILED: 0000 was not in match 002
+received request: POST: /?&type=match&match=003&alliance=b&number=3044&push=0&auto=0&landfill=1&playerstation=0&tips=0&coop=1&stepcan=0&maxcan_top=1&maxcan_raise=0&numcans=1&litter=1&maxtote=2&numtotes=02&numstacks=1&vote=0578&comment=bad%20driver:capable%20ground%20stack
+CASTVOTE FAILED: 0578 was not in match 003
+received request: POST: /?&type=match&match=004&alliance=b&number=0395&push=0&auto=1&landfill=1&playerstation=0&tips=0&coop=1&stepcan=0&maxcan_top=1&maxcan_raise=0&numcans=1&litter=1&maxtote=2&numtotes=03&numstacks=2&vote=1507&comment=tries:nonfunctional
+CASTVOTE FAILED: 1507 was not in match 004
+received request: GET: http://testp4.pospr.waw.pl/testproxy.php
+received request: GET: /input.html
+received request: GET: /lib/global.css
+received request: GET: /lib/toggle-switch.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/link.js
+received request: GET: /resources/anime_girl.png?type=image
+FileSystemException: Cannot open file, path = '../src/resources/anime_girl.png' (OS Error: No such file or directory, errno = 2)
+#0      _File.throwIfError (dart:io/file_impl.dart:553)
+#1      _File.openSync (dart:io/file_impl.dart:405)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:464)
+#3      get_handler (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:268:43)
+#4      main.<anonymous closure>.<anonymous closure> (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:28:22)
+#5      _RootZone.runUnaryGuarded (dart:async/zone.dart:1089)
+#6      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:341)
+#7      _BufferingStreamSubscription._add (dart:async/stream_impl.dart:270)
+#8      _StreamController&&_SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:587)
+#9      _StreamController._add (dart:async/stream_controller.dart:462)
+#10     _StreamController.add (dart:async/stream_controller.dart:410)
+#11     _HttpServer._handleRequest.<anonymous closure> (dart:io/http_impl.dart:2305)
+#12     Timer._createTimer.<anonymous closure> (dart:async-patch/timer_patch.dart:12)
+#13     _handleTimeout (dart:io/timer_impl.dart:292)
+#14     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:130)
+
+satan
+received request: GET: /favicon.ico
+received request: POST: /?&type=match&match=005&alliance=b&number=1126&push=c&auto=1&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=6&numcans=1&litter=1&maxtote=6&numtotes=06&numstacks=1&vote=4039&comment=cannot%20place%20can%20but%20tries
+CASTVOTE FAILED: 4039 was not in match 005
+received request: POST: /?&type=match&match=006&alliance=b&number=4505&push=c&auto=1&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=1&maxcan_raise=0&numcans=6&litter=0&maxtote=6&numtotes=06&numstacks=1&vote=1660&comment=cans%20good:slow
+CASTVOTE FAILED: 1660 was not in match 006
+received request: POST: /?&type=match&match=009&alliance=b&number=2340&push=0&auto=0&landfill=1&playerstation=0&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=0&numtotes=00&numstacks=0&vote=0000&comment=moved:%20dead%20in%20the%20water:%20hd%20to%20reboot
+CASTVOTE FAILED: 0000 was not in match 009
+received request: POST: /?&type=match&match=001&alliance=b&number=0191&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=1&numcans=0&litter=0&maxtote=5&numtotes=05&numstacks=1&vote=0000&comment=
+CASTVOTE FAILED: 0000 was not in match 001
+received request: POST: /?&type=match&match=002&alliance=b&number=1765&push=0&auto=0&landfill=1&playerstation=0&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=1&numtotes=02&numstacks=2&vote=0000&comment=
+CASTVOTE FAILED: 0000 was not in match 002
+received request: POST: /?&type=match&match=003&alliance=b&number=0578&push=0&auto=1&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=3&numtotes=09&numstacks=3&vote=0578&comment=
+CASTVOTE FAILED: 0578 was not in match 003
+received request: POST: /?&type=match&match=004&alliance=b&number=0174&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=1&numtotes=02&numstacks=2&vote=1507&comment=
+CASTVOTE FAILED: 1507 was not in match 004
+received request: POST: /?&type=match&match=005&alliance=b&number=3799&push=0&auto=0&landfill=0&playerstation=1&tips=1&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=0&numtotes=00&numstacks=0&vote=0000&comment=almost%20a%20stack%20but%20failed:went%20for%20coop
+CASTVOTE FAILED: 0000 was not in match 005
+received request: POST: /?&type=match&match=006&alliance=b&number=3173&push=t&auto=1&landfill=1&playerstation=0&tips=0&coop=1&stepcan=0&maxcan_top=1&maxcan_raise=0&numcans=1&litter=1&maxtote=5&numtotes=05&numstacks=1&vote=0000&comment=
+CASTVOTE FAILED: 0000 was not in match 006
+received request: POST: /?&type=match&match=007&alliance=b&number=3015&push=t&auto=1&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=1&maxcan_raise=0&numcans=2&litter=1&maxtote=4&numtotes=11&numstacks=3&vote=3015&comment=auto%203totes%20+%203cans
+CASTVOTE FAILED: 3015 was not in match 007
+received request: POST: /?&type=match&match=008&alliance=b&number=1591&push=0&auto=1&landfill=1&playerstation=0&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=2&litter=0&maxtote=2&numtotes=02&numstacks=1&vote=2228&comment=auto-
+CASTVOTE FAILED: 2228 was not in match 008
+received request: POST: /?&type=match&match=009&alliance=b&number=0020&push=c&auto=1&landfill=0&playerstation=1&tips=1&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=0&numtotes=00&numstacks=0&vote=3003&comment=
+CASTVOTE FAILED: 3003 was not in match 009
+received request: POST: /?&type=match&match=001&alliance=b&number=5590&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=1&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=1&maxtote=0&numtotes=00&numstacks=0&vote=0340&comment=slow:badlifter
+CASTVOTE FAILED: 0340 was not in match 001
+received request: POST: /?&type=match&match=002&alliance=b&number=1585&push=0&auto=1&landfill=1&playerstation=0&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=1&numtotes=02&numstacks=1&vote=3003&comment=only%20one%20tote:dropped
+CASTVOTE FAILED: 3003 was not in match 002
+received request: POST: /?&type=match&match=14&alliance=b&number=1765&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&litter=0&maxcan_top=0&maxcan_raise=0&numcans=0&maxtote=0&numtotes=00&numstacks=0&vote=1507&comment=
+CASTVOTE FAILED: 1507 was not in match 014
+received request: POST: /?&type=match&match=003&alliance=b&number=0250&push=0&auto=0&landfill=1&playerstation=1&tips=0&coop=1&stepcan=0&maxcan_top=2&maxcan_raise=0&numcans=1&litter=1&maxtote=3&numtotes=00&numstacks=0&vote=1518&comment=
+CASTVOTE FAILED: 1518 was not in match 003
+received request: POST: /?&type=match&match=004&alliance=b&number=3157&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=3&numcans=1&litter=1&maxtote=3&numtotes=03&numstacks=1&vote=0020&comment=
+CASTVOTE FAILED: 0020 was not in match 004
+received request: POST: /?&type=match&match=005&alliance=b&number=0378&push=c&auto=1&landfill=1&playerstation=0&tips=0&coop=0&stepcan=0&maxcan_top=3&maxcan_raise=1&numcans=2&litter=2&maxtote=3&numtotes=04&numstacks=2&vote=0378&comment=good%20lifter
+CASTVOTE FAILED: 0378 was not in match 005
+received request: POST: /?&type=match&match=006&alliance=b&number=3951&push=t&auto=1&landfill=1&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=4&numtotes=08&numstacks=2&vote=3951&comment=
+CASTVOTE FAILED: 3951 was not in match 006
+received request: POST: /?&type=match&match=20&alliance=b&number=5030&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&litter=0&maxcan_top=0&maxcan_raise=0&numcans=0&maxtote=4&numtotes=12&numstacks=4&vote=1126&comment=
+CASTVOTE FAILED: 1126 was not in match 020
+received request: POST: /?&type=match&match=007&alliance=b&number=2265&push=0&auto=0&landfill=1&playerstation=0&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=0&numcans=0&litter=0&maxtote=2&numtotes=01&numstacks=0&vote=5254&comment=slow:poor%20lifter
+CASTVOTE FAILED: 5254 was not in match 007
+received request: POST: /?&type=match&match=008&alliance=b&number=2228&push=c&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=4&maxcan_raise=0&numcans=2&litter=2&maxtote=4&numtotes=08&numstacks=3&vote=2228&comment=
+CASTVOTE FAILED: 2228 was not in match 008
+received request: POST: /?&type=match&match=009&alliance=b&number=3003&push=t&auto=1&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=0&maxcan_raise=5&numcans=2&litter=1&maxtote=5&numtotes=05&numstacks=1&vote=3003&comment=
+CASTVOTE FAILED: 3003 was not in match 009
+received request: POST: /?&type=match&match=001&alliance=b&number=0340&push=0&auto=1&landfill=0&playerstation=1&tips=0&coop=1&stepcan=1&maxcan_top=6&maxcan_raise=0&numcans=1&litter=1&maxtote=5&numtotes=05&numstacks=1&vote=0340&comment=
+CASTVOTE FAILED: 0340 was not in match 001
+received request: POST: /?&type=match&match=21&alliance=b&number=3838&push=c&auto=0&landfill=1&playerstation=0&tips=0&coop=0&stepcan=0&litter=1&maxcan_top=2&maxcan_raise=0&numcans=1&maxtote=2&numtotes=03&numstacks=2&vote=&comment=
+CASTVOTE FAILED: 0000 was not in match 021
+received request: POST: /?&type=match&match=002&alliance=b&number=3003&push=t&auto=1&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&maxcan_top=2&maxcan_raise=6&numcans=1&litter=1&maxtote=5&numtotes=06&numstacks=2&vote=3003&comment=trouble%20lining%20up
+CASTVOTE FAILED: 3003 was not in match 002
+received request: GET: /vanguard.html
+received request: GET: /lib/global.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/three.min.js
+received request: GET: /lib/tween.min.js
+received request: GET: /lib/OrbitControls.js
+received request: GET: /lib/CSS3DRenderer.js
+received request: GET: /lib/link.js
+received request: GET: /loading.gif?type=image
+received request: GET: /input.html
+received request: GET: /lib/toggle-switch.css
+received request: GET: /lib/global.css
+received request: GET: /resources/anime_girl.png?type=image
+FileSystemException: Cannot open file, path = '../src/resources/anime_girl.png' (OS Error: No such file or directory, errno = 2)
+#0      _File.throwIfError (dart:io/file_impl.dart:553)
+#1      _File.openSync (dart:io/file_impl.dart:405)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:464)
+#3      get_handler (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:268:43)
+#4      main.<anonymous closure>.<anonymous closure> (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:28:22)
+#5      _RootZone.runUnaryGuarded (dart:async/zone.dart:1089)
+#6      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:341)
+#7      _BufferingStreamSubscription._add (dart:async/stream_impl.dart:270)
+#8      _StreamController&&_SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:587)
+#9      _StreamController._add (dart:async/stream_controller.dart:462)
+#10     _StreamController.add (dart:async/stream_controller.dart:410)
+#11     _HttpServer._handleRequest.<anonymous closure> (dart:io/http_impl.dart:2305)
+#12     Timer._createTimer.<anonymous closure> (dart:async-patch/timer_patch.dart:12)
+#13     _handleTimeout (dart:io/timer_impl.dart:292)
+#14     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:130)
+
+satan
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/link.js
+received request: GET: /?type=robots
+received request: GET: /favicon.ico
+received request: GET: /?type=picture&nogif&number=20
+received request: GET: /?type=picture&nogif&number=73
+received request: GET: /?type=picture&nogif&number=174
+received request: GET: /?type=picture&nogif&number=191
+received request: GET: /?type=picture&nogif&number=250
+received request: GET: /?type=picture&nogif&number=340
+received request: GET: /?type=picture&nogif&number=3173
+received request: GET: /?type=picture&nogif&number=1511
+received request: GET: /?type=picture&nogif&number=1405
+received request: GET: /?type=picture&nogif&number=743
+received request: GET: /?type=picture&nogif&number=5590
+received request: GET: /?type=picture&nogif&number=1126
+received request: GET: /favicon.ico
+received request: GET: /?type=picture&nogif&number=5349
+received request: GET: /?type=picture&nogif&number=1585
+received request: GET: /?type=picture&nogif&number=4039
+received request: GET: /?type=picture&nogif&number=2228
+received request: GET: /?type=picture&nogif&number=3157
+received request: GET: /?type=picture&nogif&number=378
+received request: GET: /input.html
+received request: GET: /?type=picture&nogif&number=3951
+received request: GET: /?type=picture&nogif&number=3044
+received request: GET: /?type=picture&nogif&number=2809
+received request: GET: /lib/toggle-switch.css
+received request: GET: /lib/global.css
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/link.js
+received request: GET: /?type=picture&nogif&number=3181
+received request: GET: /?type=picture&nogif&number=5254
+received request: GET: /?type=picture&nogif&number=1507
+received request: GET: /?type=picture&nogif&number=1765
+received request: GET: /?type=picture&nogif&number=2265
+received request: GET: /?type=picture&nogif&number=1559
+received request: GET: /?type=picture&nogif&number=578
+received request: GET: /?type=picture&nogif&number=1518
+received request: GET: /lib/jquery.min.js
+received request: GET: /vanguard.html
+received request: GET: /?type=picture&nogif&number=3838
+received request: GET: /?type=picture&nogif&number=1551
+received request: GET: /lib/global.css
+received request: GET: /resources/anime_girl.png?type=image
+FileSystemException: Cannot open file, path = '../src/resources/anime_girl.png' (OS Error: No such file or directory, errno = 2)
+#0      _File.throwIfError (dart:io/file_impl.dart:553)
+#1      _File.openSync (dart:io/file_impl.dart:405)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:464)
+#3      get_handler (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:268:43)
+#4      main.<anonymous closure>.<anonymous closure> (file:///home/master/Documents/code/dart/vanguard/vanguard/bin/server.dart:28:22)
+#5      _RootZone.runUnaryGuarded (dart:async/zone.dart:1089)
+#6      _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:341)
+#7      _BufferingStreamSubscription._add (dart:async/stream_impl.dart:270)
+#8      _StreamController&&_SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:587)
+#9      _StreamController._add (dart:async/stream_controller.dart:462)
+#10     _StreamController.add (dart:async/stream_controller.dart:410)
+#11     _HttpServer._handleRequest.<anonymous closure> (dart:io/http_impl.dart:2305)
+#12     Timer._createTimer.<anonymous closure> (dart:async-patch/timer_patch.dart:12)
+#13     _handleTimeout (dart:io/timer_impl.dart:292)
+#14     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:130)
+
+satan
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/three.min.js
+received request: GET: /lib/tween.min.js
+received request: GET: /lib/OrbitControls.js
+received request: GET: /lib/CSS3DRenderer.js
+received request: GET: /lib/link.js
+received request: GET: /favicon.ico
+received request: GET: /loading.gif?type=image
+received request: GET: /?type=robots
+received request: GET: /favicon.ico
+received request: GET: /?type=picture&nogif&number=20
+received request: GET: /?type=picture&nogif&number=73
+received request: GET: /?type=picture&nogif&number=191
+received request: GET: /?type=picture&nogif&number=250
+received request: GET: /?type=picture&nogif&number=340
+received request: GET: /?type=picture&nogif&number=378
+received request: GET: /?type=picture&nogif&number=578
+received request: GET: /?type=picture&nogif&number=3173
+received request: GET: /?type=picture&nogif&number=1450
+received request: GET: /?type=picture&nogif&number=3003
+received request: GET: /?type=picture&nogif&number=1585
+received request: GET: /?type=picture&nogif&number=2228
+received request: GET: /?type=picture&nogif&number=5349
+received request: GET: /?type=picture&nogif&number=2340
+received request: GET: /?type=picture&nogif&number=743
+received request: GET: /?type=picture&nogif&number=1511
+received request: GET: /?type=picture&nogif&number=3157
+received request: GET: /?type=picture&nogif&number=1660
+received request: GET: /?type=picture&nogif&number=5433
+received request: GET: /?type=picture&nogif&number=2809
+received request: GET: /?type=picture&nogif&number=1591
+received request: GET: /?type=picture&nogif&number=1155
+received request: GET: /?type=picture&nogif&number=395
+received request: GET: /?type=picture&nogif&number=3838
+received request: GET: /?type=picture&nogif&number=3951
+received request: GET: /?type=picture&nogif&number=3015
+received request: GET: /?type=picture&nogif&number=4039
+received request: GET: /?type=picture&nogif&number=3799
+received request: GET: /?type=picture&nogif&number=4093
+received request: GET: /?type=picture&nogif&number=3181
+received request: GET: /?type=picture&nogif&number=1765
+received request: GET: /?type=picture&nogif&number=174
+received request: GET: /?type=picture&nogif&number=2791
+received request: GET: /?type=picture&nogif&number=5030
+received request: GET: /?type=picture&nogif&number=5590
+received request: GET: /?type=picture&nogif&number=1518
+received request: GET: /?type=picture&nogif&number=1507
+received request: GET: /?type=picture&nogif&number=1551
+received request: GET: /?type=picture&nogif&number=1405
+received request: GET: /?type=picture&nogif&number=4505
+received request: GET: /?type=picture&nogif&number=1126
+received request: GET: /?type=picture&nogif&number=2265
+received request: GET: /?type=picture&nogif&number=5254
+received request: GET: /?type=picture&nogif&number=3044
+received request: GET: /?type=picture&nogif&number=1559
+received request: GET: /input.html
+received request: POST: /?&type=match&match=22&alliance=b&number=2791&push=0&auto=0&landfill=0&playerstation=1&tips=0&coop=0&stepcan=0&litter=0&maxcan_top=0&maxcan_raise=0&numcans=0&maxtote=4&numtotes=08&numstacks=2&vote=3044&comment=
+CASTVOTE FAILED: 3044 was not in match 022
+received request: GET: /vanguard.html
+received request: GET: /lib/global.css
+received request: GET: /lib/three.min.js
+received request: GET: /lib/jquery.min.js
+received request: GET: /lib/tween.min.js
+received request: GET: /lib/OrbitControls.js
+received request: GET: /lib/CSS3DRenderer.js
+received request: GET: /lib/link.js
+received request: GET: /loading.gif?type=image
+received request: GET: /?type=robots
+received request: GET: /favicon.ico
+received request: GET: /?type=picture&nogif&number=20
+received request: GET: /?type=picture&nogif&number=73
+received request: GET: /?type=picture&nogif&number=250
+received request: GET: /?type=picture&nogif&number=191
+received request: GET: /?type=picture&nogif&number=340
+received request: GET: /?type=picture&nogif&number=378
+received request: GET: /?type=picture&nogif&number=395
+received request: GET: /?type=picture&nogif&number=578
+received request: GET: /?type=picture&nogif&number=743
+received request: GET: /?type=picture&nogif&number=1126
+received request: GET: /?type=picture&nogif&number=1155
+received request: GET: /?type=picture&nogif&number=1405
+received request: GET: /?type=picture&nogif&number=1450
+received request: GET: /?type=picture&nogif&number=2340
+received request: GET: /?type=picture&nogif&number=1559
+received request: GET: /?type=picture&nogif&number=2791
+received request: GET: /?type=picture&nogif&number=5590
+received request: GET: /?type=picture&nogif&number=174
+received request: GET: /?type=picture&nogif&number=1507
+received request: GET: /?type=picture&nogif&number=3799
+received request: GET: /?type=picture&nogif&number=4505
+received request: GET: /?type=picture&nogif&number=1591
+received request: GET: /?type=picture&nogif&number=1765
+received request: GET: /?type=picture&nogif&number=5433
+received request: GET: /?type=picture&nogif&number=2265
+received request: GET: /?type=picture&nogif&number=1585
+received request: GET: /?type=picture&nogif&number=3181
+received request: GET: /?type=picture&nogif&number=2228
+received request: GET: /?type=picture&nogif&number=1660
+received request: GET: /?type=picture&nogif&number=1518
+received request: GET: /?type=picture&nogif&number=3173
+received request: GET: /?type=picture&nogif&number=1551
+received request: GET: /?type=picture&nogif&number=3044
+received request: GET: /?type=picture&nogif&number=3951
+received request: GET: /?type=picture&nogif&number=4039
+received request: GET: /?type=picture&nogif&number=3003
+received request: GET: /?type=picture&nogif&number=5030
+received request: GET: /?type=picture&nogif&number=5349
+received request: GET: /?type=picture&nogif&number=2809
+received request: GET: /?type=picture&nogif&number=4093
+received request: GET: /?type=picture&nogif&number=3157
+received request: GET: /?type=picture&nogif&number=3015
+received request: GET: /?type=picture&nogif&number=1511
+received request: GET: /?type=picture&nogif&number=5254
+received request: GET: /?type=picture&nogif&number=3838

@@ -1,7 +1,7 @@
 number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
 20,The Rocketeers,Clifton Park: NY: USA,,,,1,,1
 73,The Illumination,Rochester: NY: USA,,,,1,,1
-174,Arctic Warriors,Liverpool: NY: USA,,,,1,,1
+174,Arctic Warriors,Liverpool: NY: USA,,,1,1,,1
 191,X-CATS,Rochester: NY: USA,,,,1,,0
 250,Dynamos,Colonie: NY: USA,,,,1,,1
 340,G.R.R. (Greater Rochester Robotics),Churchville: NY: USA,,,,1,,1
@@ -13,7 +13,7 @@ number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
 1155,SciBorgs,Bronx: NY: USA,,,,1,,
 1405,Finney Falcons,Penfield: NY: USA,,,,1,,
 1450,XQ RobotiX,Rochester: NY: USA,,,,1,,
-1507,Warlocks,Lockport: NY: USA,,,,1,,
+1507,Warlocks,Lockport: NY: USA,,,1,1,,
 1511,Rolling Thunder,Penfield: NY: USA,,,,1,,
 1518,Raider Robotics,Palmyra: NY: USA,,,,1,,
 1551,The Grapes of Wrath,Naples: NY: USA,,,,1,,
@@ -36,7 +36,7 @@ number,name,location,rank,votes,picture?,pit scouting?,pic check,pit check
 3799,Electric Fire,Elmira: NY: USA,,,,1,,
 3838,Roc City Robotix,Rochester: NY: USA,,,,1,,
 3951,SUITS,Honeoye: NY: USA,,,,1,,
-4039,MakeShift Robotics,Hamilton: ON: Canada,,,,1,,
+4039,MakeShift Robotics,Hamilton: ON: Canada,,,1,1,,
 4093,Joe's Average Slackers,Orleans County: NY: USA,,,,1,,
 4505,McDonogh Eagle Robotics,Owings Mills: MD: USA,,,,1,,
 5030,The Second Mouse,Utica: NY: USA,,,,1,,
