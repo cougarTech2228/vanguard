@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:8080/input.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>VANGUARD:spearhead</title>
+<link href="./VANGUARD spearhead_files/toggle-switch.css" rel="stylesheet" type="text/css">
+<link href="./VANGUARD spearhead_files/global.css" rel="stylesheet" type="text/css">
+
+<style>
+body {
+  overflow: hidden;
+}
+
+#input {
+  position: absolute;
+  bottom: 51.5%;
+  left: 25%;
+  margin-right: auto;
+  margin-left: auto;
+  border: 2px solid #848484;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  outline: 0;
+  height: 50px;
+  width: 50%;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: Monospace;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 5px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+#switch {
+  position: fixed;
+  top: 50%;
+  left: 44%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 12%;
+  height: 4%;
+}
+
+img {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  height: 60%;
+}
+
+#error{
+  text-align: center;
+  background-color: #f55;
+  font-family: Proxima-Nova-n6, Proxima-Nova-1, Proxima-Nova-2,
+    'Proxima Nova', sans-serif;
+  font-size: 20px;
+  font-style: bold;
+  color: #222;
+}
+
+#errorList {
+  position:absolute;
+  bottom: 2%;
+  right: 30%;
+  width: 40%;
+  height: 23px;
+}
+</style>
+
+</head>
+
+<body>
+  <input id="input" type="text" value="">
+  <img src="./VANGUARD spearhead_files/anime_girl.png">
+  <div id="switch" class="switch-toggle switch-android">
+    <input id="pit" name="view" type="radio" checked=""> <label for="pit" onclick="">PIT</label> <input id="match" name="view" type="radio"> <label for="match" onclick="">MATCH</label>
+
+    <a></a>
+  </div>
+  <div id="errorList"></div>
+
+<script type="text/javascript" src="./VANGUARD spearhead_files/jquery.min.js"></script>
+<script type="text/javascript" src="./VANGUARD spearhead_files/link.js"></script><div id="info_bar" style="opacity: 0;">vote</div><div class="github_container"><div class="github"><a href="https://github.com/cougarTech2228/Vanguard" target="_blank">Fork me on GitHub</a></div></div>
+
+<script type="text/javascript">
+      rotation = 0;
+
+      function submit(map) {
+          link = "/?";
+          //link = "http://mechasdf.com:8080/?";
+          
+          for(key in map){
+            link += "&" + key + "=" + map[key];
+          }
+          
+          link.replace("&","");
+
+          $.post(link, function(data, status) {
+              if (status != "success") {
+                  alert(status);
+              } else {
+                  rotation += 360;
+                  document.getElementById("input").style.transform = "rotateX( " + rotation + "deg )"
+                  document.getElementById('input').value = "";
+              }
+          });
+      }
+
+      document.onkeydown = function(event) {
+          event = event || window.event;
+          key = event.keyCode;
+
+          if (/[a-zA-Z0-9-_ ]/.test(String.fromCharCode(key)) || key == 96 || key == 8) {
+              document.getElementById('input').focus();
+          } else if (key == 27) {
+              document.getElementById('input').value = "";
+          } else if (key == 13) {
+              data = getData();
+              status = errorChecker(data);
+              if(status === "OK"){
+                submit(data);
+              }else if(status === "MISSING"){
+                addError("you are missing fields!");
+              }else{
+                addError("entry has errors, cannot submit!");
+              }
+          } else {
+              //event.preventDefault();
+          }
+      }
+      
+      document.onkeyup = function(event){
+        staticAnalysis();
+      }
+      
+      document.getElementById("input").onfocus = function (event){
+        staticAnalysis();
+      }
+      
+      document.getElementById("input").ondefocus = function (event){
+        linker.info_close();
+      }
+      
+      function getData(){
+        rawData = document.getElementById("input").value;
+        
+        map = {};
+        
+        try{
+          if (document.getElementById("pit").checked) {
+  
+              map["type"]="pit";
+              
+              map["number"] = rawData.substring(0, 4);
+  
+              if (rawData.substring(4, 5) === "1") {
+                map["drive"] = "tank";
+              } else if (rawData.substring(4, 5) === "2") {
+                map["drive"] = "strafe";
+              } else if (rawData.substring(4, 5) === "3") {
+                map["drive"] = "omni";
+              } else {
+                map["drive"] = "other";
+              }
+  
+              map["platform"] = rawData.substring(5, 6);
+              map["tote"] = rawData.substring(6, 7);
+              map["can"] = rawData.substring(7, 8);
+              map["litter"] = rawData.substring(8, 9);
+              map["pneumatics"] = rawData.substring(9, 10);
+              map["camera"] = rawData.substring(10, 11);
+              map["encoder"] = rawData.substring(11, 12);
+              map["range"] = rawData.substring(12, 13);
+              map["gyro"] = rawData.substring(13, 14);
+              map["comment"] = rawData.substring(14, rawData.length);
+          } else if (document.getElementById("match").checked) {
+              map["type"] = "match";
+              
+              map["match"] = rawData.substring(0, 3);
+              map["alliance"] = rawData.substring(3, 4);
+              map["number"] = rawData.substring(4, 8);
+              map["push"] = rawData.substring(8, 9);
+              map["auto"] = rawData.substring(9, 10);
+              map["landfill"] = rawData.substring(10, 11);
+              map["playerstation"] = rawData.substring(11, 12);
+              map["litter"] = rawData.substring(12, 13);
+              map["maxcan"] = rawData.substring(13, 14);
+              map["numcans"] = rawData.substring(14, 15);
+              map["maxtote"] = rawData.substring(15,16);
+              map["numtotes"] = rawData.substring(16, 18);
+              map["vote"] = rawData.substring(18, 22);
+              map["comment"] = rawData.substring(22, rawData.length);
+              
+          }
+        }catch(e){}
+        
+        return map;
+      }
+      
+      function errorChecker(data){
+        message = "";
+        errors = [];
+        missing = [];
+
+        for(key in data){
+          value = data[key];
+          
+          if(value == "" && key != "comment"){
+            missing.push(key);
+            continue;
+          }
+          if (document.getElementById("pit").checked) {
+            if(["platform","tote","can","litter","pneumatics","camera","encoder","range","gyro"].indexOf(key) != -1){
+              if(value !== "1" && value !== "0" ){
+                errors.push( key + ": value must be '1' or '0'");                
+              }
+            }else if (key === "number"){
+              if(value.match(/^[0-9]+$/) === null || value.length != 4){
+                errors.push( key + ": value must be a four digit team number");
+              }
+            }else if (key === "drive"){
+              //TODO
+            } 
+          } else if (document.getElementById("match").checked) {
+            if(["auto","landfill","playerstation"].indexOf(key) != -1){
+              if(value != "1" && value != "0" ){
+                errors.push( key + ": value must be '1' or '0'");                
+              }
+            }else if(["maxcan","maxtote","litter","numcans"].indexOf(key) != -1){
+              if(value.match(/^[0-9]$/) === null || value.length != 1){
+                errors.push( key + ": value must be a one digit number");
+              }
+            }else if (key === "push"){
+              if(["0","r","t","c"].indexOf(value) === -1 || value.length != 1){
+                errors.push( key + ": value must be '0', 'r', 't', or 'c'");
+              }
+            }else if (key === "number"){
+              if(value.match(/^[0-9]+$/) === null || value.length != 4){
+                errors.push( key + ": value must be a four digit team number");
+              }
+            }else if (key === "vote"){
+              if(value.match(/^[0-9]+$/) === null || value.length != 4){
+                errors.push( key + ": value must be a four digit team number");
+              }
+            }else if (key === "match"){
+              if(value.match(/^[0-9]+$/) === null || value.length != 3){
+                errors.push( key + ": value must be a three digit match number");
+              }
+            }else if (key === "numtotes"){
+              if(value.match(/^[0-9]+$/) === null || value.length != 2){
+                errors.push( key + ": value must be a two digit number");
+              }
+            }else if (key === "alliance"){
+              if(value !== "r" && value !== "b"){
+                errors.push( key + ": value must 'r' or 'b'");
+              }
+            }
+          }
+          
+          if(value.indexOf("\r")!= -1 || value.indexOf("\n") != -1){
+            errors.push( key + ": value may not contain newlines of returns");
+          }
+          
+          if(value.indexOf(",")!= -1 || value.indexOf("'")!= -1 || value.indexOf('"')!= -1){
+            errors.push( key + ": value may not contain commas, quotations, or apostrophes");
+          }
+        }
+        
+        if(missing.length != 0 && errors.length == 0){
+          clearErrors();
+          message = "MISSING";
+        }else if (errors.length == 0){
+          clearErrors();
+          message = "OK";
+        }else{
+          logErrors(errors);
+          message = "ERROR";
+        }
+        
+        return message;
+      }
+      
+      function logErrors(errors){
+        clearErrors();
+        for(key in errors){
+          addError(errors[key]);
+        }
+        
+      }
+      
+      function clearErrors(){
+        errList = document.querySelector("#errorList");
+        errList.innerHTML = "";
+      }
+      
+      function addError(text){
+        errList = document.querySelector("#errorList");
+
+        element = document.createElement("li");
+        element.innerHTML = text;
+        element.className = "error";
+        errList.appendChild(element);
+        
+        console.log(text);
+      }
+      
+      function staticAnalysis(){
+        // will print help text during input
+        error = false;
+        
+        text = document.getElementById("input").value;
+        l = text.length;         //input text length
+        p = document.getElementById("input").selectionStart; //cursor position
+        position = "";
+        
+        if (document.getElementById("pit").checked) {
+          switch (true) {
+              case (p<4 ):
+                  position = "number";
+                  break;
+              case (p<5 ):
+                  position = "drive";
+                  break;
+              case (p<6 ):
+                  position = "platform";
+                  break;
+              case (p<7 ):
+                  position = "tote";
+                  break;
+              case (p<8 ):
+                  position = "can";
+                  break;
+              case (p<9 ):
+                  position = "litter";
+                  break;
+              case (p<10 ):
+                  position = "pneumatics";
+                  break;
+              case (p<11 ):
+                  position = "camera";
+                  break;
+              case (p<12 ):
+                  position = "encoder";
+                  break;
+              case (p<13 ):
+                  position = "range";
+                  break;
+              case (p<14 ):
+                  position = "gyro";
+                  break;
+              default:
+                  position = "comment";
+                  break;
+          }
+        }else if (document.getElementById("match").checked) {
+          switch (true) {
+              case (p<3):
+                  position = "match";
+                  break;
+              case (p<4):
+                  position = "alliance";
+                  break;
+              case (p<8):
+                  position = "number";
+                  break;
+              case (p<9):
+                  position = "push";
+                  break;
+              case (p<10):
+                  position = "auto";
+                  break;
+              case (p<11):
+                  position = "landfill";
+                  break;
+              case (p<12):
+                  position = "playerstation";
+                  break;
+              case (p<13):
+                  position = "litter";
+                  break;
+              case (p<14):
+                  position = "maxcan";
+                  break;
+              case (p<15):
+                  position = "numcans";
+                  break;
+              case (p<16):
+                  position = "maxtote";
+                  break;
+              case (p<18):
+                  position = "numtotes";
+                  break;
+              case (p<22):
+                  position = "vote";
+                  break;
+              default:
+                  position = "comment";
+                  break;
+          }
+        }
+        
+        if(l == 0){
+          linker.info_close();
+        }else{
+          linker.info_open();
+          linker.info_text(position);
+        }
+        
+        data = getData();
+        errorChecker(data);
+      }
+
+   </script>
+
+
+</body></html>

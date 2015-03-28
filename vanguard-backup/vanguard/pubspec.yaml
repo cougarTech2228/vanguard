@@ -1,0 +1,8 @@
+name: Vangaurd
+author: Erich Spaker
+description: Vangaurd is a ricer tire scouting solution for FRC teams.
+homepage: http://www.mechasdf.org
+environment:
+  sdk: '>=1.3.0 <2.0.0'
+dependencies:
+  csv_utils: any

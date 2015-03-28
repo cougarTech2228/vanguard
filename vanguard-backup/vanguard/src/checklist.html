@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vanguard:aquapipe</title>
+        <link href="/lib/global.css" rel="stylesheet" type="text/css">
+
+        <style>
+            table {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            ul {
+                padding: 20px;
+            }
+
+            li {
+                list-style-type: none;
+                border-bottom: 1px;
+                padding: 5px;
+            }
+
+            a {
+                text-align: center;
+                font: 200 40px/1.5 Helvetica, Verdana, sans-serif;
+            }
+
+            td {
+                vertical-align: top;
+            }
+
+            li {
+                transition: background-color 0.3s ease;
+            }
+
+            li:hover {
+                border: 5px dashed #333;
+            }
+
+            .checked {
+                background: #e0e0e0;
+            }
+
+            #anime {
+                position: fixed;
+                bottom: 0%;
+                left: 0%;
+                height: 100%;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="container">
+            <table>
+                <tr>
+                    <td>
+                        <ul id="pit">
+                            <li><a><b>Pit</b></a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul id="picture">
+                            <li><a><b>Pic</b></a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <img id="anime" src="/resources/anime_girl5.png?type=image">
+
+    </body>
+    <script type="text/javascript" src="./lib/jquery.min.js"></script>
+    <script type="text/javascript" src="./lib/link.js"></script>
+
+    <script type="text/javascript">
+        link = "/?type=robots";
+        
+        $.get(link, function(data, status) {
+            data = data.split("\n");
+            data.shift();
+
+            pit_table = document.getElementById("pit");
+            picture_table = document.getElementById("picture");
+
+            for (i in data) {
+                element = data[i].split(",");
+                if (element[0] != "") {
+                    if (element[6] != "1") {
+                        var entry = document.createElement("li");
+                        entry.id = element[0];
+                        entry.onclick = function(event) {
+                            toggleCheck(this,"pit")
+                        }
+                        if(element[8]==="1"){
+                          entry.className = "checked";
+                        }
+                        
+                        var text = document.createElement("a");
+                        text.innerHTML = element[0];
+                        entry.appendChild(text);
+                        pit_table.appendChild(entry);
+                    }
+                    if (element[5] != "1") {
+                        var entry = document.createElement("li");
+                        entry.id=element[0];
+                        entry.onclick = function(event) {
+                            toggleCheck(this,"picture");
+                        }
+                        if(element[7]==="1"){
+                          entry.className = "checked";
+                        }
+                        
+                        var text = document.createElement("a");
+                        text.innerHTML = element[0];
+                        entry.appendChild(text);
+                        picture_table.appendChild(entry);
+                    }
+                }
+            }
+        });
+        
+        function toggleCheck(element, kind){
+          if (element.className === "checked") {
+            element.className = "";
+            post(element.id,kind,0);
+          } else {
+            element.className = "checked";
+            post(element.id,kind,1);
+          }
+        }
+        
+        function post(team ,kind, checked){
+          link = "/?type=check&number=" + team + "&checked=" + checked + "&kind=" + kind; 
+          $.post(link, function(data, status) {
+              if (status != "success") {
+                  alert(status);
+              }
+          });
+        }
+        
+        
+
+    </script>
+
+</html>

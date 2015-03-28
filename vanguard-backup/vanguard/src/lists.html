@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lists</title>
+  </head>
+ 
+  <body>   
+    <table>
+      <tr id = "container">
+      </tr>
+    </table>
+    <iframe src="/vanguard.html"></iframe>
+  </body>
+  
+  <style>
+     iframe{
+        position: fixed;
+        right: 0%;
+        top:0%;
+        width:70%;
+        height:98%;
+     }
+  
+     .entry-field, .entry-number{
+         text-align: center;
+     }
+     
+     .list-entry{
+          border: 1px solid #444;
+          border-radius: 12px;
+     }
+     
+     .robot_list{
+          
+     }
+     
+     .list_cell{
+     
+     }
+  
+  </style >
+  
+  <script type="text/javascript" src="/lib/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/PapaParse/papaparse.js"></script>
+  <script>
+  
+    //WARN does not work with new sheet
+  
+    var lists = {};
+    var datas = {};
+    
+    //var headers = {landfill:true, numtotes:true, maxtotes:true, maxcans:true, reliability:true};
+    
+    function init(){
+      fetchData("HEAD");
+    }
+    
+    function parseData(number){
+      var data = datas[number];
+      var matchData = data.slice(10);
+      console.log(data);
+      console.log(number);
+      
+      var element = document.createElement("tr");
+      element.className="list-entry";
+      element.id = number;
+      
+      element.innerHTML =
+        '<td class="entry-index"></td>' +
+        '<th class="entry-number">number</th>' +
+        '<td id="landfill" class="entry-field">LF</td>' +
+        '<td id="numtotes" class="entry-field">NT</td>' +
+        '<td id="maxtotes" class="entry-field">MT</td>' +
+        '<td id="maxcans" class="entry-field">MC</td>' +
+        '<td id="reliability" class="entry-field">RL</td>' +
+        '<td id="votes" class="entry-field">VO</td>';
+          
+      element.id = number;
+      
+      //now to set the fields
+      element.querySelector(".entry-number").innerHTML = number;
+      element.querySelector("#landfill.entry-field").innerHTML = average(matchData, 4).toPrecision(3);
+      element.querySelector("#numtotes.entry-field").innerHTML = average(matchData, 9).toPrecision(3);
+      element.querySelector("#maxtotes.entry-field").innerHTML = average(matchData, 8).toPrecision(3);
+      element.querySelector("#maxcans.entry-field").innerHTML = average(matchData, 7).toPrecision(3);
+      element.querySelector("#reliability.entry-field").innerHTML = reliablityAnalysis(matchData).toPrecision(3);
+      element.querySelector("#votes.entry-field").innerHTML = (parseInt(data[6][0])/parseInt(data[6][1])).toPrecision(3);
+      
+      return element;
+    }
+    
+    function reliablityAnalysis(data){
+      //TODO these shouldnt start at 0
+      var last_numtotes = 0;
+      var last_maxtote = 0;
+      var last_maxcan = 0;
+      
+      var delta_numtotes = 0;
+      var delta_maxtote = 0;
+      var delta_maxcan = 0;
+      
+      for (i = 0; i < data.length; i++) {
+          numtotes = parseInt(data[i][9]);
+          maxtote = parseInt(data[i][8]);
+          maxcan = parseInt(data[i][7]);
+          
+          if(!isNaN(numtotes)){
+               delta_numtotes += Math.abs(numtotes - last_numtotes);  
+               last_numtotes = numtotes;
+          }
+          
+          if(!isNaN(maxtote)){
+               delta_maxtote += Math.abs(maxtote - last_maxtote);
+               last_maxtote = maxtote;
+          }
+          
+          if(!isNaN(maxcan)){
+               delta_maxcan += Math.abs(maxcan - last_maxcan);
+               last_maxcan = maxcan;
+          }
+          
+      }
+      
+      var delta = delta_maxtote + delta_maxcan + delta_numtotes;
+      return delta;
+    }
+    
+    function average(data, col){
+      sum = 0;
+      num = 0;
+      
+      for (i = 0; i < data.length; i++) {
+          d = parseInt(data[i][col]);
+          if(!isNaN(d)){
+               sum += d;
+               num += 1;
+          }
+      }
+      
+
+      return sum / num; 
+    }
+    
+    function fetchData(list_id, element){
+      //first get robot list
+      //then fetch robot data files and call parse data for each
+      //list data
+      
+      url = "/?type=list&id="+list_id;
+      $.get(url, function(csv, status) {
+        var data = Papa.parse(csv).data;
+  
+        //console.log(csv);
+        //console.log(data);
+        
+        lists[list_id] = data;
+        
+        var list_element = document.createElement("table");
+        list_element.className = "robot_list";
+        list_element.id = list_id;
+        var table_element = document.createElement("td");
+        table_element.appendChild(list_element);
+        table_element.className = "list_cell";
+        document.body.querySelector("#container").appendChild(table_element);
+             
+        var headrow = document.createElement("tr");
+        var head = document.createElement("th");
+        head.innerHTML = list_id;
+        head.colSpan = 100;
+        headrow.appendChild(head);
+
+        list_element.appendChild(headrow);
+        list_element.appendChild(list_headers());
+        for(index in data){
+          var entry = data[index];
+          var number = entry[0];
+          
+          //console.log(index);
+          //console.log(entry);
+          //console.log(number);
+          
+          url = "/?type=data&number="+number;
+          $.get(url, function(robotData_CSV, status) {
+            //console.log(number); for some reason number is undefined
+            //console.log(list_element);
+                        
+            var stuff = Papa.parse(robotData_CSV).data;
+            var number = stuff[2][0];
+
+            datas[number] = stuff;
+            
+            var element = parseData(number);
+            list_element.appendChild(parseData(number));
+          });
+          
+        }
+      }).fail(function() {
+        alert();
+      });
+          
+      function list_headers(){
+        var element = document.createElement("tr");
+        element.className="list-entry";
+        element.innerHTML =
+          '<th class="entry-index"></th>' +
+          '<th class="entry-number">#</th>' +
+          '<th id="landfill" class="entry-field">LF</th>' +
+          '<th id="numtotes" class="entry-field">NT</th>' +
+          '<th id="maxtotes" class="entry-field">MT</th>' +
+          '<th id="maxcans" class="entry-field">MC</th>' +
+          '<th id="reliability" class="entry-field">RL</th>' +
+          '<th id="votes" class="entry-field">VO</th>';
+        return element;
+      }
+    }
+    
+    init();
+  
+  </script>
+  
+  
+</html>

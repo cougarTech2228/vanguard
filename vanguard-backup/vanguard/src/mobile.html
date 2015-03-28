@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>VANGUARD:spearhead</title>
+<link href="/lib/toggle-switch.css" rel="stylesheet" type="text/css">
+<link href="/lib/global.css" rel="stylesheet" type="text/css">
+<title>recon</title>
+<style>
+html,body {
+  background: #fff;
+  padding: 3px;
+  color: #000;
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+button{
+  
+  width:45%;
+  margin:2%;
+  font-size:5em;
+}
+
+#confirm {
+  opacity: 0;
+}
+
+input[type=number] {
+  position:absolute;
+  right:0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline;
+  vertical-align: bottom;
+  text-align: left;
+  margin-right: 5%;
+  border: 3px solid #000;
+  font-size: 4em;
+  width:4em;
+}
+
+#vote {
+  position:relative;
+  font-size: 3em;
+}
+
+input[type=textarea]{
+  font-size: 3em;
+  width:100%;
+}
+
+div {
+  width: 96%;
+  margin: 2%;
+  text-align: left;
+}
+
+div.left{
+   margin:5%;
+}
+
+h1 {
+  display: block;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  font-size: 6em;
+}
+
+h2{
+  display: inline;
+  text-align: left;
+  padding: 0px;
+  margin: 0px; //
+  margin-bottom: 5px;
+  font-size: 4.5em;
+}
+
+h3{
+  display: inline;
+  text-align: left;
+  padding: 0px;
+  margin: 0px; //
+  margin-bottom: 5px;
+  font-size: 3em;
+}
+
+span{
+  display: block;
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+  padding: 10px;
+  font-size: 7em;
+  font-weight:bold;
+}
+
+hr{
+  border-width:1px;
+  width:90%;
+}
+
+input[type=checkbox] {
+  width: 6.5em;
+  height: 6.5em;
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  border-radius: 22px;
+  border: 1px solid #bbb;
+}
+
+select {
+  font-size: 3.7em;
+}
+</style>
+
+</head>
+
+<body>
+  <span>VANGUARD</span>
+  <hr>
+  <br>
+  <form id="form">
+    <div class="left">
+      <h2>match#</h2>
+      <input type="number" id="match"></input>
+    </div>
+    <div class="left">
+      <h2>team#</h2>
+      <input type="number" id="number"></input>
+    </div>
+    <br>
+    <h1>Autonomous</h1>
+    <hr>
+    <div>
+      <select id="push">
+        <option value="0" selected>None</option>
+        <option value="r">Robot</option>
+        <option value="t">Tote</option>
+        <option value="c">Can</option>
+      </select>
+      <h3>Moves into the auto zone with?</h3>
+    </div>
+
+    <div>
+      <input type="checkbox" id="auto" value="auto">
+      <h3>Robot moves in autonomous?</h3>
+    </div>
+
+    <br>
+    <h1>Tele-op</h1>
+    <hr>
+
+    <div>
+      <input type="checkbox" id="landfill" value="landfill">
+      <h3>Gets a tote from the landfill?</h3>
+    </div>
+    <div>
+      <input type="checkbox" id="playerstation" value="playerstation">
+      <h3>Gets a tote from the playerstation?</h3>
+    </div>
+    <div>
+      <input type="checkbox" id="tips" value="tips">
+      <h3>Ruins/tips over a stack?</h3>
+    </div>
+    <div>
+      <input type="checkbox" id="coop" value="coop">
+      <h3>Scores Coopertition Points?</h3>
+    </div>
+    <div>
+      <input type="checkbox" id="stepcan" value="stepcan">
+      <h3>Gets a can from the step?</h3>
+    </div>
+    <div>
+      <select id="maxcan_top">
+        <option value="0">None</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <h3>maximum can height<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-(placed onto a stack)?</h3>
+    </div>
+
+    <div>
+      <select id="maxcan_raise">
+        <option value="0">None</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <h3>maximum can height<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-(raised up with a stack)?</h3>
+    </div>
+
+    <div>
+      <select id="numcans">
+        <option value="0">None</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+      <h3>number of cans?</h3>
+    </div>
+
+    <div>
+      <select id="litter">
+        <option value="0">None</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+      <h3>litter put in cans?</h3>
+    </div>
+
+    <div>
+      <select id="maxtote">
+        <option value="0">None</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <h3>maximum tote height</h3>
+    </div>
+
+    <div>
+      <select id="numtotes">
+        <option value="00">None</option>
+        <option value="01">1</option>
+        <option value="02">2</option>
+        <option value="03">3</option>
+        <option value="04">4</option>
+        <option value="05">5</option>
+        <option value="06">6</option>
+        <option value="07">7</option>
+        <option value="08">8</option>
+        <option value="09">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+      </select>
+      <h3>number of totes</h3>
+    </div>
+
+    <div>
+      <select id="numstacks">
+        <option value="0">None</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="6">7</option>
+        <option value="6">8</option>
+        <option value="9">9+</option>
+      </select>
+      <h3>number of stacks</h3>
+    </div>
+
+    
+    <br>
+    <h1>Post-Game</h1>
+    <hr>
+
+    <div>
+      <input id="vote" type="number" id="number"></input>
+      <h3>MVP vote: best alliance robot</h3>
+    </div>
+    <div>
+      <h3>Comment:</h3><br><input id="comment" type="textarea">
+    </div>
+    <br>
+    <h3>
+      Look over data before submiting!<br>
+    </h3>
+    <div>
+      <button id="submit">submit</button>
+      <button id="confirm">confirm</button>
+    </div>
+  </form>
+  <hr>
+  <span>VANGUARD</span>
+</body>
+<script type="text/javascript" src="/lib/jquery.min.js"></script>
+
+<script type="text/javascript">
+      rotation = 0;
+
+      function submit(map) {
+          console.log(map);
+            
+          
+          link = "/?";
+          //link = "http://mechasdf.com:8080/?";
+          
+          for(key in map){
+            link += "&" + key + "=" + map[key];
+          }
+          
+          link.replace("&","");
+
+          $.post(link, function(data, status) {
+              if (status != "success") {
+                  alert(status);
+              } else {
+                  clear();
+              }
+          });
+      }
+      
+      document.getElementById("submit").onclick = function (event){
+        document.getElementById("confirm").style.opacity = 1;
+        document.getElementById("confirm").onclick = function (event){
+          event.preventDefault();
+          submit(getData());
+        };
+        event.preventDefault();
+      };
+      
+      document.getElementById("confirm").onclick = function (event){
+        event.preventDefault();
+      };
+      
+      function clear(){
+        document.getElementById("form").reset();
+        document.getElementById("confirm").style.opacity = 0;
+        document.getElementById("confirm").onclick = function (event){
+          event.preventDefault();
+        };
+        
+        document.body.style.backgroundColor   = "blue";
+        setTimeout(function (){
+             document.body.style.backgroundColor = "white";
+        },1000);
+      }
+      
+      function getData(){
+        map = {};
+      
+        map["type"] = "match";
+        
+        map["match"] = document.getElementById("match").value;
+        
+        map["alliance"] = "b";
+        map["number"] = document.getElementById("number").value;
+        map["push"] = document.getElementById("push").value;
+        map["auto"] = document.getElementById("auto").checked ? "1":"0";
+        map["landfill"] = document.getElementById("landfill").checked ? "1":"0";
+        map["playerstation"] = document.getElementById("playerstation").checked ? "1":"0";
+        map["tips"] = document.getElementById("tips").checked ? "1":"0";
+        map["coop"] = document.getElementById("coop").checked ? "1":"0";
+        map["stepcan"] = document.getElementById("stepcan").checked ? "1":"0";
+        map["litter"] = document.getElementById("litter").value;
+        map["maxcan_top"] = document.getElementById("maxcan_top").value;
+        map["maxcan_raise"] = document.getElementById("maxcan_raise").value;
+        map["numcans"] = document.getElementById("numcans").value;
+        map["maxtote"] = document.getElementById("maxtote").value;
+        map["numtotes"] = document.getElementById("numtotes").value;
+        map["numstacks"] = document.getElementById("numstacks").value;
+        map["vote"] = document.getElementById("vote").value;
+        map["comment"] = document.getElementById("comment").value;
+        
+        message = errorChecker(map);  
+        
+        if(message=="OK"){
+          return map;
+        }else{
+           document.body.style.backgroundColor = "red";
+           setTimeout(function (){
+                document.body.style.backgroundColor = "white";
+           },1000);
+           
+           return null;
+        }
+      }
+      
+      function errorChecker(data){
+           if(document.getElementById("number").checkValidity() && 
+                document.getElementById("match").checkValidity() && 
+                document.getElementById("vote").checkValidity() &&
+                data["number"].length>0 && 
+                data["number"].length<5 && 
+                data["vote"].length<5 && 
+                data["match"].length>0 && 
+                data["match"].length<4
+                )
+           {
+                return "OK"
+           }else{
+                return "ERROR"
+           }
+          
+      }
+
+   </script>
+
+</html>
