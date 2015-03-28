@@ -1,3 +1,6 @@
+#FLR competition branch
+this branch is for backining up competition data, and then to retain it for testing new features later on
+
 # Vanguard
 A web-based, cloud hosted, scouting system for [FRC](http://www.usfirst.org/roboticsprograms/frc), using [THREE.js](http://threejs.org), and [Dart](https://www.dartlang.org/).
 
