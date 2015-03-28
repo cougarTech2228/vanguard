@@ -1,0 +1,17 @@
+pit scouting,,,,,,,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+vote record,,,,,,,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,,,,,,,
+6,13,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+match scouting,,,,,,,,,,,,,,,,,
+match,alliance,push/move into auto zone,moves in auto,landfill,Player station,ruins a stack,coop points,Gets a step can,max can height top,max can height raised,number of cans,litter in can,max tote height,number of totes,number of stacks,vote,comment
+
+018,b,t,0,0,1,0,1,0,4,6,3,1,6,06,1,0000,can stack 6
+026,b,t,1,0,1,0,0,0,1,1,1,1,6,11,2,3003,
+035,b,c,1,0,1,1,0,0,1,0,5,1,5,05,5,3003,good can:foul bad luck
+038,b,t,1,0,0,0,0,0,0,1,1,0,5,05,1,0020,knocked can
+052,b,0,0,0,1,0,0,0,0,5,1,1,5,05,1,3003,
+059,b,t,1,0,1,0,1,0,0,0,0,0,3,03,1,3003,got all three yellow tote

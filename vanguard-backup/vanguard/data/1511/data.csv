@@ -1,0 +1,19 @@
+pit scouting,,,,,,,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+vote record,,,,,,,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,,,,,,,
+7,18,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+match scouting,,,,,,,,,,,,,,,,,
+match,alliance,push/move into auto zone,moves in auto,landfill,Player station,ruins a stack,coop points,Gets a step can,max can height top,max can height raised,number of cans,litter in can,max tote height,number of totes,number of stacks,vote,comment
+
+003,b,0,1,0,1,0,0,0,4,4,1,1,4,04,1,0250,
+013,b,0,0,0,1,0,0,0,1,4,2,1,4,04,1,2791,
+019,b,0,0,0,1,0,0,0,0,4,2,2,4,04,1,1511,
+027,b,0,1,0,1,0,0,1,0,0,0,0,3,03,1,5030,
+031,b,0,1,0,0,0,0,1,0,4,1,1,4,04,1,1511,
+041,b,c,1,0,0,0,0,0,0,0,1,0,1,02,1,0340,nothing
+050,b,c,1,0,1,0,0,0,0,1,1,1,4,04,1,1511,
+055,b,t,1,0,1,0,0,0,0,6,2,1,6,11,2,1511,

@@ -1,0 +1,18 @@
+pit scouting,,,,,,,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+vote record,,,,,,,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,,,,,,,
+6,14,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+match scouting,,,,,,,,,,,,,,,,,
+match,alliance,push/move into auto zone,moves in auto,landfill,Player station,ruins a stack,coop points,Gets a step can,max can height top,max can height raised,number of cans,litter in can,max tote height,number of totes,number of stacks,vote,comment
+
+009,b,c,1,1,0,0,0,1,3,0,1,1,2,00,0,0000,slow
+021,b,c,1,1,0,0,0,1,0,2,1,1,3,05,2,4039,
+025,b,c,1,1,0,0,0,0,3,0,2,2,1,01,1,0000,
+034,b,c,1,1,0,0,0,0,2,0,1,1,2,04,2,0378,can cplace can: slow
+043,b,c,1,1,0,0,0,1,4,0,3,2,2,01,3,1405,
+050,b,r,1,1,0,0,0,0,0,0,0,1,0,00,0,1511,
+057,b,c,1,1,0,0,0,1,4,2,2,2,2,02,1,1507,center cans efficient

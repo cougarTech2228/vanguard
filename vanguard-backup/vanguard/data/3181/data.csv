@@ -1,0 +1,19 @@
+pit scouting,,,,,,,,,,,,,,,,,
+team number,drivebase,tote mechanism,can mechanism,litter in can,pneumatics,camera,encoders,range,gyro,comment,can drive over platform,,,,,,
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+vote record,,,,,,,,,,,,,,,,,
+total votes,possible votes,,,,,,,,,,,,,,,,
+,13,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+match scouting,,,,,,,,,,,,,,,,,
+match,alliance,push/move into auto zone,moves in auto,landfill,Player station,ruins a stack,coop points,Gets a step can,max can height top,max can height raised,number of cans,litter in can,max tote height,number of totes,number of stacks,vote,comment
+
+005,b,t,1,0,1,1,1,0,1,1,1,1,2,02,1,0000,slow:Unstable tote holder
+010,b,0,0,0,1,0,0,0,0,0,0,0,0,00,0,0000,
+021,b,0,1,0,1,1,0,0,0,0,0,0,1,01,0,0000,
+028,b,0,0,1,0,0,0,0,1,0,1,1,1,01,1,0000,can pick up can 4
+045,b,t,1,0,1,0,0,0,0,0,0,0,0,00,0,1559,couldnt move the stack they made
+038,b,0,0,0,1,0,0,0,0,0,0,0,4,04,1,3951,
+048,b,0,1,0,1,0,0,0,0,0,0,0,1,01,1,3044,
+059,b,0,0,0,1,0,0,0,0,0,0,0,0,04,1,2265,
