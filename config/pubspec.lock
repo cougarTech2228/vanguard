@@ -5,3 +5,11 @@ packages:
     description: csv_utils
     source: hosted
     version: "0.2.0"
+  petitparser:
+    description: petitparser
+    source: hosted
+    version: "1.4.3"
+  xml:
+    description: xml
+    source: hosted
+    version: "2.3.2"
