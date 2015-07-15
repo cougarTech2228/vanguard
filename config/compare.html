@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Vanguard</title>
+        <style>
+			div.panel{
+				display: inline-block;
+				border-radius: 20px;
+				padding: 1em;
+				background-color: #dbdbdb;;
+			}
+        </style>
+    </head>
+
+    <body>
+		<div class="panel" id="left">
+			<span id="number">????</span>
+			<button id="left">choose</button>
+			<table id="stats">
+			</table>
+		</div>
+
+		<div class="panel" id="right">
+			<span id="number">????</span>
+			<button id="right">choose</button>
+			<table id="stats">
+			</table>
+		</div>
+    </body>
+    
+	<script>
+		link = "http://127.0.0.1:1555/";
+		robot_one = null;
+		robot_two = null;
+
+		panel_one = document.querySelector("#left.panel");
+		panel_two = document.querySelector("#right.panel");
+
+		document.querySelector("button#left").onclick = function(){
+			choose("one");
+		}
+
+		document.querySelector("button#right").onclick = function(){
+			choose("two");
+		}
+
+		function loadRobots(bot1, bot2){
+		        var request = new XMLHttpRequest();
+                request.open("GET", link + "data/robot/" + bot1 , true);      
+			    request.onreadystatechange = function() {
+            		if (request.readyState == 4){
+						var robot = JSON.parse(request.responseText);
+
+						console.log(request.responseText);
+						console.log(JSON.parse(request.responseText));
+						
+						panel_one.querySelector("#number").innerHTML = robot.number;
+						var table = panel_one.querySelector("#stats");
+						robot.stats.forEach(function (stat){
+							stat = JSON.parse(stat);
+
+							var row = document.createElement("tr");
+							
+							var name = document.createElement("td");
+							name.innerHTML = stat.name;
+							row.appendChild(name);
+							
+							var value = document.createElement("td");
+							value.innerHTML = stat.value;
+							row.appendChild(value);
+
+							table.appendChild(row);
+						});
+						robot_one = robot;
+                    }
+                };
+                request.send();
+
+		        var request2= new XMLHttpRequest();
+
+                request2.open("GET", link + "data/robot/" + bot2, true);      
+			    request2.onreadystatechange = function() {
+            		if (request2.readyState == 4){	
+						var robot = JSON.parse(request2.responseText);
+						
+						console.log(request2.responseText);
+						console.log(JSON.parse(request2.responseText));
+						
+						panel_two.querySelector("#number").innerHTML = robot.number;
+						robot.stats.forEach(function (stat){
+							stat = JSON.parse(stat);
+
+							var row = document.createElement("tr");
+							
+							var name = document.createElement("td");
+							name.innerHTML = stat.name;
+							row.appendChild(name);
+							
+							var value = document.createElement("td");
+							value.innerHTML = stat.value;
+							row.appendChild(value);
+
+							panel_two.querySelector("#stats").appendChild(row);
+						});
+						robot_two = robot;
+                    }
+                };
+                request2.send();
+		}
+
+		function choose(bot){
+			deltas = [];
+			for( var i = 0 ; i < robot_one.stats.length ; i++){
+				var stat = JSON.parse(robot_one.stats[i]);
+				stat.value -= JSON.parse(robot_two.stats[i]).value;
+				if(bot == "two"){
+					stat.value *= -1;
+				}
+
+				deltas.push(stat);
+			}
+
+		    var request= new XMLHttpRequest();
+
+			request.open("POST", link + "upload/deltas", true);      
+			request.onreadystatechange = function() {
+            	if (request.readyState == 4){	
+					loadRobots(2222,4444);
+                }
+            };
+            request.send(JSON.stringify(deltas));
+		}
+
+		loadRobots(1111,3333);
+            
+    </script>
+
+</html>

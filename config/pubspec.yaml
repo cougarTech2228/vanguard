@@ -6,4 +6,5 @@ environment:
   sdk: '>=1.3.0 <2.0.0'
 dependencies:
   csv_utils: any
+  exportable: any
   xml: any

@@ -1,14 +1,17 @@
 import 'dart:io';
 import 'dart:math' as Math;
 import 'package:xml/xml.dart' as XML;
+import 'package:exportable/exportable.dart';
 import 'csv_utils.dart';
 
+Knowledge brain;
 
-Knowledge brain = new Knowledge("path/file/FIXTHIS");
-Data data = new Data("path/data.csv.FIX");
+void set_brain(Knowledge b){
+  brain = b;
+}
 
 class Data{
-	Map<int, Robot> robots;
+	Map<int, Robot> robots = {};
 
 	String path;
 	File file;
@@ -22,10 +25,18 @@ class Data{
 		load(csv);
 	}
 
-	void load(csv){
+	void load(List<List<String>> csv){
 		for(List<String> col in csv){
-			Record record = new Record.fromList(col);
-			robot(record.team).log(record);
+      try{
+         //check if empty
+         if(col.every((s)=>s!="")){
+			     Record record = new Record.fromList(col);
+			     robot(record.team).log(record);
+         }
+      }catch(e){
+        print("failed to parse record: " + e.toString().split("\n")[0]);
+        print(col.toString() + "\n");
+      }
 		}
 	}
 
@@ -49,13 +60,14 @@ class Data{
 	}
 }
 
-class Robot{
-	int number;
-	List<Stat_Value> stats = [];
-	List<Record> matches = [];
+class Robot extends Object with Exportable{
+  @export int number;
+  @export List<Stat_Value> stats = [];
+	@export List<Record> matches = [];
   bool calculated_flg = false;
 
 	Robot(this.number){
+
     calculate();
 	}
 
@@ -85,18 +97,25 @@ class Robot{
 	}
 }
 
-class Record{
-	int team;
-	int match;
-  List<String> data = [];
+class Record extends Object with Exportable{
+  @export int team;
+  @export int match;
+  @export List<String> data = [];
 
-	Record(this.team, this.match){}
+  @export Record(this.team, this.match){}
 
 	Record.fromList(List<String> list){
      team = int.parse(list[0]);
      match = int.parse(list[1]);
      data.addAll(list.sublist(2));
 
+     if(data.length > brain.fields.length){
+        data.sublist(0,brain.fields.length);
+     }
+
+     while(data.length < brain.fields.length){
+        data.add("");
+     }
 	}
 
 	List<String> csv(){
@@ -104,12 +123,12 @@ class Record{
 	}
 }
 
-class Stat_Value{
-	int robot;
-	int value;
-	int field;
-	int type;
-	String name;
+class Stat_Value extends Object with Exportable{
+  @export int robot;
+  @export num value;
+  @export int field;
+  @export int type;
+  @export String name;
 
 	Stat_Value(this.robot, this.value, Stat stat){
 		field = stat.field;
@@ -118,15 +137,21 @@ class Stat_Value{
 	}
 }
 
-class Knowledge{
-	List<Field> fields;
+class Knowledge extends Object with Exportable{
+  @export List<Field> fields = [];
 	XML.XmlDocument config;
 
 	Knowledge(String path){
 		File conf = new File(path);
+		conf.createSync();
 		String text = conf.readAsStringSync();
-		config = XML.parse(text);
-		List<XML.XmlElement> fe =  config.findAllElements("field");
+		try{
+		    config = XML.parse(text);
+		}catch(e){
+        print("invalid config.xml");
+        throw e;
+		}
+		List<XML.XmlElement> fe =  config.findAllElements("field").toList();
 		for(XML.XmlElement element in fe){
 			String name = element.attributes[0].value;
 			num min = num.parse(element.attributes[1].value);
@@ -159,20 +184,20 @@ class Knowledge{
 
 //field types
 
-class Field{
-	String type = "number";
+class Field extends Object with Exportable{
+  @export String type = "number";
 
-	String name;
-	int index;
+  @export String name;
+  @export int index;
 
-	num max;
-	num min;
+  @export num max;
+  @export num min;
 
-	List<Stat> statistics = [];
-	bool noStat = false; //set to true for text
+  @export List<Stat> statistics = [];
+  @export bool noStat = false; //set to true for text
 
 	Field(this.name, this.max, this.min, this.index, this.noStat){
-		if(noStat){
+		if(!noStat){
 			for(int i = 0 ; i < Analyzer.TYPES.length ; i++){
 				statistics.add(new Stat(this.index, i, Analyzer.TYPES[i] + " " + name));
 			}
@@ -182,18 +207,20 @@ class Field{
 	bool log(int stat, num delta){
 		return statistics[stat].log(delta);
 	}
+
+
 }
 
-class Stat{
-	int field;
-	int type;
-	String name;
+class Stat extends Object with Exportable{
+  @export int field;
+  @export int type;
+  @export String name;
 
-	int counter = 0;
-	num weight = 0;
-	num deviation=0;
+  @export int counter = 0;
+  @export num weight = 0;
+  @export num deviation=0;
 
-	num average = 0;
+  @export num average = 0;
 
 	Stat(this.field, this.type, this.name);
 
@@ -216,9 +243,14 @@ class Stat{
 	}
 
 	num calculateValue(Robot robot){
-		List values=[];
+		List<num> values=[];
 		for(Record match in robot.matches){
-			values.add(match.data[field]);
+		  try{
+			  values.add(num.parse(match.data[field]));
+		  }
+		  catch(e){
+		    //TODO
+		  }
 		}
 		return Analyzer.analyze(type, values);
 	}
@@ -230,7 +262,7 @@ class Analyzer{
 		"maximum",
 		"range",
 		"average",
-		"variation"
+		"variation",
 		"deviation"
 	];
 
@@ -250,6 +282,8 @@ class Analyzer{
 				return average(values);
 			case 4:
 				return variation(values);
+			case 5:
+			  return deviation(values);
 		}
 
 		throw Exception;

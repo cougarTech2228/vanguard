@@ -5,6 +5,10 @@ packages:
     description: csv_utils
     source: hosted
     version: "0.2.0"
+  exportable:
+    description: exportable
+    source: hosted
+    version: "0.1.0"
   petitparser:
     description: petitparser
     source: hosted
